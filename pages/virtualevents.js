@@ -1,10 +1,10 @@
 import React from 'react';
 import { BaseContainer } from '../components';
 
-export default function Home() {
+export default function VirtualEvents() {
   return (
-    <BaseContainer page="Home">
-      <div>home</div>
+    <BaseContainer page="Events">
+      <div>Virtual Events</div>
     </BaseContainer>
   );
 }

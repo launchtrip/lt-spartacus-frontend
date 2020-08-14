@@ -15,6 +15,21 @@ a {
   box-sizing: border-box;
 }
 
-.thing{
-  color:blue
+
+
+
+@font-face {
+  font-family: 'AvenirNextBold';
+  src: url('./Fonts/AvenirNextBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  /* src:url('../Fonts/Avenir-Book/Avenir-Book.woff')format('woff'),
+  url('../Fonts/Avenir-Book//Avenir-Book.svg')format('svg'),
+  url('../Fonts/Avenir-Book/Avenir-Book.ttf')format('truetype') */
+}
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('./Fonts/AvenirNext.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }

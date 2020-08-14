@@ -1,0 +1,21 @@
+.ant-menu{
+    text-align: center !important;
+    height: 100px !important
+}
+.ant-menu-item:hover{
+    border-bottom: none !important;
+}
+.ant-menu-submenu{
+    font-size: 17px !important;
+    font-family: AvenirNext;
+}
+.ant-menu-item{
+    font-size: 17px !important;
+    font-family: AvenirNext;
+}
+.ant-menu-item-selected{
+    color: #363636 !important;
+    font-family: AvenirNextBold;
+    border-bottom: 6px solid #DD2786 !important;
+    width: fit-content(130%) !important
+}
