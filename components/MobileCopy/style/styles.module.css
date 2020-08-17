@@ -1,0 +1,22 @@
+.mobile_copy_conatiner{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    visibility: hidden;
+    height: 0
+}
+.mobile_copy_conatiner_inner{
+    width: 80%;
+    text-align: center;
+    border-top: 1px solid  #EBEBEB;
+    border-bottom: 1px solid  #EBEBEB;
+    padding: 30px 0;
+}
+@media screen and (max-width: 820px){
+    .mobile_copy_conatiner{
+        visibility:visible;
+        height: auto
+    }
+
+}
+

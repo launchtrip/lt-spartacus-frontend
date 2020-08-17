@@ -1,0 +1,20 @@
+.carousel_card_container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.carousel_card_container_inner{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    max-height: 413px;
+    height: 25vw
+}
+.carousel_card_item_one{
+    width: 55%;
+    height: inherit;
+}
+.carousel_card_item_two{
+    width: 43%;
+    height: inherit;
+}

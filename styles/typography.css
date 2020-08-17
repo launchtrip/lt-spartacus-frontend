@@ -7,4 +7,75 @@
     font-size: 17px;
     line-height: 23px;
     font-family: AvenirNextBold;
+    color:#454545
+}
+
+.typography_spartacus_two{
+    font-size: 20px;
+    line-height: 25px;
+    font-family: AvenirNext;
+}
+.typography_spartacus_two_bold{
+    font-size: 20px;
+    line-height: 25px;
+    font-family: AvenirNextBold;
+    color:#454545
+}
+
+.typography_spartacus_three{
+    font-size: 18px;
+    line-height: 22px;
+    font-family: AvenirNext;
+    color: #363636;
+}
+.typography_spartacus_three_bold{
+    font-size: 18px;
+    line-height: 22px;
+    font-family: AvenirNextBold;
+    color: #363636;
+}
+.typography_spartacus_four{
+    font-size: 15px;
+    line-height: 20px;
+    font-family: AvenirNext;
+    color: #363636;
+}
+.typography_spartacus_four_bold{
+    font-size: 15px;
+    line-height: 20px;
+    font-family: AvenirNextBold;
+    color: #A2005A;
+}
+
+.typography_spartacus_five_demi_bold{
+    font-size: 20px;
+    line-height: 20px;
+    font-family: AvenirNext;
+    font-weight: 600;
+    color:#3E3E3E;
+}
+.typography_spartacus_six{
+    font-size: 12px;
+    line-height: 16px;
+    font-family: AvenirNext;
+    color: #41438F;
+}
+.typography_spartacus_seven{
+    font-size: 13px;
+    line-height: 15px;
+    font-family: AvenirNext;
+    color: #3E3E3E;
+}
+.typography_spartacus_eight{
+    font-size: 20px;
+    line-height: 27px;
+    font-family: AvenirNextBold;
+    color: #1C1E54;
+}
+.typography_spartacus_nine_demi_bold{
+    font-size: 14px;
+    line-height: 19px;
+    font-family: AvenirNext;
+    font-weight: 700;
+    color: #A2005A;
 }

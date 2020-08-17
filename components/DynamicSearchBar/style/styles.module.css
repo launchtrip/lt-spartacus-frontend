@@ -1,0 +1,32 @@
+.search_container{
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+
+}
+.search_container_input{
+    width: 350px;
+    border-radius: 0px 10px 10px 0px !important;
+}
+.search_container_copy{
+    align-self: center;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 600px){
+    .search_container{
+       width: 100%;
+       flex-direction: column;
+       padding: 20px 0;
+    }
+    .search_container_copy{
+        align-self: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .search_container_input{
+       align-self: center;
+    }
+
+}
