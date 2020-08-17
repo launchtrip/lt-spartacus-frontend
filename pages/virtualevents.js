@@ -3,7 +3,7 @@ import { BaseContainer } from '../components';
 
 export default function VirtualEvents() {
   return (
-    <BaseContainer page="Events">
+    <BaseContainer page="Virtual Events">
       <div>Virtual Events</div>
     </BaseContainer>
   );

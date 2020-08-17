@@ -13,7 +13,8 @@
     font-weight: bolder;
 } 
 .navigation_section_two{
-    flex-grow: 3;
+    flex-grow: 2;
+    flex-shrink: 2;
     display: flex;
     justify-content: center;
 }
@@ -27,11 +28,8 @@
 }
 .navigation_menu_button_active{
     color:#363636 ;
-    font-family: AvenirNextBold;
     border:none;
     background-color: white;
-    font-size: 17px;
-    line-height: 23px;
     padding-bottom: 15px;
     outline:none;
     cursor: pointer;
@@ -39,18 +37,11 @@
 }
 .navigation_menu_button{
     color:#363636 ;
-    font-family: AvenirNext;
     border:none;
     background-color: white;
-    font-size: 17px;
-    line-height: 23px;
     outline:none;
     cursor: pointer;
-    padding-bottom: 20px;
-    ;
-}
-.navigation_menu_button:focus{
-    color:blue
+    padding-bottom: 20px;;
 }
 
 .navigation_section_three{
@@ -59,6 +50,8 @@
     align-items: flex-end;
     height: 70%;
     flex-grow: 1;
+    flex-shrink: 0;
+
     
 } 
 .section_three_button_container{
@@ -68,3 +61,41 @@
     align-items: flex-end;
 }
 
+.navigation_section_one_mene_icon{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 1190px){
+    .section_three_button_container{
+        width: 70% !important;
+    }
+}
+@media screen and (max-width: 1020px){
+    .section_two_button_container{
+        width: 80%
+    }
+}
+@media screen and (max-width: 905px){
+    .section_three_button_container{
+        width: 80% !important;
+    }
+}
+@media screen and (max-width: 870px){
+    .section_two_button_container{
+        width: 90%
+    }
+}
+@media screen and (max-width: 810px){
+    .navigation_section_two{
+         display: none;
+    }
+    .navigation_section_three{
+         display: none;
+    }
+    .navigation_section_one_mene_icon{
+        font-size: 30px;
+        margin-left: 5%;
+        position: absolute;
+        visibility: visible;
+    }
+}

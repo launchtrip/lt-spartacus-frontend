@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import 'antd/dist/antd.css';
 import '../styles/ant.css';
 import '../styles/button.css';
+import '../styles/typography.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
