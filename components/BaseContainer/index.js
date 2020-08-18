@@ -8,6 +8,7 @@ export default function BaseContainer(props) {
       <Head>
         <title>{`Unify. | ${props.page}`}</title>
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
       <NavigationBar page={props.page} />
       {props.children}

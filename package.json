@@ -20,6 +20,8 @@
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-multi-carousel": "^2.5.5"
+    "react-multi-carousel": "^2.5.5",
+    "react-slick": "^0.27.9",
+    "slick-carousel": "^1.8.1"
   }
 }

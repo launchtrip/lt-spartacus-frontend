@@ -8,6 +8,8 @@ import '../styles/typography.css';
 import '../styles/container.css';
 import '../styles/carousel.css';
 import 'react-multi-carousel/lib/styles.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

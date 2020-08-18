@@ -15,7 +15,6 @@ export default function Home() {
         <MobileCopy />
         <HeroCarousel />
         <EventCarousel title="Virtual Events" arrows={false} />
-
       </div>
 
     </BaseContainer>

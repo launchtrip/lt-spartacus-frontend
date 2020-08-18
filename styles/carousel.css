@@ -8,3 +8,14 @@
     border: none !important;
     /* height: 8px !important; */
 }
+
+.slick-slider{
+    width: 100% !important
+}
+
+.slick-prev:before{
+    display: none;
+}
+.slick-next:before{
+    display: none;
+}

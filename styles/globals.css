@@ -32,6 +32,13 @@ a {
   .home_sec_copy{
     order: 2;
   }
+  
+  .home_sec_vc{
+    visibility: hidden;
+    height:0;
+    order: 4;
+  }
+
 }
 @font-face {
   font-family: 'AvenirNextBold';
@@ -48,3 +55,4 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+

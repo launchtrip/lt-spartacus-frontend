@@ -1,7 +1,9 @@
 .card_container{
     display: flex;
-    width: 275px;
-    /* height: 200px */
+    margin-top: 10%;
+    margin-right: 30% !important;
+    width: 330px;
+
 }
 .card_container_section_one{
     width:  40%;
@@ -36,4 +38,45 @@
 }
 #section_two_event_item{
     margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1340px){
+    .card_container{
+        width: 290px;
+    }
+
+}
+@media screen and (max-width: 1200px){
+    .card_container{
+        width: 320px;
+    }
+
+}
+@media screen and (max-width: 990px){
+    .card_container{
+        width: 290px;
+    }
+}
+@media screen and (max-width: 900px){
+    .card_container{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 845px){
+    .card_container{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 680px){
+    .card_container{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 630px){
+    .card_container{
+        width: 420px;
+        align-self: center;
+        margin-left: 10px;
+    }
 }

@@ -1,10 +1,14 @@
 import React from 'react';
-import { BaseContainer } from '../components';
+import { BaseContainer, DynamicSearchBar, EventCarousel } from '../components';
 
 export default function VirtualEvents() {
   return (
     <BaseContainer page="Virtual Events">
-      <div>Virtual Events</div>
+      <DynamicSearchBar />
+      <EventCarousel title="Spotlight" eventPage />
+      <EventCarousel title="Blockchain" eventPage />
+      <EventCarousel title="Elevate" eventPage />
+      <EventCarousel title="CI/CD" eventPage />
     </BaseContainer>
   );
 }
