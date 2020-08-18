@@ -4,6 +4,7 @@ import {
   DynamicSearchBar,
   EventCarousel,
   HeroCarousel,
+  HomePageBottomHalf,
   MobileCopy
 } from '../components';
 
@@ -14,7 +15,8 @@ export default function Home() {
         <DynamicSearchBar />
         <MobileCopy />
         <HeroCarousel />
-        <EventCarousel title="Virtual Events" arrows={false} />
+        <EventCarousel title="Virtual Events" />
+        <HomePageBottomHalf />
       </div>
 
     </BaseContainer>

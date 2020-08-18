@@ -83,3 +83,37 @@ html{
     --antd-wave-shadow-color: none !important;
     -webkit-tap-highlight-color: none !important;
 }
+
+.ant-tabs-tab-btn{
+    font-size: 17px !important;
+    line-height: 23px !important;
+    font-family: AvenirNext !important;
+    color:#454545 !important;
+
+}
+.ant-tabs-tab-btn:hover{
+    color:#454545 !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    font-size: 17px !important;
+    line-height: 23px !important;
+    font-family: AvenirNextBold !important;
+    color:#454545 !important;
+}
+.ant-tabs-ink-bar{
+    background: #BF6E98 !important
+}
+.ant-tabs-nav{
+    width: fit-content;
+    border-bottom: 1px solid #E8E8E8;
+    color: #E8E8E8;
+}
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-more, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-more{
+    display: none !important;
+}
+@media screen and (max-width: 1100px){
+    .ant-tabs-nav{
+        width: auto;
+    
+    }
+}

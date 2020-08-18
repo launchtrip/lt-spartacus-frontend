@@ -1,13 +1,12 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-import Link from 'next/link';
 import Slider from 'react-slick';
-import EventCard from '../EventCarouselCard';
+import SpeakerCard from '../SpeakerCard';
 import ComponentStyles from './style/styles.module.css';
-import EventIcon from '../EventIcon';
 
-export default function EventCarousel({ title, eventPage }) {
+export default function SpeakerCarousel({ title }) {
+  const titleClass = `typography_spartacus_eight ${ComponentStyles.title}`;
   function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -77,32 +76,20 @@ export default function EventCarousel({ title, eventPage }) {
       }
     ]
   };
-  const titleClass = !eventPage ? 'typography_spartacus_eight' : `typography_spartacus_eight ${ComponentStyles.event_carousel_title}`;
-  const baseClass = !eventPage ? `${ComponentStyles.event_carousel_container} home_sec_vc` : ComponentStyles.event_carousel_container;
   return (
-    <div className={baseClass}>
-      {!eventPage && <hr className={ComponentStyles.event_carousel_breakline_top} />}
+    <div className={ComponentStyles.container}>
       <span className={titleClass}>{title}</span>
       <div className={ComponentStyles.carousel_container}>
         <Slider {...settings}>
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
+          <SpeakerCard />
+          <SpeakerCard />
+          <SpeakerCard />
+          <SpeakerCard />
+          <SpeakerCard />
 
         </Slider>
       </div>
-
-      {!eventPage &&
-      <Link href="/virtualevents">
-        <span
-          className={`typography_spartacus_nine_demi_bold ${ComponentStyles.view_more}`}
-        >View More <span><EventIcon image="/assets/viewMore.png" width="25px" height="25px" /></span>
-        </span>
-      </Link>}
-
-      <hr className={ComponentStyles.event_carousel_breakline_bottom} />
+      <div />
     </div>
   );
 }

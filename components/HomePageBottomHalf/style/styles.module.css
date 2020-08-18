@@ -1,0 +1,67 @@
+.container{
+    display:flex;
+    padding:2%
+}
+.section_a{
+   width:70%
+}
+.section_b{
+    padding-left: 40px;
+    width: 30%;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    margin-top: 40px;
+    border-color: #F0F0F0;
+}
+.section_a_divider{
+    width: 90%
+}
+.section_b_divider{
+    margin: 25px 0
+}
+.upcoming_event_container{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.tabs_container{
+    margin-top: 30px;
+    /* width: 100%; */
+}
+.upcoming_event_card_container{
+    display: flex;
+    flex-direction: column;
+}
+.view_more{
+   text-align: center;
+   margin-top: 20px;
+   cursor: pointer;
+}
+@media screen and (max-width: 820px){
+    .section_a{
+        width:100%
+     }
+    .section_b{
+        height: 0;
+        width: 0;
+        display:none;
+        visibility: hidden;
+    }
+    .section_a_speaker_container{
+        height: 0;
+        width: 0;
+        display:none;
+        visibility: hidden;
+    }
+    .upcoming_event_card_container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+    }
+}
+@media screen and (max-width: 600px){
+    .upcoming_event_card_container{
+       justify-content: center;
+    }
+}

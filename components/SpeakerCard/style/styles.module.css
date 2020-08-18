@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px
+}
+
+.speaker_image{
+    width: 80px;
+    margin-bottom: 5px;
+}
+.description{
+    text-align: center;
+}
+.event{
+    width:85%;
+    text-align: center;
+}
+.event_title{
+    color:#3C3D58 !important;
+    font-family: AvenirNextBold;
+}

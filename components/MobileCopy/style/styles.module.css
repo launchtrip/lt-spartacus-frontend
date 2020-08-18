@@ -2,8 +2,10 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    visibility: hidden;
-    height: 0
+    height: 0;
+        width: 0;
+        display:none;
+        visibility: hidden;
 }
 .mobile_copy_conatiner_inner{
     width: 80%;
