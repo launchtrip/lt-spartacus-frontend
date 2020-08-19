@@ -132,3 +132,9 @@
     font-family: AvenirNext;
     color: #535353;
 }
+.typography_spartacus_sixteen{
+    font-size: 25px;
+    line-height: 34px;
+    font-family: AvenirNextBold;
+    color: #1C1E54;
+}

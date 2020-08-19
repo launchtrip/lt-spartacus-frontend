@@ -4,6 +4,7 @@ import HeroCarousel from './HeroCarousel';
 import MobileCopy from './MobileCopy';
 import EventCarousel from './EventCarousel';
 import HomePageBottomHalf from './HomePageBottomHalf';
+import PartnershipForm from './PartnershipForm';
 
 export {
   BaseContainer,
@@ -11,5 +12,6 @@ export {
   EventCarousel,
   HomePageBottomHalf,
   HeroCarousel,
-  MobileCopy
+  MobileCopy,
+  PartnershipForm
 };

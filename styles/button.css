@@ -32,3 +32,17 @@
     color:white !important;
     background:#9388C2;
   }
+  .button_lg_styled{
+    color:#41438F !important;
+    font-family: AvenirNextBold;
+    background-color: white;
+    border:1px solid #9388C2;
+    padding: 8px 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+  }
+  .button_lg_styled:hover{
+    color:white !important;
+    background:#9388C2;
+  }
