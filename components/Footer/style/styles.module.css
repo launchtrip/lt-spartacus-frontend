@@ -15,7 +15,7 @@
     font-size: 40px;
     font-weight: bolder;
     line-height: 30px;
-    /* margin-left: 10px; */
+    margin-left: 20px;
 }
 .footer_container_one_inner{
     display: flex;
@@ -44,10 +44,10 @@
 }
 .footer_container_three{
     display: flex;
-    align-items: flex-end;
     justify-content: flex-end;
-    margin-right: 5%;
-}
+    align-items: flex-end;
+    width: 65%;
+}   
 .footer_img{
     width: 25px;
     margin-right: 5px;
