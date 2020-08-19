@@ -22,7 +22,7 @@
     padding-left: 5px;
 }
 .event_copy{
-    width: 90%;
+    /* width: 90%; */
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;

@@ -119,3 +119,16 @@
     font-weight: 700;
     color: #A2005A;
 }
+.typography_spartacus_fourteen{
+    font-size: 12px;
+    line-height: 14px;
+    font-family: AvenirNext;
+    color: #868686;
+}
+.typography_spartacus_fifteen{
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 600;
+    font-family: AvenirNext;
+    color: #535353;
+}

@@ -41,6 +41,12 @@
     .section_a{
         width:100%
      }
+     .upcoming_vents_title{
+         display:none;
+         height: 0;
+         width:0;
+         visibility: hidden;
+     }
     .section_b{
         height: 0;
         width: 0;
@@ -52,6 +58,9 @@
         width: 0;
         display:none;
         visibility: hidden;
+    }
+    .upcoming_event_container{
+        margin-top: 0;
     }
     .upcoming_event_card_container{
         flex-direction: row;

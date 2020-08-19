@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import NavigationBar from '../NavigationBar';
+import Footer from '../Footer';
 
 export default function BaseContainer(props) {
   return (
@@ -12,6 +13,7 @@ export default function BaseContainer(props) {
       </Head>
       <NavigationBar page={props.page} />
       {props.children}
+      <Footer />
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function HomePageBottomHalf() {
           <hr className={ComponentStyles.section_a_divider} />
         </section>
         <section className={ComponentStyles.upcoming_event_container}>
-          <span className="typography_spartacus_eight">Upcoming Events</span>
+          <span className={`typography_spartacus_eight ${ComponentStyles.upcoming_vents_title}`}>Upcoming Events</span>
           <Tabs
             defaultActiveKey="1"
             tabPosition="top"

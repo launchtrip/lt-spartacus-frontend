@@ -9,7 +9,7 @@ export {
   BaseContainer,
   DynamicSearchBar,
   EventCarousel,
-  HeroCarousel,
   HomePageBottomHalf,
+  HeroCarousel,
   MobileCopy
 };

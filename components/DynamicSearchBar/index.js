@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Input, AutoComplete } from 'antd';
 import ComponentStyles from './style/styles.module.css';
+import EventIcon from '../EventIcon';
 
 function getRandomInt(max, min = 0) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -71,6 +72,26 @@ export default function DynamicSearchBar() {
       >
         <Input.Search size="large" placeholder="Enter Event or Industry" enterButton />
       </AutoComplete>
+      <section className={ComponentStyles.legend_container}>
+        <span
+          className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}
+        >
+          <EventIcon image="/assets/icon-paid.png" height="0.9em" width="8px" marginRight="4px" />
+          <span>Paid Event</span>
+        </span>
+        <span
+          className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}
+        >
+          <EventIcon image="/assets/icon-virtual.png" height="0.9em" width="12px" marginRight="4px" />
+          <span>Virtual</span>
+        </span>
+        <span
+          className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}
+        >
+          <EventIcon image="/assets/icon-inperson.png" height="0.9em" width="12px" marginRight="4px" />
+          <span>In Person</span>
+        </span>
+      </section>
     </div>
   );
 }

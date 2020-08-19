@@ -24,7 +24,7 @@
     text-align: center;
     justify-content: space-evenly;
     height: 109px !important;
-    width: 60%
+    width: 65%
 }
 .navigation_menu_button_active{
     color:#363636 ;
@@ -62,7 +62,7 @@
 }
 
 .navigation_section_one_mene_icon{
-
+    width: 0;
     visibility: hidden;
 }
 
@@ -75,8 +75,6 @@
     .section_two_button_container{
         width: 80%
     }
-}
-@media screen and (max-width: 905px){
     .section_three_button_container{
         width: 80% !important;
     }
