@@ -1,26 +1,39 @@
-.partnership_container{
+.signUp_container{
     display:flex;
     justify-content: center;
     margin: 50px 0;
 }
-.partnership_form_item ::placeholder{
+.signUp_form_item ::placeholder{
     color:#8B8B8B
 }
-.partnership_form_item{
+.signUp_inner_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.signUp_header_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+.signUp_form_item{
     width: 400px !important;
     border-radius: 0px !important;
     border: 1px solid #D6D6D6;
     padding: 10px 10px;
     outline: none;
 }
-.partnership_form_item_select{
+.signUp_form_item_select{
     width: 400px !important;
     border-radius: 0px !important;
     border-color: #D6D6D6 !important;
     outline: none !important;
     
 }
-.partnership_form_item_text{
+.signUp_form_item_text{
     width: 400px !important;
     padding: 10px 10px;
     height: 100px;
@@ -30,11 +43,11 @@
     justify-content: flex-start;
     outline: none;
 }
-.partnership_form_item_base:hover{
+.signUp_form_item_base:hover{
     outline: #D6D6D6  !important;
     border-color: #D6D6D6  !important;
 }
-.partnership_form_item_base:focus{
+.signUp_form_item_base:focus{
     outline: #D6D6D6  !important;
     border-color: #D6D6D6  !important;
 }
@@ -62,9 +75,12 @@
     text-align: center;
 }
 @media screen and (max-width: 820px){
-    .partnership_container{
+    .signUp_inner_container{
         flex-direction: column-reverse;
         align-items: center;
+    }
+    .signUp_header_container{
+        order: 1
     }
     .section_two{
        align-items: center;
@@ -87,31 +103,31 @@
     }
 }
 @media screen and (max-width: 450px){
-    .partnership_form_item{
+    .signUp_form_item{
         width: 350px !important;
     
     }
-    .partnership_form_item_select{
+    .signUp_form_item_select{
         width: 350px !important;
   
         
     }
-    .partnership_form_item_text{
+    .signUp_form_item_text{
         width: 350px !important;
 
     }
 }
 @media screen and (max-width: 320px){
-    .partnership_form_item{
+    .signUp_form_item{
         width: 300px !important;
     
     }
-    .partnership_form_item_select{
+    .signUp_form_item_select{
         width: 300px !important;
   
         
     }
-    .partnership_form_item_text{
+    .signUp_form_item_text{
         width: 300px !important;
 
     }

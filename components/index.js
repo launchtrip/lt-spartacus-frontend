@@ -5,13 +5,21 @@ import MobileCopy from './MobileCopy';
 import EventCarousel from './EventCarousel';
 import HomePageBottomHalf from './HomePageBottomHalf';
 import PartnershipForm from './PartnershipForm';
+import SignUp from './SignUp';
+import ResetPassword from './ResetPassword';
+import Confirmation from './Confirmation';
+import EventSearchPage from './EventSearchPage';
 
 export {
   BaseContainer,
+  Confirmation,
   DynamicSearchBar,
   EventCarousel,
+  EventSearchPage,
   HomePageBottomHalf,
   HeroCarousel,
   MobileCopy,
-  PartnershipForm
+  PartnershipForm,
+  ResetPassword,
+  SignUp
 };

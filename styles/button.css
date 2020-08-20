@@ -17,6 +17,7 @@
       border: none;
       color: #3E3E3E;
       cursor: pointer;
+      outline: none;
 
   }
   .button_med_styled{

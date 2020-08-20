@@ -2,7 +2,7 @@ import React from 'react';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
 
-export default function EventCard() {
+export default function EventCard({ showLine }) {
   return (
     <>
       <div className={ComponentStyles.event_card_container}>
@@ -26,10 +26,9 @@ export default function EventCard() {
         <button className={`button_med_styled ${ComponentStyles.button}`} type="button">
           Learn More
         </button>
-        {/* <hr className={ComponentStyles.event_hr_mobile} /> */}
 
       </div>
-      <hr className={ComponentStyles.event_hr} />
+      {showLine && <hr className={ComponentStyles.event_hr} />}
 
     </>
   );

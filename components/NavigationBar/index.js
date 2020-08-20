@@ -4,10 +4,12 @@ import { Menu } from 'antd';
 import { useRouter } from 'next/router';
 import { MenuOutlined } from '@ant-design/icons';
 import ComponentStyles from './style/styles.module.css';
+import DynamicModal from '../DynamicModal';
 
 export default function NavgiationBar({ page }) {
   const { SubMenu } = Menu;
   const [state, setState] = useState(page);
+  const [modal, setModal] = useState(false);
   const Router = useRouter();
 
   const checkState = (type) => {
@@ -24,6 +26,7 @@ export default function NavgiationBar({ page }) {
 
   return (
     <div className={ComponentStyles.navigation_main_container}>
+      <DynamicModal type="signIn" modal={modal} updateModal={setModal} width={600} />
       <MenuOutlined className={ComponentStyles.navigation_section_one_mene_icon} />
 
       <section className={ComponentStyles.navigation_section_one}>
@@ -74,10 +77,17 @@ export default function NavgiationBar({ page }) {
       </section>
       <section className={ComponentStyles.navigation_section_three}>
         <section className={ComponentStyles.section_three_button_container}>
-          <button type="button" className="button_small_styled typography_spartacus_one_bold">
-            Sign Up
-          </button>
-          <button type="button" className="button_small_plain typography_spartacus_one">
+          <Link href="/sign-up">
+
+            <button type="button" className="button_small_styled typography_spartacus_one_bold">
+              Sign Up
+            </button>
+          </Link>
+          <button
+            type="button"
+            className="button_small_plain typography_spartacus_one"
+            onClick={() => setModal(true)}
+          >
             Log In
           </button>
         </section>

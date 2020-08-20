@@ -14,7 +14,6 @@
     font-size: 17px;
     line-height: 23px;
     font-family: AvenirNextBold;
-    color:#454545
 }
 
 .typography_spartacus_two{
@@ -137,4 +136,18 @@
     line-height: 34px;
     font-family: AvenirNextBold;
     color: #1C1E54;
+}
+.typography_spartacus_seventeen_bold{
+    font-size: 16px;
+    line-height: 22px;
+    font-family: AvenirNextBold;
+    color: #41438F
+    ;
+}
+.typography_spartacus_eighteen_bold{
+    font-size: 25px;
+    line-height: 28px;
+    font-family: AvenirNextBold;
+    color: #9388C2
+    ;
 }
