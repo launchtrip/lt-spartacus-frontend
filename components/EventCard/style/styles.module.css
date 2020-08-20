@@ -8,8 +8,8 @@
 }
 .event_card_img{
     border-radius: 50%;
-    width: 85px;
-    height:85px;
+    width: 100px;
+    height:100px;
     object-fit: cover;
     margin-right: 25px;
 }

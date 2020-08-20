@@ -32,11 +32,11 @@ export default function HomePageBottomHalf() {
             {months.map(i => (
               <TabPane tab={`${i}`} key={i}>
                 <section className={ComponentStyles.upcoming_event_card_container}>
-                  <EventCard />
-                  <EventCard />
-                  <EventCard />
-                  <EventCard />
-                  <EventCard />
+                  <EventCard showLine />
+                  <EventCard showLine />
+                  <EventCard showLine />
+                  <EventCard showLine />
+                  <EventCard showLine />
                 </section>
 
               </TabPane>
