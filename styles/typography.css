@@ -39,8 +39,8 @@
 }
 
 .typography_spartacus_three_bold {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 18px;
+    line-height: 20px;
     font-family: AvenirNextBold;
     color: #363636;
 }
@@ -98,7 +98,7 @@
 
 .typography_spartacus_nine {
     font-size: 14px;
-    line-height: 19px;
+    line-height: 17px;
     font-family: AvenirNext;
     font-weight: 500;
 
@@ -106,8 +106,8 @@
 }
 
 .typography_spartacus_ten_italic {
-    font-size: 12px;
-    line-height: 17px;
+    font-size: 13px;
+    line-height: 16px;
     font-family: AvenirNext;
     font-style: italic;
     color: #6F6F6F;
