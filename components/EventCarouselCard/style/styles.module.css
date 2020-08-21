@@ -2,26 +2,27 @@
     display: flex;
     margin-top: 10%;
     margin-right: 30% !important;
-    width: 330px;
+    /* width: 330px; */
+    width: 100%;
+    padding: 0 10px;
 
 }
 
 .card_container_section_one {
-    width: 40%;
     display: flex;
     justify-content: center;
+    margin-right: 12px;
 }
 
 .card_container_section_one_image {
     width: inherit;
-    height: 100px;
-    width: 100px;
+    height: 95px;
+    width: 95px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .card_container_section_two {
-    width: 60%;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
@@ -47,45 +48,45 @@
 
 @media screen and (max-width: 1340px) {
     .card_container {
-        width: 290px;
+        /* width: 290px; */
     }
 
 }
 
 @media screen and (max-width: 1200px) {
     .card_container {
-        width: 320px;
+        /* width: 320px; */
     }
 
 }
 
 @media screen and (max-width: 990px) {
     .card_container {
-        width: 290px;
+        /* width: 290px; */
     }
 }
 
 @media screen and (max-width: 900px) {
     .card_container {
-        width: 400px;
+        /* width: 400px; */
     }
 }
 
 @media screen and (max-width: 845px) {
     .card_container {
-        width: 350px;
+        /* width: 350px; */
     }
 }
 
 @media screen and (max-width: 680px) {
     .card_container {
-        width: 300px;
+        /* width: 300px; */
     }
 }
 
 @media screen and (max-width: 630px) {
     .card_container {
-        width: 420px;
+        /* width: 420px; */
         align-self: center;
         margin-left: 10px;
     }
