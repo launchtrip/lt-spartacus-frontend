@@ -1,49 +1,55 @@
-.button_small_styled{
-    color:#AD3372 !important;
-    background-color: white;
-    border:1px solid #BF6E98;
-    padding: 5px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-  }
-  .button_small_styled:hover{
-    color:white !important;
-    background:#AD3372;
-  }
+.button_small_styled {
+  color: #AD3372 !important;
+  background-color: white;
+  border: 1px solid #BF6E98;
+  padding: 5px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
 
-  .button_small_plain{
-      background-color: white;
-      border: none;
-      color: #3E3E3E;
-      cursor: pointer;
-      outline: none;
+.button_small_styled:hover {
+  color: white !important;
+  background: #AD3372;
+}
 
-  }
-  .button_med_styled{
-    color:#9388C2 !important;
-    background-color: white;
-    border:1px solid #9388C2;
-    padding: 8px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-  }
-  .button_med_styled:hover{
-    color:white !important;
-    background:#9388C2;
-  }
-  .button_lg_styled{
-    color:#41438F !important;
-    font-family: AvenirNextBold;
-    background-color: white;
-    border:1px solid #9388C2;
-    padding: 8px 50px;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-  }
-  .button_lg_styled:hover{
-    color:white !important;
-    background:#9388C2;
-  }
+.button_small_plain {
+  background-color: white;
+  border: none;
+  color: #3E3E3E;
+  cursor: pointer;
+  outline: none;
+
+}
+
+.button_med_styled {
+  color: #9388C2 !important;
+  background-color: white;
+  border: 1px solid #9388C2;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+}
+
+.button_med_styled:hover {
+  color: white !important;
+  background: #9388C2;
+}
+
+.button_lg_styled {
+  color: #41438F !important;
+  font-family: AvenirNextBold;
+  background-color: white;
+  border: 1px solid #9388C2;
+  padding: 8px 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button_lg_styled:hover {
+  color: white !important;
+  background: #9388C2;
+}
