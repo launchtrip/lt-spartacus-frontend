@@ -30,7 +30,6 @@
 
 .card_copy {
     overflow: hidden;
-    width: 95%;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -44,6 +43,7 @@
 
 #section_two_event_item {
     margin-bottom: 6px;
+    width: 95%;
 }
 
 @media screen and (max-width: 1340px) {
@@ -75,6 +75,12 @@
 @media screen and (max-width: 845px) {
     .card_container {
         /* width: 350px; */
+    }
+
+    .card_container_section_one_image {
+        width: 80px;
+        height: 80px;
+        margin-left: 5px;
     }
 }
 

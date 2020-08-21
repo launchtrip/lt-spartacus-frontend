@@ -169,3 +169,9 @@
     font-family: AvenirNextBold;
     color: #9388C2;
 }
+
+@media screen and (max-width: 820px) {
+    .typography_spartacus_seven {
+        font-size: 13px;
+    }
+}
