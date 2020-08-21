@@ -25,8 +25,8 @@ export default function EventCard() {
           adoption of …artificia...l intelligence... machine learning technology. Join us at the industry’s most impactful Ai event.
         </span>
         <section id={ComponentStyles.section_two_event_item} className={ComponentStyles.section_two_image_container}>
-          <EventIcon image="/assets/icon-paid.png" height="1em" width="10px" marginRight="4px" />
-          <EventIcon image="/assets/icon-virtual.png" height="1em" width="15px" marginRight="4px" />
+          <EventIcon image="/assets/icon-paid.png" height="1em" width="10px" marginRight="7px" />
+          <EventIcon image="/assets/icon-virtual.png" height="1em" width="15px" marginRight="7px" />
         </section>
       </section>
     </div>
