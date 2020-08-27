@@ -57,6 +57,14 @@
     transition: none !important;
 }
 
+.searchPage
+.ant-input{
+    max-height: 55px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color:  #BBBBBC !important;
+    border-radius: 20px 0px 0px 20px !important;
+}
 .ant-input{
     height: 58px !important;
     outline: none !important;
@@ -75,6 +83,7 @@
     border: none !important;
 
 }
+
 .ant-btn-primary{
     height: 58px;
     color: inherit !important;
@@ -83,6 +92,17 @@
     border-left: none !important;
     border-radius: 0px 10px 10px 0px !important;
 }
+
+.searchPage
+.ant-btn-primary{
+    height: 55px;
+    color: inherit !important;
+    background: white !important;
+    border-color:  #BBBBBC !important;
+    border-left: none !important;
+    border-radius: 0px 20px 20px 0px !important;
+}
+
 html{
     --antd-wave-shadow-color: none !important;
     -webkit-tap-highlight-color: none !important;
@@ -139,6 +159,9 @@ html{
 .ant-form-item-control-input{
     align-self: center !important;
 
+}
+.ant-picker-suffix{
+    color: #BF6E98 !important;
 }
 @media screen and (max-width: 1100px){
     .ant-tabs-nav{
