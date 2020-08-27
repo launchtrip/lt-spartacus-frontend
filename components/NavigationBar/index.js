@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu } from 'antd';
+import { Menu, Drawer } from 'antd';
 import { useRouter } from 'next/router';
 import { MenuOutlined } from '@ant-design/icons';
 import ComponentStyles from './style/styles.module.css';
 import DynamicModal from '../DynamicModal';
+import EventIcon from '../EventIcon';
 
 export default function NavgiationBar({ page }) {
   const { SubMenu } = Menu;
   const [state, setState] = useState(page);
   const [modal, setModal] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [user, setUser] = useState(' dd');
   const Router = useRouter();
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
 
   const checkState = (type) => {
     if (type === 'Events' && page === 'Virtual Events') {
@@ -20,14 +31,70 @@ export default function NavgiationBar({ page }) {
     return `${ComponentStyles.navigation_menu_button} typography_spartacus_one`;
   };
 
+  const checkStateMobile = (type) => {
+    if (type === state) return 'typography_spartacus_one_bold';
+    return 'typography_spartacus_one';
+  };
+
   const routeToEventPage = (url) => {
     Router.push(url);
   };
 
+  const mobileTitle = () => {
+    if (user) {
+      return (
+        <section className={ComponentStyles.mobile_section_user}>
+          <span className={`typography_spartacus_nineteen ${ComponentStyles.mobile_section_user_details}`}>
+            <EventIcon image="/assets/user.png" height="15px" width="15px" marginRight="10px" />
+            Hi, Carly
+          </span>
+          <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item_disabled}`}>
+            My Events - <span className={ComponentStyles.mobile_section_user_details_item_unique}>coming soon</span>
+          </span>
+          <Link href="/account/reset">
+            <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item}`}>
+              Change Password
+            </span>
+          </Link>
+          <Link href="/">
+            <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item}`}>
+              Log Out
+            </span>
+          </Link>
+        </section>
+
+      );
+    }
+    return (
+      <section className={ComponentStyles.mobile_section_user}>
+        <Link href="/sign-up">
+
+          <button type="button" className="button_small_styled typography_spartacus_one_bold">
+            Sign Up
+          </button>
+        </Link>
+        <button
+          type="button"
+          className="button_small_plain typography_spartacus_one"
+          onClick={() => setModal(true)}
+        >
+          Log In
+        </button>
+      </section>
+
+    );
+  };
+  const socialDisplay = () => (
+    <section className={ComponentStyles.mobile_section_social}>
+      <EventIcon image="/assets/twitter.png" width="20px" height="20px" marginRight="5px" />
+      <EventIcon image="/assets/facebook.png" width="20px" height="20px" marginRight="5px" />
+      <EventIcon image="/assets/linkedin.png" width="20px" height="20px" marginRight="5px" />
+    </section>
+  );
   return (
     <div className={ComponentStyles.navigation_main_container}>
       <DynamicModal type="signIn" modal={modal} updateModal={setModal} width={600} />
-      <MenuOutlined className={ComponentStyles.navigation_section_one_mene_icon} />
+      <MenuOutlined className={ComponentStyles.navigation_section_one_mene_icon} onClick={() => showDrawer()} />
 
       <section className={ComponentStyles.navigation_section_one}>
 
@@ -92,6 +159,21 @@ export default function NavgiationBar({ page }) {
           </button>
         </section>
       </section>
+      <Drawer
+        title={mobileTitle()}
+        placement="left"
+        closable={false}
+        onClose={onClose}
+        visible={visible}
+        key="left"
+      >
+        <Link href="/"><p className={checkStateMobile('Home')}>Home</p></Link>
+        <Link href="/virtualevents"><p className={checkStateMobile('Virtual Events')}>Virtual Events</p></Link>
+        <Link href="/events"><p className={checkStateMobile('Events')}>All Events</p></Link>
+        <Link href="/partnerships"><p className={checkStateMobile('Partnerships')}>Partnerships</p></Link>
+        <Link href="/about" as="About-Us"><p className={checkStateMobile('About')}>About Us</p></Link>
+        {socialDisplay()}
+      </Drawer>
     </div>
 
   );

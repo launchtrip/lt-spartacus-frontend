@@ -70,7 +70,7 @@ export default function DynamicSearchBar() {
         className={ComponentStyles.search_container_input}
         notFoundContent="Sorry Eat Shit"
       >
-        <Input.Search size="large" placeholder="Enter Event or Industry" enterButton />
+        <Input.Search size="large" placeholder="Enter Event or Industry" enterButton className="searchBar" />
       </AutoComplete>
       <section className={ComponentStyles.legend_container}>
         <span

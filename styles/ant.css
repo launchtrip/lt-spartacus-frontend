@@ -83,6 +83,16 @@
     border: none !important;
 
 }
+
+.ant-btn-primary{
+    height: 58px;
+    color: inherit !important;
+    background: white !important;
+    border-color:  #BBBBBC !important;
+    border-left: none !important;
+    border-radius: 0px 10px 10px 0px !important;
+}
+
 .searchPage
 .ant-btn-primary{
     height: 55px;
@@ -92,14 +102,7 @@
     border-left: none !important;
     border-radius: 0px 20px 20px 0px !important;
 }
-.ant-btn-primary{
-    max-height: 58px;
-    color: inherit !important;
-    background: white !important;
-    border-color:  #BBBBBC !important;
-    border-left: none !important;
-    border-radius: 0px 10px 10px 0px !important;
-}
+
 html{
     --antd-wave-shadow-color: none !important;
     -webkit-tap-highlight-color: none !important;
