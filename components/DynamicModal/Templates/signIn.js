@@ -80,7 +80,7 @@ export default function SignIn({ setState }) {
         <span
           onClick={() => setState('retrieve')}
           className={`${ComponentStyles.reset_prompt} typography_spartacus_fifteen`}
-        >Can&apos;t acces your account?
+        >Can&apos;t access your account?
         </span>
       </div>
     </div>

@@ -1,21 +1,24 @@
-
-.react-multi-carousel-dot button{
-    background:#D8D8D8 !important;
+.react-multi-carousel-dot button {
+    background: #D8D8D8 !important;
     border: none !important;
+    width: 9px !important;
+    height: 9px !important;
 }
-.react-multi-carousel-dot--active button{
+
+.react-multi-carousel-dot--active button {
     background: #4B4FC6 !important;
     border: none !important;
     /* height: 8px !important; */
 }
 
-.slick-slider{
+.slick-slider {
     width: 100% !important
 }
 
-.slick-prev:before{
+.slick-prev:before {
     display: none;
 }
-.slick-next:before{
+
+.slick-next:before {
     display: none;
 }

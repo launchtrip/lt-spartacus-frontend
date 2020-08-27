@@ -5,7 +5,9 @@ export default function CarouselItemMobile() {
   return (
     <div className={ComponentStyles.carousel_card_container}>
       <div className={ComponentStyles.carousel_card_container_inner}>
-        <img alt="" src="/assets/banner1.png" className={ComponentStyles.carousel_card_item_one} />
+        <div style={{ backgroundImage: "url(" + "/assets/banner1.png" + ")" }} className={ComponentStyles.carousel_card_item_one} ></div>
+
+        {/* <img alt="" src="/assets/banner1.png" className={ComponentStyles.carousel_card_item_one} /> */}
       </div>
     </div>
   );

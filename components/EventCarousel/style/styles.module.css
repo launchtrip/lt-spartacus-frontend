@@ -1,67 +1,76 @@
-.event_carousel_container{
+.event_carousel_container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0;
-    width: 100%;
+    margin: 30px 2.5%;
+    width: 95%;
 
 }
-.event_carousel_title{
+
+.event_carousel_title {
     align-self: start;
-    margin-left:2%
+    margin-left: 2%
 }
-.event_carousel{
+
+.event_carousel {
     margin: 35px 0;
-    height:auto;
+    height: auto;
     width: 100%;
 }
-.carousel_container_arrow_right{
+
+.carousel_container_arrow_right {
     cursor: pointer;
     width: 20px;
 }
-.carousel_container_arrow_left{
+
+.carousel_container_arrow_left {
     cursor: pointer;
     width: 20px;
     margin-left: -15px;
-} 
-.event_carousel_breakline_top{
+}
+
+.event_carousel_breakline_top {
     height: 1px;
     border-color: #F0F0F0;
     border-style: solid;
     border-width: 0 0 1px 0;
     width: 90%;
     margin-bottom: 30px;
-    color:#979797
+    color: #979797
 }
-.event_carousel_breakline_bottom{
+
+.event_carousel_breakline_bottom {
     height: 1px;
     border-color: #F0F0F0;
     border-style: solid;
     border-width: 0 0 1px 0;
     width: 90%;
     margin-top: 30px;
-    color:#979797
+    color: #979797
 }
-.view_more{
-    
+
+.view_more {
+
     cursor: pointer;
 }
-.carousel_container{
+
+.carousel_container {
     width: 90%;
     padding: 20px 0;
 }
 
- @media screen and (max-width: 600px){
-    .carousel_container_arrow_right{
+@media screen and (max-width: 600px) {
+    .carousel_container_arrow_right {
         cursor: pointer;
         width: 20px;
-        margin-left: -20px;
+        margin-left: -10px;
     }
-    .carousel_container_arrow_left{
+
+    .carousel_container_arrow_left {
         cursor: pointer;
-        margin-left: 10px;
+        margin-left: 15px;
 
     }
 
-} 
+}

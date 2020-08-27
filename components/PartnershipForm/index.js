@@ -170,7 +170,7 @@ export default function PartnershipForm() {
               <Form.Item
                 name="comments"
               >
-                <input
+                <textarea
                   placeholder="Comments or Questions"
 
                   className={ComponentStyles.partnership_form_item_text}
