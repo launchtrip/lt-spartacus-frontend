@@ -5,6 +5,11 @@
     align-content: flex-end;
 
 }
+.search_container_searchPage{
+    display: flex;
+    justify-content: center;
+    align-content: flex-end; 
+}
 .search_container_input{
     width: 350px;
     border-radius: 0px 10px 10px 0px !important;

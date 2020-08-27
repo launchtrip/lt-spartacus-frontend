@@ -1,10 +1,46 @@
 .event_search_page_container {
     display: flex;
 }
+.event_search{
+    margin: 40px 0;
+    width: 95%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 
-.event_search {
-    align-self: start;
-    width: 80%;
+}
+.search_container_input{
+    width: 320px;
+    height: 45px;
+    margin-right: 10px;
+
+}
+.event_drop_down{
+    border: 1px solid #BBBBBC;
+    width: 260px;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    margin-right: 10px;
+
+
+}
+.event_drop_down_arrow{
+    color: #BF6E98 !important;
+   font-size: 20px;
+   float: right;
+}
+.event_date_picker{
+    width: 260px;
+    height: 55px;
+    border-radius: 20px;
+    padding: 0 15px;
+    border-color: #BBBBBC;
 }
 
 .event_search_page_sec_one {
@@ -60,9 +96,17 @@
     font-family: AvenirNext;
     color: #363636 !important
 }
+@media screen and (max-width: 1130px){
 
-@media screen and (max-width: 820px) {
-    .event_search_page_container {
+    .event_date_picker{
+         margin-right: 0;
+        margin-top: 10px;
+        width: 320px
+    }
+}
+
+@media screen and (max-width: 820px){
+    .event_search_page_container{
         display: flex;
         flex-direction: column;
     }
@@ -101,9 +145,16 @@
     }
 
 }
+@media screen and (max-width: 665px){
+     .event_drop_down{
+        margin-right: 0;
+        margin-top: 10px;
+        width: 320px
+    } 
+}
+
 
 @media screen and (max-width: 620px) {
-
     .event_search_monthly_result_card {
         width: 100%
     }
