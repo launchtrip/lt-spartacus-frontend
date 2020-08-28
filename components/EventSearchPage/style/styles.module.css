@@ -83,6 +83,8 @@
 
 .event_search_page_sec_two {
     width: 30%;
+    display: flex;
+    flex-direction: column;
     padding: 0px 40px;
     border-width: 0 0 0 1px;
     border-style: solid;

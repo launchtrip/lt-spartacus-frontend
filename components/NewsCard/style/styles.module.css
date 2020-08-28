@@ -8,6 +8,20 @@
     line-height: 16px;
     margin: 5px 0;
 }
+.news_container_detials_alt{
+    display: flex;
+    flex-direction: column;
+    line-height: 16px;
+    margin: 5px 0;
+}
+.news_container_detials_alt_item{
+    padding: 0
+}
+.news_container_detials{
+    display: flex;
+    line-height: 16px;
+    margin: 5px 0;
+}
 .news_item{
     margin-bottom: 3px
 }

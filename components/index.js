@@ -9,12 +9,14 @@ import SignUp from './SignUp';
 import ResetPassword from './ResetPassword';
 import Confirmation from './Confirmation';
 import EventSearchPage from './EventSearchPage';
+import EventPage from './EventPage';
 
 export {
   BaseContainer,
   Confirmation,
   DynamicSearchBar,
   EventCarousel,
+  EventPage,
   EventSearchPage,
   HomePageBottomHalf,
   HeroCarousel,

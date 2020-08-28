@@ -12,7 +12,7 @@ export default function NavgiationBar({ page }) {
   const [state, setState] = useState(page);
   const [modal, setModal] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [user, setUser] = useState(' dd');
+  const [user, setUser] = useState('');
   const Router = useRouter();
 
   const showDrawer = () => {
