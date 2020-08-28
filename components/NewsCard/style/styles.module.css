@@ -3,6 +3,15 @@
     flex-direction: column;
     margin: 20px 0
 }
+.news_container_with_image {
+    display: flex;
+    flex-direction: column;
+}
+.news_title{
+    color:#3E3E3E;
+    opacity: 1;
+    font-weight: 900;
+}
 .news_container_detials{
     display: flex;
     line-height: 16px;

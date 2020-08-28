@@ -122,3 +122,34 @@
     height: 300px;
     background:#979797;
 }
+.event_page_related_events{
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0 30px 0;
+}
+
+.event_page_related_events_inner{
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.event_page_social_container{
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-end;
+}
+.event_page_related_events_inner_img_news{
+    margin: 10px 0;
+}
+.event_page_related_img_news_card{
+    display: flex;
+    align-items: flex-start;
+}
+.event_page_related_img_news_card_img{
+    width: 150px;
+    height: 100px;
+    margin-right: 10px;
+}

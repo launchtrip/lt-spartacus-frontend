@@ -1,10 +1,12 @@
 import React from 'react';
 import ComponentStyles from './style/styles.module.css';
 
-export default function NewsCard({ alternate }) {
+export default function NewsCard({ alternate, line, withImage }) {
+  const mainContainer = withImage ? ComponentStyles.news_container_with_image : ComponentStyles.news_container;
+  const titleClass = withImage ? `typography_spartacus_nineteen ${ComponentStyles.news_title}` : 'typography_spartacus_one_demi_bold';
   return (
-    <div className={ComponentStyles.news_container}>
-      <span className={` typography_spartacus_one_demi_bold ${ComponentStyles.news_item}`}>The numbers behind Collision from Home </span>
+    <div className={mainContainer}>
+      <span className={`${titleClass} ${ComponentStyles.news_item}`}>The numbers behind Collision from Home </span>
       {!alternate &&
       <span
         className={` typography_spartacus_seven ${ComponentStyles.news_item}`}
@@ -29,7 +31,7 @@ export default function NewsCard({ alternate }) {
         </span>
       </div>}
 
-      <hr className={ComponentStyles.news_hr} />
+      {line && <hr className={ComponentStyles.news_hr} />}
     </div>
   );
 }

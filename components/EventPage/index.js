@@ -4,11 +4,20 @@ import SpeakerCarousel from '../SpeakerCarousel';
 import EventIcon from '../EventIcon';
 import DynamicModal from '../DynamicModal';
 import NewsCard from '../NewsCard';
+import RelatedEventCard from '../RelatedEventCard';
 
 export default function EventPage() {
   const [modal, updateModal] = useState(false);
   const [type, setType] = useState('');
-  console.log(type);
+
+  const social = (display) => (
+    <div className={ComponentStyles.event_page_social_container} style={{ justifyContent: display }}>
+      <span className="typography_spartacus_eight_light">Share:</span>
+      <EventIcon image="/assets/twitter.png" width="25px" height="25px" marginLeft="5px" marginRight="5px" />
+      <EventIcon image="/assets/facebook.png" width="25px" height="25px" marginRight="5px" />
+      <EventIcon image="/assets/linkedin.png" width="25px" height="25px" marginRight="5px" />
+    </div>
+  );
   return (
     <div className={ComponentStyles.event_page_container}>
       <DynamicModal
@@ -81,8 +90,41 @@ export default function EventPage() {
             <SpeakerCarousel title="Speakers" />
           </section>
           <hr className={ComponentStyles.event_page_glance_bottom} />
+          <section className={ComponentStyles.event_page_related_events}>
+            <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>Related Events</span>
+            <section className={ComponentStyles.event_page_related_events_inner}>
+              <RelatedEventCard />
+              <RelatedEventCard />
+              <RelatedEventCard />
+              <RelatedEventCard />
+            </section>
+          </section>
 
+          <section className={ComponentStyles.event_page_related_events}>
+            <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>In The News</span>
+            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+              <span className={ComponentStyles.event_page_related_img_news_card}>
+                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                <NewsCard alternate withImage />
+              </span>
+            </section>
+            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+              <span className={ComponentStyles.event_page_related_img_news_card}>
+                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                <NewsCard alternate withImage />
+              </span>
+            </section>
+            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+              <span className={ComponentStyles.event_page_related_img_news_card}>
+                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                <NewsCard alternate withImage />
+              </span>
+            </section>
+          </section>
+
+          {social('start')}
         </section>
+
       </section>
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
@@ -120,13 +162,17 @@ export default function EventPage() {
         >Become a Sponsor/Speaker
         </button>
         <hr className={ComponentStyles.event_page_section_two_divider} />
+        {social('center')}
+        <hr className={ComponentStyles.event_page_section_two_divider} />
+
         <section className={ComponentStyles.event_page_section_two_news}>
           <span className={`typography_spartacus_eight ${ComponentStyles.event_page_section_two_news_title}`}>News & Opinion</span>
-          <NewsCard alternate />
-          <NewsCard alternate />
-          <NewsCard alternate />
+          <NewsCard alternate line />
+          <NewsCard alternate line />
+          <NewsCard alternate line />
         </section>
         <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>
+
       </section>
     </div>
   );

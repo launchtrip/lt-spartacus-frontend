@@ -94,6 +94,12 @@
     font-family: AvenirNextBold;
     color: #1C1E54;
 }
+.typography_spartacus_eight_light {
+    font-size: 20px;
+    line-height: 27px;
+    font-family: AvenirNext;
+    color: #1C1E54;
+}
 
 .typography_spartacus_nine_demi_bold {
     font-size: 14px;
@@ -132,6 +138,11 @@
     color: #3E3E3E;
     font-size: 12px;
 }
+.typography_spartacus_twelve_light {
+    color: #3E3E3E;
+    font-size: 13px;
+    line-height: 15px;
+}
 .typography_spartacus_thirteen{
     font-size: 16px;
     line-height: 22px;
@@ -160,6 +171,13 @@
     font-weight: 600;
     font-family: AvenirNext;
     color: #535353;
+}
+.typography_spartacus_fifteen_italic {
+    font-size: 14px;
+    line-height: 19px;
+    font-style: italic;
+    font-family: AvenirNext;
+    color: #686868;
 }
 
 .typography_spartacus_sixteen {
