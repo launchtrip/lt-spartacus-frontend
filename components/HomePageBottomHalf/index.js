@@ -52,14 +52,14 @@ export default function HomePageBottomHalf() {
         <FeatureEventAd />
         <hr className={ComponentStyles.section_b_divider} />
         <span className="typography_spartacus_eight">News & Updates</span>
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
+        <NewsCard line />
       </section>
     </div>
   );

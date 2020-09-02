@@ -53,3 +53,32 @@
   color: white !important;
   background: #9388C2;
 }
+.button_lg_styled_light {
+  color: #9388C2 !important;
+  font-family: AvenirNextBold;
+  background-color: white;
+  border: 1px solid #9388C2;
+  padding: 8px 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button_lg_styled_light:hover {
+  color: white !important;
+  background: #9388C2;
+}
+.button_lg_styled_filled {
+  color: white !important;
+  font-family: AvenirNextBold;
+  background-color: #9388C2;
+  border: 1px solid #9388C2;
+  padding: 8px 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button_lg_styled_filled:hover {
+  opacity: 0.8
+}

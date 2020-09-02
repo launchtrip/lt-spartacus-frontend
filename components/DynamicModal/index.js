@@ -16,7 +16,7 @@ export default function DynamicModal({ updateModal, modal, type, width }) {
     updateModal(false);
     setTimeout(() => {
       setState(type);
-    }, 2000);
+    }, 1000);
   };
   const renderBody = (txt) => {
     const templates = {
