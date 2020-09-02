@@ -5,10 +5,14 @@ import EventIcon from '../EventIcon';
 import DynamicModal from '../DynamicModal';
 import NewsCard from '../NewsCard';
 import RelatedEventCard from '../RelatedEventCard';
+import Multimedia from '../Multimedia';
+import data from './data';
+import Twitter from '../Twitter';
+import QuestionWidget from '../QuestionWidget';
 
-export default function EventPage() {
-  const [modal, updateModal] = useState(false);
-  const [type, setType] = useState('');
+export default function EventPage({ premier }) {
+  const [ticketsModal, updateTicketsModal] = useState(false);
+  const [speakerModal, updateSpeakerModal] = useState(false);
 
   const social = (display) => (
     <div className={ComponentStyles.event_page_social_container} style={{ justifyContent: display }}>
@@ -18,13 +22,20 @@ export default function EventPage() {
       <EventIcon image="/assets/linkedin.png" width="25px" height="25px" marginRight="5px" />
     </div>
   );
+
   return (
     <div className={ComponentStyles.event_page_container}>
       <DynamicModal
-        updateModal={updateModal}
-        modal={modal}
+        updateModal={updateTicketsModal}
+        modal={ticketsModal}
         width={600}
-        type={type}
+        type="request"
+      />
+      <DynamicModal
+        updateModal={updateSpeakerModal}
+        modal={speakerModal}
+        width={600}
+        type="sponsor"
       />
       <section className={ComponentStyles.event_page_section_one}>
         <section className={ComponentStyles.event_page_section_one_container}>
@@ -86,10 +97,15 @@ export default function EventPage() {
 
           </section>
           <hr className={ComponentStyles.event_page_glance_bottom} />
-          <section className={ComponentStyles.event_page_speaker_container}>
-            <SpeakerCarousel title="Speakers" />
-          </section>
-          <hr className={ComponentStyles.event_page_glance_bottom} />
+          {premier &&
+          <>
+            <section className={ComponentStyles.event_page_speaker_container}>
+              <SpeakerCarousel title="Speakers" hideEventTitle />
+            </section>
+            <hr className={ComponentStyles.event_page_glance_bottom} />
+
+          </>}
+          {!premier &&
           <section className={ComponentStyles.event_page_related_events}>
             <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>Related Events</span>
             <section className={ComponentStyles.event_page_related_events_inner}>
@@ -98,34 +114,76 @@ export default function EventPage() {
               <RelatedEventCard />
               <RelatedEventCard />
             </section>
-          </section>
+          </section>}
 
-          <section className={ComponentStyles.event_page_related_events}>
-            <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>In The News</span>
-            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
-              <span className={ComponentStyles.event_page_related_img_news_card}>
-                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
-                <NewsCard alternate withImage />
-              </span>
-            </section>
-            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
-              <span className={ComponentStyles.event_page_related_img_news_card}>
-                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
-                <NewsCard alternate withImage />
-              </span>
-            </section>
-            <section className={ComponentStyles.event_page_related_events_inner_img_news}>
-              <span className={ComponentStyles.event_page_related_img_news_card}>
-                <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
-                <NewsCard alternate withImage />
-              </span>
-            </section>
-          </section>
+          {premier &&
+          <>
+            <Multimedia data={data.media} length={data.media.length} />
+            <hr className={ComponentStyles.event_page_glance_bottom} />
+          </>}
 
-          {social('start')}
+          {premier &&
+          <>
+            <section className={ComponentStyles.event_page_testemonials}>
+              <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>Testemonials</span>
+              <div className={ComponentStyles.event_page_testemonials_inner}>
+                <p className={`typography_spartacus_fifteen ${ComponentStyles.event_page_testemonial}`}>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  <p>- Jane Doe</p>
+                </p>
+                <p className={`typography_spartacus_fifteen ${ComponentStyles.event_page_testemonial}`}>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  <p>- Jane Doe</p>
+                </p>
+                <p className={`typography_spartacus_fifteen ${ComponentStyles.event_page_testemonial}`}>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  <p>- Jane Doe</p>
+                </p>
+
+              </div>
+            </section>
+            <hr className={ComponentStyles.event_page_glance_bottom} />
+
+          </>}
+          {premier &&
+          <>
+            <section className={ComponentStyles.event_page_news}>
+              <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>In The News</span>
+              <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+                <span className={ComponentStyles.event_page_related_img_news_card}>
+                  <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                  <NewsCard alternate withImage />
+                </span>
+              </section>
+              <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+                <span className={ComponentStyles.event_page_related_img_news_card}>
+                  <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                  <NewsCard alternate withImage />
+                </span>
+              </section>
+              <section className={ComponentStyles.event_page_related_events_inner_img_news}>
+                <span className={ComponentStyles.event_page_related_img_news_card}>
+                  <img src="/assets/banner1.png" alt="" className={ComponentStyles.event_page_related_img_news_card_img} />
+                  <NewsCard alternate withImage />
+                </span>
+              </section>
+            </section>
+            <hr className={ComponentStyles.event_page_glance_bottom} />
+
+          </>}
+
+          {premier &&
+          <>
+            <QuestionWidget type="horizontal" />
+            <hr className={ComponentStyles.event_page_glance_bottom} />
+            {social('start')}
+          </>}
         </section>
-
       </section>
+
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
           Hybrid
@@ -146,33 +204,51 @@ export default function EventPage() {
           className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
         >Los Angeles, CA
         </span>
+        {!premier &&
         <button
-          onMouseEnter={() => setType('request')}
-          onClick={() => updateModal(true)}
+          onClick={() => updateTicketsModal(true)}
           type="button"
           className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
         >Request Discount Tickets
-        </button>
+        </button>}
+        {premier &&
+        <button
+          onClick={() => updateTicketsModal(true)}
+          type="button"
+          className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
+        >Get Tickets
+        </button>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button
-          onMouseEnter={() => setType('sponsor')}
-          onClick={() => updateModal(true)}
+          onClick={() => updateSpeakerModal(true)}
           type="button"
           className={`button_lg_styled_light ${ComponentStyles.event_page_section_two_button}`}
         >Become a Sponsor/Speaker
         </button>
         <hr className={ComponentStyles.event_page_section_two_divider} />
-        {social('center')}
-        <hr className={ComponentStyles.event_page_section_two_divider} />
+        {premier &&
+        <>
+          {social('center')}
+          <hr className={ComponentStyles.event_page_section_two_divider} />
+        </>}
 
+        {premier &&
+          <QuestionWidget type="vertical" />}
+
+        {!premier &&
         <section className={ComponentStyles.event_page_section_two_news}>
           <span className={`typography_spartacus_eight ${ComponentStyles.event_page_section_two_news_title}`}>News & Opinion</span>
           <NewsCard alternate line />
           <NewsCard alternate line />
           <NewsCard alternate line />
-        </section>
-        <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>
+        </section>}
 
+        {premier &&
+        <section className={ComponentStyles.event_page_section_two_twitter}>
+          <Twitter name="tml" />
+        </section>}
+
+        {!premier && <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>}
       </section>
     </div>
   );

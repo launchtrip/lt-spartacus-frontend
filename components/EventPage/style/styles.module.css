@@ -125,7 +125,10 @@
 .event_page_related_events{
     display: flex;
     flex-direction: column;
-    margin: 100px 0 30px 0;
+    margin: 150px 0 30px 0;
+}
+.event_page_news{
+    margin : 30px 0;
 }
 
 .event_page_related_events_inner{
@@ -152,4 +155,27 @@
     width: 150px;
     height: 100px;
     margin-right: 10px;
+}
+.event_page_section_two_twitter{
+    margin: 30px 0;
+    align-self: center;
+}
+.event_page_testemonials{
+    margin: 30px 0;
+}
+.event_page_testemonial{
+    margin: 10px 0;
+    width: 32%;
+}
+.event_page_testemonials_inner{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 1150px){
+    .event_page_section_two{
+        visibility: hidden !important;
+        display: none !important;
+        width: 0px !important
+    }
 }
