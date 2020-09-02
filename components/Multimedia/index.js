@@ -2,6 +2,7 @@
 import React, { useState, } from 'react';
 import { PlayCircleTwoTone } from '@ant-design/icons';
 import FsLightbox from 'fslightbox-react';
+import Gallery from 'react-photo-gallery';
 import ComponentStyles from './style/styles.module.css';
 
 export default function Multimedia({ data }) {
@@ -74,15 +75,33 @@ export default function Multimedia({ data }) {
     }
     return d.url;
   });
+
+  const photos = data.map((d, i) => {
+    if (i === 0) {
+      return ({
+        src: d.url,
+        width: 3,
+        height: 1
+      });
+    }
+    return ({
+      src: d.url,
+      width: 1,
+      height: 1,
+      onClick: { hey: 'how' }
+    });
+  });
   return (
     <div className={ComponentStyles.multimedia_container}>
       <section className="typography_spartacus_eight">Multimedia</section>
-      <div className={ComponentStyles.multimedia_container_inner}>
+      {/* <div className={ComponentStyles.multimedia_container_inner}>
         <section className={sectionOne}>
           {renderVideoOrImage(data[0], ComponentStyles.sec_one_image, 0)}
         </section>
         {data.length > 1 && sectionsTwo(data)}
-      </div>
+      </div> */}
+      <Gallery photos={photos} onClick={(e) => console.log(e)} />;
+
       <FsLightbox
         types={['image', 'video', 'youtube']}
         slide={slide}

@@ -3,12 +3,12 @@ import {
   TwitterTimelineEmbed,
 } from 'react-twitter-embed';
 
-export default function Twitter({ name }) {
+export default function Twitter({ name, size }) {
   return (
     <TwitterTimelineEmbed
       sourceType="profile"
       screenName={name}
-      options={{ height: 600, width: 400 }}
+      options={{ height: size, width: 400 }}
       noHeader
       noFooter
       noScrollBar

@@ -54,10 +54,55 @@
 .button{
     align-self: center;
 }
+@media screen and (max-width: 1030px){
+    .form_item{
+        width: 30vw !important;
+    }
+    .form_item_text{
+        width: 30vw !important;
+    }
+
+}
+@media screen and (max-width: 800px){
+    .form_item{
+        width: 45vw !important;
+    }
+    .form_item_text{
+        width: 45vw !important;
+    }
+    .form_container_horizontal{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-around;
+        margin-top: 10px;
+        background : #F9F9F9;
+        width: 100%;
+        padding: 40px 20px 20px 20px
+    }
+    .form_item_horizontal{
+        width: 45vw !important;
+        max-width: 400px;
+        border-radius: 0px !important;
+        border: 1px solid #D6D6D6;
+        padding: 10px 10px;
+        outline: none;
+    }
+
+}
 @media screen and (max-width: 600px){
     .modal_container{
 
         width: 100%;
+    }
+    .form_item{
+        width: 350px !important;
+    }
+    .form_item_horizontal{
+        width: 350px !important;
+    }
+    .form_item_text{
+        width: 350px!important;
     }
 }
 @media screen and (max-width: 450px){
