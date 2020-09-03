@@ -95,12 +95,12 @@ export default function EventCarousel({ title, eventPage }) {
       </div>
 
       {!eventPage &&
-      <Link href="/virtualevents">
-        <span
-          className={`typography_spartacus_nine_demi_bold ${ComponentStyles.view_more}`}
-        >View More <span><EventIcon image="/assets/viewMore.png" width="25px" height="25px" /></span>
-        </span>
-      </Link>}
+        <Link href="/virtualevents">
+          <span
+            className={`typography_spartacus_nine_demi_bold ${ComponentStyles.view_more}`}
+          >View More <span><EventIcon image="/assets/viewMore.png" width="25px" height="25px" /></span>
+          </span>
+        </Link>}
 
       <hr className={ComponentStyles.event_carousel_breakline_bottom} />
     </div>

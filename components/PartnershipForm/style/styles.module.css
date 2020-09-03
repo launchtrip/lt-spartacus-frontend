@@ -1,7 +1,7 @@
 .partnership_container {
     display: flex;
     justify-content: center;
-    margin: 50px 0;
+    margin: 40px 0;
 }
 
 .partnership_form_item ::placeholder {
