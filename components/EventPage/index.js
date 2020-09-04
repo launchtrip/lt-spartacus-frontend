@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import ComponentStyles from './style/styles.module.css';
 import SpeakerCarousel from '../SpeakerCarousel';
 import EventIcon from '../EventIcon';
@@ -23,6 +24,11 @@ export default function EventPage({ premier }) {
       <EventIcon image="/assets/facebook.png" width="25px" height="25px" marginRight="5px" />
       <EventIcon image="/assets/linkedin.png" width="25px" height="25px" marginRight="5px" />
     </div>
+  );
+
+  const DynamicComponentWithNoSSR = dynamic(
+    () => import('../Multimedia'),
+    { ssr: false }
   );
 
   const testeMonial = [1, 2, 4];
@@ -268,7 +274,8 @@ export default function EventPage({ premier }) {
 
           {type &&
           <>
-            <Multimedia data={data.media} length={data.media.length} />
+
+            <DynamicComponentWithNoSSR data={data.media} length={data.media.length} />
             <hr className={ComponentStyles.event_page_glance_bottom} />
           </>}
 
