@@ -354,6 +354,7 @@
         align-items: center;
     }
 
+
 }
 
 @media screen and (max-width: 650px) {
@@ -361,5 +362,14 @@
         margin: 10px 0;
         width: 90%;
     }
+
+    .event_page_small_screen_div_two {
+        width: 100%;
+    }
+
+    .event_page_section_two_button {
+        margin-right: 0;
+    }
+
 
 }

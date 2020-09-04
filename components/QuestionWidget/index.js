@@ -38,6 +38,7 @@ export default function QuestionWidget({ type }) {
         >
           {vertical &&
             <Form.Item
+              className={ComponentStyles.form_row}
               name="name"
             >
               <input
@@ -47,6 +48,7 @@ export default function QuestionWidget({ type }) {
             </Form.Item>}
           {vertical &&
             <Form.Item
+              className={ComponentStyles.form_row}
               name="email"
             >
               <input
@@ -57,6 +59,7 @@ export default function QuestionWidget({ type }) {
           {!vertical &&
             <div>
               <Form.Item
+                className={ComponentStyles.form_row_horz}
                 name="name"
               >
                 <input
@@ -65,6 +68,7 @@ export default function QuestionWidget({ type }) {
                 />
               </Form.Item>
               <Form.Item
+                className={ComponentStyles.form_row_horz}
                 name="email"
               >
                 <input
@@ -75,6 +79,7 @@ export default function QuestionWidget({ type }) {
 
             </div>}
           <Form.Item
+            className={ComponentStyles.form_row_textarea}
             name="question"
           >
             <textarea
