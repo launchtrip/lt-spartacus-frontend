@@ -150,8 +150,8 @@ export default function EventPage({ premier }) {
                 <div className={ComponentStyles.event_page_small_screen_div_two}>
                   <span className="typography_spartacus_eight ">
                     Hybrid
-                  <EventIcon image="/assets/icon-paid.png" width="8px" height="12px" marginLeft="5px" />
-                    <EventIcon image="/assets/icon-inperson.png" width="10px" height="12px" marginLeft="5px" />
+                  <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
+                    <EventIcon image="/assets/icon-inperson.png" width="13px" height="14px" marginLeft="5px" />
                   </span>
                   <span
                     className={`${ComponentStyles.event_page_section_two_event_types} typography_spartacus_three`}
@@ -217,8 +217,8 @@ export default function EventPage({ premier }) {
                 <div className={ComponentStyles.event_page_small_screen_div_two}>
                   <span className="typography_spartacus_eight ">
                     Hybrid
-                  <EventIcon image="/assets/icon-paid.png" width="8px" height="12px" marginLeft="5px" />
-                    <EventIcon image="/assets/icon-inperson.png" width="10px" height="12px" marginLeft="5px" />
+                  <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
+                    <EventIcon image="/assets/icon-inperson.png" width="13px" height="14px" marginLeft="5px" />
                   </span>
                   <span
                     className={`${ComponentStyles.event_page_section_two_event_types} typography_spartacus_three`}
@@ -339,8 +339,8 @@ export default function EventPage({ premier }) {
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
           Hybrid
-          <EventIcon image="/assets/icon-paid.png" width="8px" height="12px" marginLeft="5px" />
-          <EventIcon image="/assets/icon-inperson.png" width="10px" height="12px" marginLeft="5px" />
+          <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
+          <EventIcon image="/assets/icon-inperson.png" width="14px" height="14px" marginLeft="5px" />
         </span>
         <span
           className={`${ComponentStyles.event_page_section_two_event_types} typography_spartacus_three`}
