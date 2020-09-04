@@ -37,25 +37,6 @@ export default function QuestionWidget({ type }) {
           onFinishFailed={onFinishFailed}
         >
           {vertical &&
-          <Form.Item
-            name="name"
-          >
-            <input
-              className={formItem}
-              placeholder="Name"
-            />
-          </Form.Item>}
-          {vertical &&
-          <Form.Item
-            name="email"
-          >
-            <input
-              className={formItem}
-              placeholder="Email"
-            />
-          </Form.Item>}
-          {!vertical &&
-          <div>
             <Form.Item
               name="name"
             >
@@ -63,7 +44,8 @@ export default function QuestionWidget({ type }) {
                 className={formItem}
                 placeholder="Name"
               />
-            </Form.Item>
+            </Form.Item>}
+          {vertical &&
             <Form.Item
               name="email"
             >
@@ -71,13 +53,31 @@ export default function QuestionWidget({ type }) {
                 className={formItem}
                 placeholder="Email"
               />
-            </Form.Item>
+            </Form.Item>}
+          {!vertical &&
+            <div>
+              <Form.Item
+                name="name"
+              >
+                <input
+                  className={formItem}
+                  placeholder="Name"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+              >
+                <input
+                  className={formItem}
+                  placeholder="Email"
+                />
+              </Form.Item>
 
-          </div>}
+            </div>}
           <Form.Item
             name="question"
           >
-            <input
+            <textarea
               placeholder="Your Question or Message"
 
               className={ComponentStyles.form_item_text}
