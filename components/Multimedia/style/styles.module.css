@@ -5,48 +5,19 @@
     margin: 40px 0;
     max-width: 1200px;
 }
-
 .multimedia_container_inner{
+    margin: 40px 0;
+
     display: flex;
     justify-content: space-evenly;
 }
-.media_section_one{
-    width: 100%;
-    margin-top : 20px;
- 
-}
-.media_section_one_plus{
-    margin-top : 20px;
-    width: 48%;
-    border: 1px solid red
-}
-.sec_one_image{
-    width: 100%;
-    object-fit: contain;
-    height: 300px;
-    cursor: pointer;
-}
-.media_section_three{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 48%;
-    margin-top : 20px;
-}
-.sec_three_image{
-    width: 100%;
-    object-fit: cover;
-    max-height: 145px;
-    cursor: pointer;
 
+.multimedia_container_sec_two{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.sec_three_image_plus{
-    width:100%;
-    object-fit: cover;
-    max-height: 145px;
-    cursor: pointer;
-}
+
 .play_button{
     position: absolute;
     font-size: 50px;
@@ -57,24 +28,21 @@
     align-items: center;
     cursor: pointer;
 } 
-
-.media_section_three_top{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between !important;
-    width: 100%;
-    overflow: hidden;
+.multimedia_lightbox div{
+ position: fixed !important;
+ z-index: 2;
 }
-
-.sec_four_image{
-    object-fit: cover;
-    cursor: pointer;
-    height: 145px;
-
-}
-/* @media screen and (max-width: 800px){
+@media screen and (max-width: 800px){
     .multimedia_container_inner{
         flex-direction: column;
+        align-items: center;
     }
-} */
+    .multimedia_container_video{
+      width: 50%;
+    } 
+    .multimedia_container_image{
+      width: 50%;
+    } 
+ 
+}
 
