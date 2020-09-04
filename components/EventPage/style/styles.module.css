@@ -176,7 +176,11 @@
 .event_page_related_events {
     display: flex;
     flex-direction: column;
-    margin: 30px 0;
+    margin: 150px 0 30px;
+}
+
+.event_page_related_events>div:last-child {
+    padding-right: 0;
 }
 
 .event_page_news {
