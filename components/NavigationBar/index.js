@@ -48,16 +48,16 @@ export default function NavgiationBar({ page }) {
             <EventIcon image="/assets/user.png" height="15px" width="15px" marginRight="10px" />
             Hi, Carly
           </span>
-          <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item_disabled}`}>
+          <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item_disabled}`}>
             My Events - <span className={ComponentStyles.mobile_section_user_details_item_unique}>coming soon</span>
           </span>
           <Link href="/account/reset">
-            <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item}`}>
+            <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item}`}>
               Change Password
             </span>
           </Link>
           <Link href="/">
-            <span className={`typography_spartacus_fourteen ${ComponentStyles.mobile_section_user_details_item}`}>
+            <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item}`}>
               Log Out
             </span>
           </Link>
@@ -86,9 +86,9 @@ export default function NavgiationBar({ page }) {
   };
   const socialDisplay = () => (
     <section className={ComponentStyles.mobile_section_social}>
-      <EventIcon image="/assets/twitter.png" width="20px" height="20px" marginRight="5px" />
-      <EventIcon image="/assets/facebook.png" width="20px" height="20px" marginRight="5px" />
-      <EventIcon image="/assets/linkedin.png" width="20px" height="20px" marginRight="5px" />
+      <EventIcon image="/assets/twitter.png" />
+      <EventIcon image="/assets/facebook.png" />
+      <EventIcon image="/assets/linkedin.png" />
     </section>
   );
   return (

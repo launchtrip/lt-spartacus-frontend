@@ -1,38 +1,35 @@
-.question_container{
-    margin: 30px 0 0 0; 
+.question_container {
+    margin: 30px 0 0 0;
 }
-.question_container_horizontal{
-    margin: 30px 0 ; 
+
+.question_container_horizontal {
+    margin: 30px 0;
 }
-.question_conatiner_vertical{
-    margin : 10px 0 30px 0;
+
+.question_conatiner_vertical {
+    margin: 10px 0 30px 0;
 }
-.form_container{
+
+.form_container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 10px;
 }
-.form_container_horizontal{
+
+.form_container_horizontal {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
     margin-top: 10px;
-    background : #F9F9F9;
+    background: #F9F9F9;
     width: 100%;
-    padding: 40px 20px 20px 20px
+    padding: 20px 20px 20px 20px
 }
-.form_item{
-    width: 25vw !important;
-    max-width: 400px;
-    border-radius: 0px !important;
-    border: 1px solid #D6D6D6;
-    padding: 10px 10px;
-    outline: none;
-}
-.form_item_horizontal{
-    width: 20vw !important;
+
+.form_item {
+    width: 24vw !important;
     max-width: 400px;
     border-radius: 0px !important;
     border: 1px solid #D6D6D6;
@@ -40,47 +37,84 @@
     outline: none;
 }
 
-.form_item_text{
-    width: 25vw !important;
+.form_row {
+    margin-bottom: 13px;
+}
+
+.form_row_horz {
+    margin: 13px;
+}
+
+.form_row_textarea {
+    margin: 13px 13px 13px 0;
+}
+
+
+.form_item_horizontal {
+    width: 19vw !important;
+    max-width: 400px;
+    border-radius: 0px !important;
+    border: 1px solid #D6D6D6;
+    padding: 10px 10px;
+    outline: none;
+}
+
+.question_conatiner_vertical .form_row_textarea {
+    margin: 0 0 15px 0;
+}
+
+.form_item_text {
+    width: 24vw !important;
     max-width: 400px;
     padding: 10px 10px;
-    height: 110px;
+    height: 101px;
     border-radius: 0px !important;
     border: 1px solid #D6D6D6;
     display: flex;
     justify-content: flex-start;
     outline: none;
 }
-.button{
+
+.button {
     align-self: center;
 }
-@media screen and (max-width: 1030px){
-    .form_item{
-        width: 30vw !important;
-    }
-    .form_item_text{
+
+@media screen and (max-width: 1030px) {
+    .form_item {
         width: 30vw !important;
     }
 
+    .form_item_text {
+        width: 30vw !important;
+    }
+
+    .form_item_horizontal {
+        width: 28vw !important;
+    }
+
 }
-@media screen and (max-width: 800px){
-    .form_item{
+
+@media screen and (max-width: 800px) {
+    .form_item {
         width: 45vw !important;
     }
-    .form_item_text{
+
+    .form_item_text {
         width: 45vw !important;
     }
-    .form_container_horizontal{
+
+    .form_container_horizontal {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: space-around;
         margin-top: 10px;
-        background : #F9F9F9;
+        background: #F9F9F9;
         width: 100%;
         padding: 40px 20px 20px 20px
     }
-    .form_item_horizontal{
+
+    .form_item_horizontal {
         width: 45vw !important;
         max-width: 400px;
         border-radius: 0px !important;
@@ -89,48 +123,67 @@
         outline: none;
     }
 
+    .form_row_textarea {
+        margin: 0px 0 20px 0;
+    }
+
 }
-@media screen and (max-width: 600px){
-    .modal_container{
+
+@media screen and (max-width: 600px) {
+    .modal_container {
 
         width: 100%;
     }
-    .form_item{
+
+    .form_item {
         width: 350px !important;
     }
-    .form_item_horizontal{
+
+    .form_item_horizontal {
         width: 350px !important;
     }
-    .form_item_text{
-        width: 350px!important;
+
+    .form_item_text {
+        width: 350px !important;
     }
+
 }
-@media screen and (max-width: 450px){
-    .form_item{
+
+@media screen and (max-width: 450px) {
+    .form_item {
         width: 300px !important;
-    
+
     }
-    .form_item_select{
+
+    .form_item_select {
         width: 300px !important;
-  
-        
+
+
     }
-    .form_item_text{
+
+    .form_item_horizontal {
+        width: 300px !important;
+    }
+
+    .form_item_text {
         width: 300px !important;
 
     }
 }
-@media screen and (max-width: 320px){
-    .form_item{
+
+@media screen and (max-width: 320px) {
+    .form_item {
         width: 260px !important;
-    
+
     }
-    .form_item_select{
+
+    .form_item_select {
         width: 260px !important;
-  
-        
+
+
     }
-    .form_item_text{
+
+    .form_item_text {
         width: 260px !important;
 
     }

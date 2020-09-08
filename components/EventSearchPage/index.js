@@ -99,7 +99,7 @@ export default function EventSearchPage() {
           <RangePicker
             className={ComponentStyles.event_date_picker}
             suffixIcon={<EventIcon image="/assets/calendar.png" width="16px" height="16px" />}
-            // placeholder={['Select a Date Range', 'Date Range']}
+          // placeholder={['Select a Date Range', 'Date Range']}
           />
         </section>
         <section className={ComponentStyles.event_search_monthly_result}>

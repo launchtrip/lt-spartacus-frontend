@@ -37,47 +37,52 @@ export default function QuestionWidget({ type }) {
           onFinishFailed={onFinishFailed}
         >
           {vertical &&
-          <Form.Item
-            name="name"
-          >
-            <input
-              className={formItem}
-              placeholder="Name"
-            />
-          </Form.Item>}
-          {vertical &&
-          <Form.Item
-            name="email"
-          >
-            <input
-              className={formItem}
-              placeholder="Email"
-            />
-          </Form.Item>}
-          {!vertical &&
-          <div>
             <Form.Item
+              className={ComponentStyles.form_row}
               name="name"
             >
               <input
                 className={formItem}
                 placeholder="Name"
               />
-            </Form.Item>
+            </Form.Item>}
+          {vertical &&
             <Form.Item
+              className={ComponentStyles.form_row}
               name="email"
             >
               <input
                 className={formItem}
                 placeholder="Email"
               />
-            </Form.Item>
+            </Form.Item>}
+          {!vertical &&
+            <div>
+              <Form.Item
+                className={ComponentStyles.form_row_horz}
+                name="name"
+              >
+                <input
+                  className={formItem}
+                  placeholder="Name"
+                />
+              </Form.Item>
+              <Form.Item
+                className={ComponentStyles.form_row_horz}
+                name="email"
+              >
+                <input
+                  className={formItem}
+                  placeholder="Email"
+                />
+              </Form.Item>
 
-          </div>}
+            </div>}
           <Form.Item
+            className={ComponentStyles.form_row_textarea}
             name="question"
           >
-            <input
+            <textarea
               placeholder="Your Question or Message"
 
               className={ComponentStyles.form_item_text}

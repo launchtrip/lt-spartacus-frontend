@@ -63,12 +63,13 @@
 @media screen and (max-width: 600px) {
     .carousel_container_arrow_right {
         cursor: pointer;
-        width: 20px;
+        width: 15px;
         margin-left: -10px;
     }
 
     .carousel_container_arrow_left {
         cursor: pointer;
+        width: 15px;
         margin-left: 15px;
 
     }
