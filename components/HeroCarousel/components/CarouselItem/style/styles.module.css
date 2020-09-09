@@ -4,6 +4,7 @@
     align-content: center;
 }
 
+
 .carousel_card_container_inner {
     display: flex;
     width: 90%;
@@ -12,18 +13,29 @@
     height: 25vw
 }
 
-.carousel_card_item_one {
+
+ .carousel_card_item_one_link {
+    width: 55%;
+    cursor: pointer;
+    height: inherit;
+}
+ .carousel_card_item_one {
     background-position: center;
     background-size: cover;
-    width: 55%;
-    height: inherit;
     border: 6px solid #fff;
+    height: inherit;
+
 }
 
+.carousel_card_item_two_link{
+    cursor: pointer;
+    width: 45%;
+    height: inherit;
+}
 .carousel_card_item_two {
     background-position: center;
     background-size: cover;
-    width: 45%;
-    height: inherit;
     border: 6px solid #fff;
+    height: inherit;
+
 }

@@ -8,3 +8,9 @@ export default function Events() {
     </BaseContainer>
   );
 }
+
+export const getServerSideProps = async (props) => {
+  console.log(props.query);
+  console.log(props.params);
+  return { props: { hey: 'ho' } };
+};

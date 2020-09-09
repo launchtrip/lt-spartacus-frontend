@@ -73,7 +73,7 @@ export default function EventPage({ premier }) {
                 will uncover many web sites still in their infancy. Various versions have evolved over the
                 years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
-            </p>
+              </p>
               <span
                 onClick={() => setExpandText(!expandText)}
                 className={showMoreClass}
@@ -99,9 +99,9 @@ export default function EventPage({ premier }) {
 
             </p>}
 
-          <span className={`typography_spartacus_eight ${ComponentStyles.event_page_glance_section}`}>
+          <section className={`typography_spartacus_eight ${ComponentStyles.event_page_glance_section}`}>
             At a Glance  <hr className={ComponentStyles.event_page_glance_divider} />
-          </span>
+          </section>
           <section className={ComponentStyles.event_page_glance_details_container}>
             <span className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}>Size <br />
               <span className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}>20,000+ Attendees</span>
@@ -150,39 +150,39 @@ export default function EventPage({ premier }) {
                 <div className={ComponentStyles.event_page_small_screen_div_two}>
                   <span className="typography_spartacus_eight ">
                     Hybrid
-                  <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
+                    <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
                     <EventIcon image="/assets/icon-inperson.png" width="13px" height="14px" marginLeft="5px" />
                   </span>
                   <span
                     className={`${ComponentStyles.event_page_section_two_event_types} typography_spartacus_three`}
                   >
                     This event has both
-                  <span
+                    <span
                       className="typography_spartacus_three_bold"
                     > In Person
-                  </span> and <span className="typography_spartacus_three_bold">Virtual</span> options
-                </span>
+                    </span> and <span className="typography_spartacus_three_bold">Virtual</span> options
+                  </span>
                   <span
                     className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
                   >October 5-9, 2020
-                </span>
+                  </span>
                   <span
                     className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
                   >Los Angeles, CA
-                </span>
+                  </span>
                   <button
                     onClick={() => updateTicketsModal(true)}
                     type="button"
                     className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
                   >Get Tickets
-                </button>
+                  </button>
                   <hr className={ComponentStyles.event_page_section_two_divider} />
                   <button
                     onClick={() => updateSpeakerModal(true)}
                     type="button"
                     className={`button_lg_styled_light ${ComponentStyles.event_page_section_two_button}`}
                   >Become a Sponsor/Speaker
-                </button>
+                  </button>
                   {social('center')}
                 </div>
               </section>
@@ -217,39 +217,39 @@ export default function EventPage({ premier }) {
                 <div className={ComponentStyles.event_page_small_screen_div_two}>
                   <span className="typography_spartacus_eight ">
                     Hybrid
-                  <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
+                    <EventIcon image="/assets/icon-paid.png" width="8px" height="16px" marginLeft="5px" />
                     <EventIcon image="/assets/icon-inperson.png" width="13px" height="14px" marginLeft="5px" />
                   </span>
                   <span
                     className={`${ComponentStyles.event_page_section_two_event_types} typography_spartacus_three`}
                   >
                     This event has both
-                  <span
+                    <span
                       className="typography_spartacus_three_bold"
                     > In Person
-                  </span> and <span className="typography_spartacus_three_bold">Virtual</span> options
-                </span>
+                    </span> and <span className="typography_spartacus_three_bold">Virtual</span> options
+                  </span>
                   <span
                     className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
                   >October 5-9, 2020
-                </span>
+                  </span>
                   <span
                     className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
                   >Los Angeles, CA
-                </span>
+                  </span>
                   <button
                     onClick={() => updateTicketsModal(true)}
                     type="button"
                     className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
                   >Request Discount Tickets
-                </button>
+                  </button>
                   <hr className={ComponentStyles.event_page_section_two_divider} />
                   <button
                     onClick={() => updateSpeakerModal(true)}
                     type="button"
                     className={`button_lg_styled_light ${ComponentStyles.event_page_section_two_button}`}
                   >Become a Sponsor/Speaker
-                </button>
+                  </button>
                 </div>
               </section>
               <hr className={ComponentStyles.event_page_glance_bottom} />
@@ -281,7 +281,7 @@ export default function EventPage({ premier }) {
                     <p key={t} className={`${ComponentStyles.event_page_testemonial}`}>
                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
                       nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                    <p>- Jane Doe</p>
+                      <p>- Jane Doe</p>
                     </p>
                   )}
                 </div>
@@ -362,14 +362,14 @@ export default function EventPage({ premier }) {
             type="button"
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
           >Request Discount Tickets
-        </button>}
+          </button>}
         {type &&
           <button
             onClick={() => updateTicketsModal(true)}
             type="button"
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
           >Get Tickets
-        </button>}
+          </button>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button
           onClick={() => updateSpeakerModal(true)}
