@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import SpeakerCard from '../SpeakerCard';
 import ComponentStyles from './style/styles.module.css';
 
-export default function SpeakerCarousel({ title, hideEventTitle }) {
+export default function SpeakerCarousel({ title, hideEventTitle, speakers }) {
   const titleClass = `typography_spartacus_eight ${ComponentStyles.title}`;
   function NextArrow(props) {
     const { className, style, onClick } = props;
@@ -81,12 +81,7 @@ export default function SpeakerCarousel({ title, hideEventTitle }) {
       <span className={titleClass}>{title}</span>
       <div className={ComponentStyles.carousel_container}>
         <Slider {...settings}>
-          <SpeakerCard hideEventTitle={hideEventTitle} />
-          <SpeakerCard hideEventTitle={hideEventTitle} />
-          <SpeakerCard hideEventTitle={hideEventTitle} />
-          <SpeakerCard hideEventTitle={hideEventTitle} />
-          <SpeakerCard hideEventTitle={hideEventTitle} />
-
+          {speakers && speakers.map((speaker) => <SpeakerCard hideEventTitle={hideEventTitle} data={speaker} key={speaker.id} />)}
         </Slider>
       </div>
       <div />

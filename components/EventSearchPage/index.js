@@ -50,7 +50,10 @@ const searchResult = query =>
       };
     });
 
-export default function EventSearchPage() {
+export default function EventSearchPage({ data }) {
+  if (!data) {
+    return <p>no data</p>;
+  }
   const [options, setOptions] = useState([]);
 
   const handleSearch = value => {

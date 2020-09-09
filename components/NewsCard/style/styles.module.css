@@ -39,7 +39,11 @@
 }
 
 .news_item {
-    margin-bottom: 3px
+    margin-bottom: 3px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .news_hr {

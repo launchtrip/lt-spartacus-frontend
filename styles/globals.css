@@ -20,6 +20,13 @@ a {
   display: flex;
   flex-direction: column;
 }
+.home_sec_base_container_error{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 400px
+}
 
 hr {
   height: 1px;
@@ -27,6 +34,9 @@ hr {
   border-color: #F0F0F0;
   border-style: solid;
   border-width: 0 0 1px 0;
+}
+.slick-cloned{
+  display: none !important;
 }
 @media screen and (max-width: 820px){
   .home_sec_search{

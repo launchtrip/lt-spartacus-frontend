@@ -52,6 +52,13 @@
     font-family: AvenirNext;
     color: #363636;
 }
+.typography_spartacus_four_italic{
+    font-size: 15px;
+    line-height: 20px;
+    font-family: AvenirNext;
+    font-style: italic;
+    color: #A6A6A6;
+}
 
 .typography_spartacus_four_bold {
     font-size: 15px;

@@ -2,8 +2,9 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import ComponentStyles from './style/styles.module.css';
 import { CarouselItem, CarouselItemMobile } from './components';
+import { split } from '../helperFunctions';
 
-export default function HeroCarousel() {
+export default function HeroCarousel({ data }) {
   const rightArrow = () => (
     <img src="/assets/rightarrow.png" alt="" className={ComponentStyles.carousel_container_arrow_right} />
 
@@ -28,7 +29,7 @@ export default function HeroCarousel() {
       items: 1
     }
   };
-
+  const webData = split(data, 2);
   return (
     <div className="home_sec_hero">
       <div className={ComponentStyles.carousel_container}>
@@ -53,9 +54,7 @@ export default function HeroCarousel() {
           slidesToSlide={1}
           className={ComponentStyles.carousel_web}
         >
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+          {webData.map((d) => <CarouselItem key={Math.random()} data={d} />)}
         </Carousel>
 
       </div>
@@ -80,11 +79,7 @@ export default function HeroCarousel() {
           slidesToSlide={1}
           className={ComponentStyles.carousel_mobile}
         >
-          <CarouselItemMobile />
-          <CarouselItemMobile />
-          <CarouselItemMobile />
-          <CarouselItemMobile />
-
+          {data && data.map((d) => <CarouselItemMobile key={d.id} data={d} />)}
         </Carousel>
       </div>
     </div>

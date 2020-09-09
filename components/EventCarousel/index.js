@@ -7,7 +7,7 @@ import EventCard from '../EventCarouselCard';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
 
-export default function EventCarousel({ title, eventPage }) {
+export default function EventCarousel({ title, eventPage, data }) {
   function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -85,12 +85,7 @@ export default function EventCarousel({ title, eventPage }) {
       <span className={titleClass}>{title}</span>
       <div className={ComponentStyles.carousel_container}>
         <Slider {...settings}>
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-
+          {data && data.map((event) => <EventCard key={event.id} data={event} />)}
         </Slider>
       </div>
 

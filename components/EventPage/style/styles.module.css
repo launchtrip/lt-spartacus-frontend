@@ -78,7 +78,7 @@
 }
 
 .event_page_glance_section {
-    margin-top: 25px;
+    margin-top: 25px !important;
     display: flex;
     align-items: flex-end;
     white-space: nowrap;
@@ -299,7 +299,7 @@
     }
 
     .event_page_glance_details_container {
-        margin: 20px 0;
+        margin: 20px 0 !important;
         display: flex;
         justify-content: space-around;
         width: 100%
