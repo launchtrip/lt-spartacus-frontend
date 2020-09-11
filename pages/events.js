@@ -102,6 +102,6 @@ export const getServerSideProps = async () => {
     const results = organizeEventsByMonth(events);
     return { props: { data: results } };
   } catch (error) {
-    return { props: { data: undefined } };
+    return { props: { data: null } };
   }
 };
