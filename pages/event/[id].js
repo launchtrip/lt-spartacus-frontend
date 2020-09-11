@@ -9,8 +9,8 @@ export default function Events() {
   );
 }
 
-export const getServerSideProps = async (props) => {
-  console.log(props.query);
-  console.log(props.params);
-  return { props: { hey: 'ho' } };
-};
+// export const getServerSideProps = async (props) => {
+//   console.log(props.query);
+//   console.log(props.params);
+//   return { props: { hey: 'ho' } };
+// };
