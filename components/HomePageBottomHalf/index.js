@@ -50,7 +50,7 @@ export default function HomePageBottomHalf({ articles, events, speakers }) {
                 <section className={ComponentStyles.upcoming_event_card_container}>
                   {events && events.map((event) => {
                     if (allMonths[new Date(event.dateStart).getMonth()] === i) {
-                      return <EventCard showLine event={event} />;
+                      return <EventCard showLine event={event} showDate />;
                     }
                   })}
                 </section>

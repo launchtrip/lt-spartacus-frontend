@@ -11,7 +11,6 @@ function getRandomInt(max, min = 0) {
 }
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 const searchResult = query => {
-  console.log(query);
   if (query[0].total === 0 && query[1].total === 0) {
     return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
   }
