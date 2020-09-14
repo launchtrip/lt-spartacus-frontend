@@ -5,7 +5,7 @@ import ComponentStyles from './style/styles.module.css';
 import { countdownInDays, renderIcon } from '../helperFunctions';
 
 export default function EventCard({ data }) {
-  const pathname = `/event/${data.name.split(' ').join('-')}`;
+  const pathname = `/event/${data.name.split(' ').join('-')}-id-${data.id}`;
   return (
     <Link
       href={{ pathname }}
@@ -13,7 +13,7 @@ export default function EventCard({ data }) {
       <div className={ComponentStyles.card_container}>
         <section className={ComponentStyles.card_container_section_one}>
           <img
-            src={data.logo}
+            src={data.logo.url ? data.logo.url : data.logo}
             alt=""
             className={ComponentStyles.card_container_section_one_image}
           />
