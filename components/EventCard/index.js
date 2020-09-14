@@ -9,7 +9,7 @@ export default function EventCard({ showLine, event, showDate }) {
   const startDay = moment(event.dateStart).date();
   const endDay = moment(event.dateEnd).date();
   const year = moment(event.dateEnd).year();
-  const pathname = `/event/${event.name.split(' ').join('-')}`;
+  const pathname = `/event/${event.name.split(' ').join('-')}-id-${event.id}`;
 
   const renderSubs = () => {
     const selectSubs = event.subindustries ? event.subindustries : event.subindustry;

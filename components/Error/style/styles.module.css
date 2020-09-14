@@ -1,0 +1,12 @@
+.error_contaner{
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    justify-content: center;
+    flex-direction: column;
+}
+#error_item{
+    margin-bottom: 10px;
+    max-width: 320px;
+    text-align: center;
+}

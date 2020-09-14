@@ -7,7 +7,7 @@ import EventCard from '../EventCarouselCard';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
 
-export default function EventCarousel({ title, eventPage, data }) {
+export default function EventCarousel({ title, eventPage, data, isLast }) {
   function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -97,7 +97,7 @@ export default function EventCarousel({ title, eventPage, data }) {
           </span>
         </Link>}
 
-      <hr className={ComponentStyles.event_carousel_breakline_bottom} />
+      {!isLast && <hr className={ComponentStyles.event_carousel_breakline_bottom} />}
     </div>
   );
 }
