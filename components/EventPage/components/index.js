@@ -9,6 +9,7 @@ import TwitterMobile from './twitterMobile';
 import PremierNews from './premierNews';
 import RegularNews from './regularNews';
 import TwitterWeb from './twitterWeb';
+import Social from './social';
 
 export {
   Description,
@@ -18,6 +19,7 @@ export {
   PremierNews,
   RegularNews,
   RelatedEvents,
+  Social,
   Speaker,
   Testemonials,
   TwitterMobile,
