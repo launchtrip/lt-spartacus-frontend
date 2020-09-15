@@ -8,7 +8,7 @@ import { FetchSearchRequest } from '../../pages/api/Routes';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 const createUrl = (description, id) => `/event/${description.split(' ').join('-')}-id-${id}`;
-const searchResult = (query, updateSearchFunction) => {
+const searchResult = (query, updateSearchFunction, updateSearch) => {
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
 
@@ -39,7 +39,10 @@ const searchResult = (query, updateSearchFunction) => {
             <span
               key={ind.id}
               className="typography_spartacus_one"
-              onClick={() => updateSearchFunction(ind.id)}
+              onClick={() => {
+                updateSearchFunction(ind.id);
+                updateSearch(ind.description);
+              }}
             >{ind.description}
             </span>)}
         </section>
@@ -78,7 +81,7 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
       updateSearch(value);
       const res = await FetchSearchRequest(value);
       console.log(res);
-      setOptions(value ? searchResult(res, updateSearchFunction) : []);
+      setOptions(value ? searchResult(res, updateSearchFunction, updateSearch) : []);
     } catch (error) {
       console.log(error);
     }

@@ -28,7 +28,6 @@ export default function Events({ data }) {
     if (companyIndustryOrEvent) {
       search[companyIndustryOrEvent.type] = companyIndustryOrEvent.id;
     }
-    console.log(search);
     try {
       const newEventPageData = await FetchAllEvents(search);
       const { length } = newEventPageData;

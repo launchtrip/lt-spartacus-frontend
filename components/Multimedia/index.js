@@ -8,7 +8,6 @@ export default function Multimedia({ data }) {
   const [state, setState] = useState(false);
   const [slide, setSlide] = useState(1);
   const [vid, setVideo] = useState(false);
-
   const setSlideAndOpen = (num) => {
     setSlide(num);
     setState(true);

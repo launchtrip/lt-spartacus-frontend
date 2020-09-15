@@ -21,10 +21,9 @@ export default function Events({ data }) {
       </BaseContainer>
     );
   }
-  console.log(data);
   return (
     <BaseContainer page="Bob Dylan">
-      <EventPage premier />
+      <EventPage premier={data.premier} event={data} />
     </BaseContainer>
   );
 }
@@ -36,7 +35,6 @@ export const getServerSideProps = async (props) => {
   }
   try {
     const event = await FetchIndividualEvent(id);
-    console.log(event);
     return { props: { data: event } };
   } catch (error) {
     return { props: { data: null } };

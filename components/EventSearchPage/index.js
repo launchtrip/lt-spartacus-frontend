@@ -14,7 +14,7 @@ import Error from '../Error';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 // const createUrl = (description) => `/event/${description.split(' ').join('-')}`;
-const searchResult = (query, SetCompanyIndustryOrEvent) => {
+const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
   const company = query.find((q) => q.type === 'Company');
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
@@ -47,7 +47,10 @@ const searchResult = (query, SetCompanyIndustryOrEvent) => {
                 <span
                   key={c.id}
                   className="typography_spartacus_one"
-                  onClick={() => SetCompanyIndustryOrEvent({ id: c.id, type: 'company' })}
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'company' });
+                    updateSearch(c.description);
+                  }}
                 >{c.description}
                 </span>)}
             </section>
@@ -69,7 +72,10 @@ const searchResult = (query, SetCompanyIndustryOrEvent) => {
                 <span
                   key={c.id}
                   className="typography_spartacus_one"
-                  onClick={() => SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' })}
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
+                    updateSearch(c.description);
+                  }}
                 >{c.description}
                 </span>)}
             </section>
@@ -91,7 +97,10 @@ const searchResult = (query, SetCompanyIndustryOrEvent) => {
                 <span
                   key={c.id}
                   className="typography_spartacus_one"
-                  onClick={() => SetCompanyIndustryOrEvent({ id: c.id, type: 'event' })}
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'event' });
+                    updateSearch(c.description);
+                  }}
                 >{c.description}
                 </span>)}
             </section>
@@ -120,7 +129,7 @@ export default function EventSearchPage({ data, methods }) {
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
-      setOptions(value ? searchResult(res, SetCompanyIndustryOrEvent) : []);
+      setOptions(value ? searchResult(res, SetCompanyIndustryOrEvent, updateSearch) : []);
     } catch (error) {
       console.log(error);
     }
