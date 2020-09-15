@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import ComponentStyles from './style/styles.module.css';
-import EventIcon from '../EventIcon';
 import DynamicModal from '../DynamicModal';
 import Multimedia from '../Multimedia';
 import QuestionWidget from '../QuestionWidget';
 import { renderIcon } from '../helperFunctions';
 import {
   Description,
-  Glance, Speaker,
+  Glance,
+  Speaker,
   MobilePremier,
   MobileRegular,
   PremierNews,
   RegularNews,
   RelatedEvents,
+  Social,
   Testemonials,
   TwitterMobile,
   TwitterWeb
@@ -26,15 +27,6 @@ export default function EventPage({ premier, event }) {
   const startDay = moment(event.dateStart).date();
   const endDay = moment(event.dateEnd).date();
   const year = moment(event.dateEnd).year();
-  console.log('>>>>>>', event);
-  const social = (display) => (
-    <div className={ComponentStyles.event_page_social_container} style={{ justifyContent: display }}>
-      <span className="typography_spartacus_eight_light">Share:</span>
-      <EventIcon image="/assets/twitter.png" width="30px" height="30px" marginLeft="10px" marginRight="7px" />
-      <EventIcon image="/assets/facebook.png" width="30px" height="30px" marginRight="7px" />
-      <EventIcon image="/assets/linkedin.png" width="30px" height="30px" marginRight="7px" />
-    </div>
-  );
 
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
@@ -112,7 +104,6 @@ export default function EventPage({ premier, event }) {
             renderDates={renderDates}
             renderLocation={renderLocation}
             renderViewingOptions={renderViewingOptions}
-            social={social}
             updateSpeakerModal={updateSpeakerModal}
             updateTicketsModal={updateTicketsModal}
           />}
@@ -147,7 +138,7 @@ export default function EventPage({ premier, event }) {
             <>
               <QuestionWidget type="horizontal" />
               <hr />
-              {social('start')}
+              <Social event={event} display="start" />
             </>}
         </section>
       </section>
@@ -190,7 +181,7 @@ export default function EventPage({ premier, event }) {
         <hr className={ComponentStyles.event_page_section_two_divider} />
         {premier &&
           <>
-            {social('center')}
+            <Social event={event} display="center" />
             <hr className={ComponentStyles.event_page_section_two_divider} />
           </>}
 
