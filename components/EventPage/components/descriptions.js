@@ -9,8 +9,10 @@ export default function Description({ premier, event }) {
 
   return (
     premier ?
-      <p>
-        <p className={`${paragraphClass} typography_spartacus_four`}>
+      <section>
+        <p
+          className={`${paragraphClass} typography_spartacus_four`}
+        >
           {event.description}
         </p>
         <span
@@ -19,7 +21,7 @@ export default function Description({ premier, event }) {
         >{expandText ? 'Show Less' : 'Read More'}
         </span>
 
-      </p>
+      </section>
       :
       <>
         <p className={`${ComponentStyles.event_page_description_expanded} typography_spartacus_four`}>

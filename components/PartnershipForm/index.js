@@ -178,7 +178,7 @@ export default function PartnershipForm() {
               </Form.Item>
 
               <Form.Item className={ComponentStyles.button}>
-                <button type="primary" htmlType="submit" className="button_lg_styled">
+                <button type="primary" htmltype="submit" className="button_lg_styled">
                   Submit
                 </button>
               </Form.Item>

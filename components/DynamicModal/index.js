@@ -20,7 +20,7 @@ export default function DynamicModal({ updateModal, modal, type, width }) {
   };
   const renderBody = (txt) => {
     const templates = {
-      signIn: <SignIn setState={setState} />,
+      signIn: <SignIn setState={setState} updateModal={updateModal} />,
       retrieve: <RetrievePassword
         setState={setState}
         setNote={setNote}

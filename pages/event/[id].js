@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { BaseContainer, EventPage, Error } from '../../components';
-import { FetchIndividualEvent } from '../api/Routes';
+import { FetchIndividualEvent } from '../api/Routes/Events';
 
 export default function Events({ data }) {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function Events({ data }) {
     );
   }
   return (
-    <BaseContainer page="Bob Dylan">
+    <BaseContainer page={data.name}>
       <EventPage premier={data.premier} event={data} />
     </BaseContainer>
   );

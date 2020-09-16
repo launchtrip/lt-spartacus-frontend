@@ -10,7 +10,7 @@ import {
   Error
 } from '../components';
 
-import { FetchHomePageData, FetchHomePageDataById } from './api/Routes';
+import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
 
 export default function Home({ data }) {
   const [homePageData, setHomePageData] = useState(data);
@@ -23,6 +23,7 @@ export default function Home({ data }) {
       setSearchError(undefined);
       setHomePageData(newHomePageData);
     } catch (error) {
+      setHomePageData(undefined);
       // need to updatr this to set error if error exists or happens
       console.log(error);
     }

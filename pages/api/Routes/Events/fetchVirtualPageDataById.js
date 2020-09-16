@@ -1,4 +1,4 @@
-import { axiosClient } from '../client';
+import { axiosClient } from '../../client';
 
 export default async function FetchVirtualPageDataById(id) {
   const url = `/events/filter/virtual?industry=${id}`;

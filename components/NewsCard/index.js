@@ -3,13 +3,9 @@ import ComponentStyles from './style/styles.module.css';
 import { countdownInDays } from '../helperFunctions';
 
 export default function NewsCard({ alternate, line, withImage, article }) {
-  if (!article) {
-    return <p>no article</p>;
-  }
   const date = article.date ? article.date : article.updated_at;
   const mainContainer = withImage ? ComponentStyles.news_container_with_image : ComponentStyles.news_container;
   const titleClass = withImage ? `typography_spartacus_nineteen ${ComponentStyles.news_title}` : 'typography_spartacus_one_demi_bold';
-  console.log(article);
   const renderSubs = () => {
     const subs = article.subindustries && article.subindustries.map((sub, i) => {
       const { length } = article.subindustries;

@@ -1,34 +1,28 @@
 /* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
-import { Form, Alert } from 'antd';
+import React, { useState, useContext } from 'react';
+import { Form } from 'antd';
 import { useRouter } from 'next/router';
 import ComponentStyles from './style/styles.module.css';
-import { ResetPassword as ResetPasswordCall } from '../../pages/api/Routes/User';
+import Context from '../../providers/userContext';
 
-export default function ResetPassword({ token }) {
+export default function ChangePassword() {
   const [submit, updateSubmit] = useState(false);
-  const [error, setError] = useState(false);
+  const { updatePassword } = useContext(Context);
   const Router = useRouter();
+
   const layout = {
     labelCol: {
       span: 8,
     }
   };
-  const onFinish = async values => {
-    try {
-      await ResetPasswordCall(values, token);
-      updateSubmit(true);
-      setTimeout(() => {
-        Router.push('/');
-      }, 5000);
-    } catch (err) {
-      setError(true);
-      setTimeout(() => {
-        setError(false);
-      }, 5000);
-    }
+  const onFinish = values => {
+    updatePassword(values.password);
+    updateSubmit(true);
+    setTimeout(() => {
+      Router.push('/');
+    }, 5000);
   };
 
   const onFinishFailed = errorInfo => {
@@ -38,8 +32,7 @@ export default function ResetPassword({ token }) {
     <div className={ComponentStyles.reset_container}>
       {!submit ?
         <div className={ComponentStyles.reset_containe_inner}>
-          <span className="typography_spartacus_sixteen">Reset Password</span>
-          {error && <Alert showIcon type="error" message="unable to reset password right now! " />}
+          <span className="typography_spartacus_sixteen">Change Password</span>
           <Form
             {...layout}
             name="basic"
@@ -68,7 +61,7 @@ export default function ResetPassword({ token }) {
             </Form.Item>
 
             <Form.Item
-              name="passwordConfirmation"
+              name="confirm"
               dependencies={['password']}
               hasFeedback
               rules={[
@@ -94,7 +87,7 @@ export default function ResetPassword({ token }) {
             </Form.Item>
             <Form.Item className={ComponentStyles.button}>
               <button type="primary" htmltype="submit" className="button_lg_styled">
-                Reset Password
+                Change Password
               </button>
             </Form.Item>
           </Form>

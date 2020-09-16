@@ -1,18 +1,33 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'antd';
 import Link from 'next/link';
 import ComponentStyles from './styles.module.css';
+import firebaseClient from '../../../services/firebaseClient';
+import Error from './error';
 
-export default function SignIn({ setState }) {
+export default function SignIn({ setState, updateModal }) {
+  const [error, setError] = useState('');
   const layout = {
     labelCol: {
       span: 8,
     }
   };
-  const onFinish = values => {
-    console.log('Success:', values);
+  const onFinish = async values => {
+    try {
+      await firebaseClient.auth().signInWithEmailAndPassword(values.email, values.password);
+      firebaseClient.auth().onAuthStateChanged(async user => {
+        if (user) {
+          updateModal(false);
+        }
+      });
+    } catch (err) {
+      setError(err.message);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -32,6 +47,7 @@ export default function SignIn({ setState }) {
             </span>
           </Link> for free if you dont have an account!
         </span>
+        {error && <Error message={error} />}
         <Form
           {...layout}
           name="basic"
@@ -72,7 +88,7 @@ export default function SignIn({ setState }) {
             />
           </Form.Item>
           <Form.Item className={ComponentStyles.button}>
-            <button type="primary" htmlType="submit" className="button_lg_styled">
+            <button type="primary" htmltype="submit" className="button_lg_styled">
               Sign In
             </button>
           </Form.Item>

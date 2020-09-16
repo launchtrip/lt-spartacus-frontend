@@ -13,5 +13,5 @@ export {
   FetchIndividualEvent,
   FetchSearchRequest,
   FetchVirtualEventPageData,
-  FetchVirtualPageDataById
+  FetchVirtualPageDataById,
 };

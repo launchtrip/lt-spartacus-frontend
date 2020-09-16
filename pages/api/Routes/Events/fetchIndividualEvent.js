@@ -1,4 +1,4 @@
-import { axiosClient } from '../client';
+import { axiosClient } from '../../client';
 
 export default async function FetchIndividualEvent(id) {
   const url = `/events/${id}`;

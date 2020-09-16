@@ -3,11 +3,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-import { Form, Select, Checkbox } from 'antd';
+import { Form, Select, Checkbox, Alert } from 'antd';
 import ComponentStyles from './style/styles.module.css';
+import { SignUp as SignUpUser } from '../../pages/api/Routes/User';
 
 export default function SignUp() {
   const [submit, updateSubmit] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { Option } = Select;
 
   const layout = {
@@ -16,9 +19,26 @@ export default function SignUp() {
     }
   };
 
-  const onFinish = values => {
-    updateSubmit(true);
-    console.log('Success:', values);
+  const onFinish = async values => {
+    setLoading(true);
+    const name = `${values.name}-${values.email}`;
+    const data = { ...values, username: name };
+    delete data.name;
+    delete data.confirm;
+    if (!values.newsOptIn) {
+      data.newsOptIn = false;
+    }
+    try {
+      await SignUpUser(data);
+      updateSubmit(true);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError('error trying to sign you up');
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -164,12 +184,17 @@ export default function SignUp() {
 
                 />
               </Form.Item>
-              <Form.Item valuePropName="checked">
+              <Form.Item valuePropName="checked" name="newsOptIn">
                 <Checkbox>Send me emails about news and discounts</Checkbox>
               </Form.Item>
 
               <Form.Item className={ComponentStyles.button}>
-                <button type="primary" htmlType="submit" className="button_lg_styled">
+                <button
+                  disabled={loading}
+                  type="primary"
+                  htmltype="submit"
+                  className="button_lg_styled"
+                >
                   Submit
                 </button>
               </Form.Item>
@@ -183,6 +208,7 @@ export default function SignUp() {
               <li>Sales Events</li>
               <li>Import Notifications and More!</li>
             </ul>
+            {error && <Alert message={error} type="error" showIcon />}
           </section>
 
         </div>

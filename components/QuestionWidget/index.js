@@ -90,7 +90,7 @@ export default function QuestionWidget({ type }) {
           </Form.Item>
 
           <Form.Item className={ComponentStyles.button}>
-            <button type="primary" htmlType="submit" className={vertical ? 'button_lg_styled' : 'button_lg_styled_filled'}>
+            <button type="primary" htmltype="submit" className={vertical ? 'button_lg_styled' : 'button_lg_styled_filled'}>
               Submit
             </button>
           </Form.Item>

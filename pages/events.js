@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import { BaseContainer, EventSearchPage, Error } from '../components';
-import { FetchAllEvents } from './api/Routes';
+import { FetchAllEvents } from './api/Routes/Events';
 import { organizeEventsByMonth } from '../components/helperFunctions';
 
 export default function Events({ data }) {
@@ -44,6 +44,7 @@ export default function Events({ data }) {
       const results = organizeEventsByMonth(newEventPageData);
       setEventPageData(results);
     } catch (error) {
+      setEventPageData(undefined);
       // need to updatr this to set error if error exists or happens
       console.log(error);
     }

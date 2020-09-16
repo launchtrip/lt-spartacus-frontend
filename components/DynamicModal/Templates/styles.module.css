@@ -60,6 +60,9 @@
     text-align: center;
     padding-top: 30px;
 }
+.modal__error_container{
+    margin: 20px 0;
+}
 @media screen and (max-width: 600px){
     .modal_container{
 

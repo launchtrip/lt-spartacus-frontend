@@ -4,7 +4,7 @@ import { Input, AutoComplete } from 'antd';
 import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
-import { FetchSearchRequest } from '../../pages/api/Routes';
+import { FetchSearchRequest } from '../../pages/api/Routes/Events';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 const createUrl = (description, id) => `/event/${description.split(' ').join('-')}-id-${id}`;
@@ -80,7 +80,6 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
-      console.log(res);
       setOptions(value ? searchResult(res, updateSearchFunction, updateSearch) : []);
     } catch (error) {
       console.log(error);
