@@ -90,7 +90,7 @@ export default function QuestionWidget({ type, id }) {
             </div>}
           <Form.Item
             className={ComponentStyles.form_row_textarea}
-            name="question"
+            name="message"
           >
             <textarea
               placeholder="Your Question or Message"
