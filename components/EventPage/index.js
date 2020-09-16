@@ -136,7 +136,7 @@ export default function EventPage({ premier, event }) {
 
           {premier &&
             <>
-              <QuestionWidget type="horizontal" />
+              <QuestionWidget type="horizontal" id={event.id} />
               <hr />
               <Social event={event} display="start" />
             </>}
@@ -185,7 +185,7 @@ export default function EventPage({ premier, event }) {
             <hr className={ComponentStyles.event_page_section_two_divider} />
           </>}
 
-        {premier && <QuestionWidget type="vertical" />}
+        {premier && <QuestionWidget type="vertical" id={event.id} />}
         {!premier && <RegularNews event={event} />}
         {premier && event.twitterAccount && <TwitterWeb twitterName={event.twitterAccount} />}
 
