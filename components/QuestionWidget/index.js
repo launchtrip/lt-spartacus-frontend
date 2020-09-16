@@ -1,10 +1,13 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import { Form } from 'antd';
+import React, { useState } from 'react';
+import { Form, message } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import ComponentStyles from './style/styles.module.css';
+import { AskAQuestion } from '../../pages/api/Routes/Requests';
 
-export default function QuestionWidget({ type }) {
+export default function QuestionWidget({ type, id }) {
+  const [loading, setLoading] = useState(false);
   const vertical = type === 'vertical';
   const main = vertical ? ComponentStyles.question_container : ComponentStyles.question_container_horizontal;
   const classType = vertical ? ComponentStyles.question_conatiner_vertical : ComponentStyles.question_conatiner_horizontal;
@@ -16,12 +19,20 @@ export default function QuestionWidget({ type }) {
     }
   };
 
-  const onFinish = (e) => {
-    console.log(e);
+  const onFinish = async (e) => {
+    try {
+      setLoading(true);
+      const data = { ...e };
+      data.event = id;
+      await AskAQuestion(data);
+      message.success('Your question has been submitted!');
+      setLoading(false);
+    } catch (error) {
+      message.error('Unable to submit message!');
+      setLoading(false);
+    }
   };
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
+
   return (
     <div className={main}>
       <span className="typography_spartacus_eight">Have A Question?</span>
@@ -34,7 +45,6 @@ export default function QuestionWidget({ type }) {
           }}
           className={formClassType}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
         >
           {vertical &&
             <Form.Item
@@ -90,8 +100,13 @@ export default function QuestionWidget({ type }) {
           </Form.Item>
 
           <Form.Item className={ComponentStyles.button}>
-            <button type="primary" htmltype="submit" className={vertical ? 'button_lg_styled' : 'button_lg_styled_filled'}>
-              Submit
+            <button
+              disable={loading}
+              type="primary"
+              htmltype="submit"
+              className={vertical ? 'button_lg_styled' : 'button_lg_styled_filled'}
+            >
+              {loading ? <LoadingOutlined /> : 'Submit'}
             </button>
           </Form.Item>
         </Form>
