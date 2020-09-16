@@ -129,7 +129,7 @@ export default function EventPage({ premier, event }) {
             <>
               <section className={ComponentStyles.event_page_news_outter}>
                 <PremierNews event={event} />
-                {premier && <TwitterMobile />}
+                {premier && event.twitterAccount && <TwitterMobile twitterName={event.twitterAccount} />}
               </section>
               <hr />
             </>}
@@ -187,7 +187,7 @@ export default function EventPage({ premier, event }) {
 
         {premier && <QuestionWidget type="vertical" />}
         {!premier && <RegularNews event={event} />}
-        {premier && <TwitterWeb />}
+        {premier && event.twitterAccount && <TwitterWeb twitterName={event.twitterAccount} />}
 
         {!premier && <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>}
       </section>

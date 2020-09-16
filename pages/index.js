@@ -10,7 +10,7 @@ import {
   Error
 } from '../components';
 
-import { FetchHomePageData, FetchHomePageDataById } from './api/Routes';
+import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
 
 export default function Home({ data }) {
   const [homePageData, setHomePageData] = useState(data);

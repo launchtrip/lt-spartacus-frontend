@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { Menu, Drawer } from 'antd';
+import { Menu, Drawer, Dropdown } from 'antd';
 import { useRouter } from 'next/router';
 import { MenuOutlined } from '@ant-design/icons';
 import ComponentStyles from './style/styles.module.css';
 import DynamicModal from '../DynamicModal';
 import EventIcon from '../EventIcon';
+import Context from '../../providers/userContext';
 
 export default function NavgiationBar({ page }) {
   const { SubMenu } = Menu;
   const [state, setState] = useState(page);
   const [modal, setModal] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [user, setUser] = useState('');
   const Router = useRouter();
-
+  const { user, signOutUser } = useContext(Context);
+  const userName = user ? user.displayName.split('-')[0] : null;
   const showDrawer = () => {
     setVisible(true);
   };
@@ -39,6 +41,23 @@ export default function NavgiationBar({ page }) {
   const routeToEventPage = (url) => {
     Router.push(url);
   };
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <Link href="/account/change-password">
+          Change Password
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
+        <section onClick={() => {
+          signOutUser();
+        }}
+        >
+          Log Out
+        </section>
+      </Menu.Item>
+    </Menu>
+  );
 
   const mobileTitle = () => {
     if (user) {
@@ -46,21 +65,24 @@ export default function NavgiationBar({ page }) {
         <section className={ComponentStyles.mobile_section_user}>
           <span className={`typography_spartacus_nineteen ${ComponentStyles.mobile_section_user_details}`}>
             <EventIcon image="/assets/user.png" height="15px" width="15px" marginRight="10px" />
-            Hi, Carly
+            Hi, {userName.charAt(0).toUpperCase() + userName.slice(1)}
           </span>
           <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item_disabled}`}>
             My Events - <span className={ComponentStyles.mobile_section_user_details_item_unique}>coming soon</span>
           </span>
-          <Link href="/account/reset">
+          <Link href="/account/change-password">
             <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item}`}>
               Change Password
             </span>
           </Link>
-          <Link href="/">
-            <span className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item}`}>
-              Log Out
-            </span>
-          </Link>
+
+          <section
+            onClick={() => signOutUser()}
+            className={`typography_spartacus_nine ${ComponentStyles.mobile_section_user_details_item}`}
+          >
+            Log Out
+          </section>
+
         </section>
 
       );
@@ -142,6 +164,7 @@ export default function NavgiationBar({ page }) {
         </section>
 
       </section>
+      {!user &&
       <section className={ComponentStyles.navigation_section_three}>
         <section className={ComponentStyles.section_three_button_container}>
           <Link href="/sign-up">
@@ -158,7 +181,17 @@ export default function NavgiationBar({ page }) {
             Log In
           </button>
         </section>
-      </section>
+      </section>}
+      {user &&
+      <section className={ComponentStyles.navigation_section_three}>
+        <section className={ComponentStyles.section_three_button_container}>
+          <Dropdown overlay={menu} placement="bottomRight">
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              <EventIcon image="/assets/logged.png" width="20px" height="20px" />
+            </a>
+          </Dropdown>
+        </section>
+      </section>}
       <Drawer
         title={mobileTitle()}
         placement="left"

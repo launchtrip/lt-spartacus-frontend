@@ -2,32 +2,41 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { BaseContainer, DynamicSearchBar, EventCarousel, Error } from '../components';
-import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes';
+import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes/Events';
 
 export default function VirtualEvents({ data }) {
   const [virtualPageData, setVirtualPageData] = useState(data);
   const [searchError, setSearchError] = useState(undefined);
-  const spotlight = data.find((sub) => sub.subindustry === 'spotlight');
+  const spotlight = data.find((sub) => sub.subindustry === 'Spotlight');
   const router = useRouter();
+
+  const errorMessage = {
+    type: 503,
+    title: 'Something Went Wrong',
+    reason: 'Service is temporarily unavailable. Please try again.',
+    actionDisplay: 'Refresh Page',
+    action: () => router.push('/virtualevents')
+
+  };
 
   const updateVirtualPageData = async (id) => {
     try {
       const newVirtualPageData = await FetchVirtualPageDataById(id);
       const { length } = newVirtualPageData;
       if (!length) {
-        const errorMessage = {
+        const newErrorMessage = {
           type: 403,
           title: 'Page Not Found',
           reason: 'This industry does not have any virtual events',
         };
-        setSearchError(errorMessage);
+        setSearchError(newErrorMessage);
         return;
       }
       setSearchError(undefined);
       setVirtualPageData(newVirtualPageData);
     } catch (error) {
+      setVirtualPageData(undefined);
       // need to updatr this to set error if error exists or happens
-      console.log(error);
     }
   };
 
@@ -37,14 +46,6 @@ export default function VirtualEvents({ data }) {
   };
 
   if (!virtualPageData) {
-    const errorMessage = {
-      type: 503,
-      title: 'Something Went Wrong',
-      reason: 'Service is temporarily unavailable. Please try again.',
-      actionDisplay: 'Refresh Page',
-      action: router.push('/virtualevents')
-
-    };
     return (
       <BaseContainer page="Virtual Events">
         <Error error={errorMessage} />
@@ -64,16 +65,17 @@ export default function VirtualEvents({ data }) {
         <Error error={searchError} />
         :
         <>
-          {spotlight && <EventCarousel title="Spotlight" eventPage isLast />}
-          {data && data.map((sub, i) => {
-            if (sub.subindustry === 'spotlight') {
+          {spotlight && <EventCarousel title="Spotlight" eventPage data={spotlight.events} />}
+          {virtualPageData && virtualPageData.map((sub, i) => {
+            if (sub.subindustry === 'Spotlight') {
               return;
             }
-            if (i + 1 === data.length) {
+            if (i + 1 === data.length - 1) {
               return <EventCarousel title={sub.subindustry} key={sub.subindustry} eventPage data={sub.events} isLast />;
             }
             return <EventCarousel title={sub.subindustry} key={sub.subindustry} eventPage data={sub.events} />;
           })}
+
         </>}
     </BaseContainer>
   );

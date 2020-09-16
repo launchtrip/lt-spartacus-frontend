@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import { BaseContainer, EventSearchPage, Error } from '../components';
-import { FetchAllEvents } from './api/Routes';
+import { FetchAllEvents } from './api/Routes/Events';
 import { organizeEventsByMonth } from '../components/helperFunctions';
 
 export default function Events({ data }) {

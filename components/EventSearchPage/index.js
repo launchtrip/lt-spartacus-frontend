@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 import { DatePicker, Menu, Dropdown, Input, AutoComplete } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import moment from 'moment';
-// import Link from 'next/link';
 import FeatureEventAdd from '../FeatureEventAdd';
 import EventCard from '../EventCard';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
-import { FetchSearchRequest } from '../../pages/api/Routes';
+import { FetchSearchRequest } from '../../pages/api/Routes/Events';
 import Error from '../Error';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;

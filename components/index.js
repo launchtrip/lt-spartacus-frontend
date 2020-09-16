@@ -11,9 +11,11 @@ import Confirmation from './Confirmation';
 import EventSearchPage from './EventSearchPage';
 import EventPage from './EventPage';
 import Error from './Error';
+import ChangePassword from './ChangePassword';
 
 export {
   BaseContainer,
+  ChangePassword,
   Confirmation,
   DynamicSearchBar,
   Error,

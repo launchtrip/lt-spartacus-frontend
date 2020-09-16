@@ -1,5 +1,5 @@
 import * as queryStringUtil from 'query-string';
-import { axiosClient } from '../client';
+import { axiosClient } from '../../client';
 
 export default async function FetchAllEvents(values) {
   const queryString = queryStringUtil.stringify(values);

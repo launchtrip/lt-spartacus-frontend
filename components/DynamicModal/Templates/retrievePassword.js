@@ -1,24 +1,31 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'antd';
-
+import { ForgotPassword } from '../../../pages/api/Routes/User';
 import ComponentStyles from './styles.module.css';
+import Error from './error';
 
 export default function RetrievePassword({ setState, setNote, original, updateModal }) {
+  const [error, setError] = useState(false);
   const layout = {
     labelCol: {
       span: 8,
     }
   };
-  const onFinish = values => {
-    console.log('Success:', values);
-    setNote('Please check your inbox and  click on the link to reset your password');
-    setState('note');
-    setTimeout(() => {
-      updateModal(false);
-      setState(original);
-    }, 3000);
+  const onFinish = async values => {
+    try {
+      await ForgotPassword(values);
+      setNote('Please check your inbox and  click on the link to reset your password');
+      setState('note');
+      setTimeout(() => {
+        updateModal(false);
+        setState(original);
+      }, 3000);
+    } catch (err) {
+      setError(true);
+      setTimeout(() => { setError(undefined); }, 5000);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -33,6 +40,7 @@ export default function RetrievePassword({ setState, setNote, original, updateMo
         >
           Enter your email and we will send you instructions to reset your password
         </span>
+        {error && <Error message="unable to retrieve password right now!" />}
         <Form
           {...layout}
           name="basic"
@@ -58,7 +66,7 @@ export default function RetrievePassword({ setState, setNote, original, updateMo
             />
           </Form.Item>
           <Form.Item className={ComponentStyles.button}>
-            <button type="primary" htmlType="submit" className="button_lg_styled">
+            <button type="primary" htmltype="submit" className="button_lg_styled">
               Submit
             </button>
           </Form.Item>
