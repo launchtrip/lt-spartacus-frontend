@@ -80,7 +80,6 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
-      console.log(res);
       setOptions(value ? searchResult(res, updateSearchFunction, updateSearch) : []);
     } catch (error) {
       console.log(error);

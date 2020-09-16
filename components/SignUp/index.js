@@ -33,7 +33,6 @@ export default function SignUp() {
       updateSubmit(true);
       setLoading(false);
     } catch (err) {
-      console.log('>>>> error on signup', err.response);
       setLoading(false);
       setError('error trying to sign you up');
       setTimeout(() => {

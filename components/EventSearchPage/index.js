@@ -137,7 +137,6 @@ export default function EventSearchPage({ data, methods }) {
   const handleEnter = async (event) => {
     if (event.keyCode === 13) {
       if (event.target.value.length === 0) {
-        console.log('here');
         refreshWithOriginalData();
         return;
       }

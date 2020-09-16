@@ -3,7 +3,6 @@ import ComponentStyles from '../style/styles.module.css';
 import NewsCard from '../../NewsCard';
 
 export default function PremierNews({ event }) {
-  console.log(event, '>>>>');
   return (
     <section className={ComponentStyles.event_page_news}>
       <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>In The News</span>

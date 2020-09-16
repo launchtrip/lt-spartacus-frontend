@@ -28,7 +28,6 @@ export default function RequestTickets({ setState, setNote, original, updateModa
         setError('');
       }, 5000);
     }
-    console.log('Success:', values);
   };
   const { Option } = Select;
 
