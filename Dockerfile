@@ -9,6 +9,7 @@ RUN npm install
 
 ADD . /var/www/app
 ENV NODE_ENV production
+ENV PORT 3000
 RUN npm run build
 
 ENTRYPOINT ["npm", "start"]
