@@ -1,85 +1,198 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { DatePicker, Menu, Dropdown, Input, AutoComplete } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
+import moment from 'moment';
+// import Link from 'next/link';
 import FeatureEventAdd from '../FeatureEventAdd';
 import EventCard from '../EventCard';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
+import { FetchSearchRequest } from '../../pages/api/Routes';
+import Error from '../Error';
 
-function getRandomInt(max, min = 0) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const searchResult = query =>
-  new Array(getRandomInt(5))
-    .join('.')
-    .split('.')
-    .map((item, idx) => {
-      const category = `${query}${idx}`;
-      return {
-        value: category,
-        label: (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}
-          >
-            <span>
-              Found {query} on{' '}
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {category}
-              </a>
-            </span>
-            <span>
-              Found {query} on{' '}
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {category}
-              </a>
-            </span>
-            <span>{getRandomInt(200, 100)} results</span>
-          </div>
-        ),
-      };
-    });
-
-export default function EventSearchPage({ data }) {
-  if (!data) {
-    return <p>no data</p>;
+const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
+// const createUrl = (description) => `/event/${description.split(' ').join('-')}`;
+const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
+  const company = query.find((q) => q.type === 'Company');
+  const industry = query.find((q) => q.type === 'Industry');
+  const event = query.find((q) => q.type === 'Event');
+  if (!company.total && !industry.total && !event.total) {
+    return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
   }
+  return [{
+    value: (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
+        {company &&
+          <>
+            <span
+              className={searchStyle}
+            >
+              Company
+            </span>
+
+            <section className={ComponentStyles.search_result_type}>
+              {!company.total &&
+              <span>Sorry we currently don’t have
+                <br />this company. Stay tuned
+              </span>}
+              {company.data.map((c) =>
+                <span
+                  key={c.id}
+                  className="typography_spartacus_one"
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'company' });
+                    updateSearch(c.description);
+                  }}
+                >{c.description}
+                </span>)}
+            </section>
+          </>}
+        {industry &&
+          <>
+            <span
+              className={searchStyle}
+            >
+              Industry
+            </span>
+
+            <section className={ComponentStyles.search_result_type}>
+              {!industry.total &&
+              <span>Sorry we currently don’t have
+                <br />this industry. Stay tuned
+              </span>}
+              {industry.data.map((c) =>
+                <span
+                  key={c.id}
+                  className="typography_spartacus_one"
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
+                    updateSearch(c.description);
+                  }}
+                >{c.description}
+                </span>)}
+            </section>
+          </>}
+        {event &&
+          <>
+            <span
+              className={searchStyle}
+            >
+              Event
+            </span>
+
+            <section className={ComponentStyles.search_result_type}>
+              {!event.total &&
+              <span>Sorry we currently don’t have
+                <br />this event. Stay tuned
+              </span>}
+              {event.data.map((c) =>
+                <span
+                  key={c.id}
+                  className="typography_spartacus_one"
+                  onClick={() => {
+                    SetCompanyIndustryOrEvent({ id: c.id, type: 'event' });
+                    updateSearch(c.description);
+                  }}
+                >{c.description}
+                </span>)}
+            </section>
+          </>}
+      </div>
+    )
+  }];
+};
+
+export default function EventSearchPage({ data, methods }) {
   const [options, setOptions] = useState([]);
+  const [search, updateSearch] = useState('');
 
-  const handleSearch = value => {
-    setOptions(value ? searchResult(value) : []);
+  const {
+    setState,
+    setType,
+    SetCompanyIndustryOrEvent,
+    updateEventPageData,
+    refreshWithOriginalData,
+    setSearchError,
+    searchError,
+    type
+  } = methods;
+
+  const handleSearch = async value => {
+    try {
+      updateSearch(value);
+      const res = await FetchSearchRequest(value);
+      setOptions(value ? searchResult(res, SetCompanyIndustryOrEvent, updateSearch) : []);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const onSelect = value => {
-    console.log('onSelect', value);
+  const handleEnter = async (event) => {
+    if (event.keyCode === 13) {
+      if (event.target.value.length === 0) {
+        console.log('here');
+        refreshWithOriginalData();
+        return;
+      }
+      try {
+        const res = await FetchSearchRequest(event.target.value);
+        const industry = res.find((q) => q.type === 'Industry');
+
+        if (industry && industry.length) {
+          updateEventPageData(industry.data[0].id);
+          updateSearch('');
+          return;
+        }
+        setSearchError(
+          {
+            type: 404,
+            title: 'Page Not Found',
+            reason: 'The industry, company, or event you are looking for does not exist',
+          }
+        );
+        updateSearch('');
+      } catch (error) {
+        updateSearch('');
+
+        console.log(error);
+      }
+    }
   };
 
+  // const onSelect = value => {
+  //   console.log('onSelect', value);
+  // };
+
+  function onChange(dates, dateStrings) {
+    setState({ dateStart: dateStrings[0], dateEnd: dateStrings[1] });
+  }
   const { RangePicker } = DatePicker;
 
   const menu = (
     <Menu>
-      <Menu.Item>
+      <Menu.Item onClick={() => setType('virtual')}>
         Virtual
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item onClick={() => setType('inPerson')}>
         In Person
+      </Menu.Item>
+      <Menu.Item onClick={() => setType('hybrid')}>
+        Hybrid
+      </Menu.Item>
+      <Menu.Item onClick={() => setType(undefined)}>
+        All
       </Menu.Item>
     </Menu>
   );
 
-  // function onChange(date, dateString) {
-  //   console.log(date, dateString);
-  // }
   return (
     <div className={ComponentStyles.event_search_page_container}>
       <div className={ComponentStyles.event_search_page_sec_one}>
@@ -87,90 +200,63 @@ export default function EventSearchPage({ data }) {
           <AutoComplete
             dropdownMatchSelectWidth={252}
             options={options}
-            onSelect={onSelect}
+            onKeyDown={handleEnter}
             onSearch={handleSearch}
+            value={search}
             className={`${ComponentStyles.search_container_input} searchPage`}
-            notFoundContent="Sorry Eat Shit"
           >
             <Input.Search size="large" placeholder="Enter Company, Industry or Event" enterButton />
           </AutoComplete>
           <Dropdown overlay={menu} className={`${ComponentStyles.event_drop_down} typography_spartacus_thirteen`}>
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-              Expereince  Type <CaretDownOutlined className={ComponentStyles.event_drop_down_arrow} />
+            <a className="ant-dropdown-link">
+              Expereince  Type - {type ? type === 'inPerson' ? 'In Person' : type : 'All'}
+              <CaretDownOutlined className={ComponentStyles.event_drop_down_arrow} />
             </a>
           </Dropdown>
           <RangePicker
+            onChange={onChange}
             className={ComponentStyles.event_date_picker}
             suffixIcon={<EventIcon image="/assets/calendar.png" width="16px" height="16px" />}
-          // placeholder={['Select a Date Range', 'Date Range']}
           />
         </section>
-        <section className={ComponentStyles.event_search_monthly_result}>
-          <span className={`typography_spartacus_three ${ComponentStyles.event_search_month}`}>August 2020</span>
-          <section className={ComponentStyles.event_search_monthly_result_card}>
-            <span className={ComponentStyles.event_search_monthly_result_card_date}>
-              <span className="typography_spartacus_one_bold">
-                17 - 20
-              </span>
-              <span className="typography_spartacus_one">
-                August
-              </span>
-
-            </span>
-            <div className={ComponentStyles.event_search_monthly_result_event_card}>
-              <EventCard />
-            </div>
+        {searchError ?
+          <section className={ComponentStyles.event_search_monthly_result}>
+            <section className={ComponentStyles.event_search_monthly_result_card}>
+              <Error error={searchError} />
+            </section>
           </section>
-          <section className={ComponentStyles.event_search_monthly_result_card}>
-            <span className={ComponentStyles.event_search_monthly_result_card_date}>
-              <span className="typography_spartacus_one_bold">
-                17 - 20
-              </span>
-              <span className="typography_spartacus_one">
-                August
-              </span>
 
-            </span>
-            <div className={ComponentStyles.event_search_monthly_result_event_card}>
-              <EventCard />
-            </div>
-          </section>
-        </section>
-        <section className={ComponentStyles.event_search_monthly_result}>
-          <span className={`typography_spartacus_three ${ComponentStyles.event_search_month}`}>September 2020</span>
-          <section className={ComponentStyles.event_search_monthly_result_card}>
-            <span className={ComponentStyles.event_search_monthly_result_card_date}>
-              <span className="typography_spartacus_one_bold">
-                17 - 20
-              </span>
-              <span className="typography_spartacus_one">
-                Sept.
-              </span>
+          :
+          <>
+            {data && data.map((item) => (
+              <section className={ComponentStyles.event_search_monthly_result}>
+                <span className={`typography_spartacus_three ${ComponentStyles.event_search_month}`}>{item.month} {item.year}</span>
+                {item.events.map((event) => (
+                  <section className={ComponentStyles.event_search_monthly_result_card}>
+                    <span className={ComponentStyles.event_search_monthly_result_card_date}>
+                      <span className="typography_spartacus_one_bold">
+                        {moment(event.dateStart).date()} - {moment(event.dateEnd).date()}
+                      </span>
+                      <span className="typography_spartacus_one">
+                        {item.month}
+                      </span>
 
-            </span>
-            <div className={ComponentStyles.event_search_monthly_result_event_card}>
-              <EventCard />
-            </div>
-          </section>
-          <section className={ComponentStyles.event_search_monthly_result_card}>
-            <span className={ComponentStyles.event_search_monthly_result_card_date}>
-              <span className="typography_spartacus_one_bold">
-                17 - 20
-              </span>
-              <span className="typography_spartacus_one">
-                Sept.
-              </span>
+                    </span>
+                    <div className={ComponentStyles.event_search_monthly_result_event_card}>
+                      <EventCard event={event} key={event.id} />
+                    </div>
+                  </section>
+                ))}
+                <hr className={ComponentStyles.section_a_divider} />
 
-            </span>
-            <div className={ComponentStyles.event_search_monthly_result_event_card}>
-              <EventCard />
-            </div>
-          </section>
-        </section>
-        <a className={ComponentStyles.event_search_back_to_top} href="#">
-          <EventIcon image="/assets/topArrow.png" width="30px" height="30px" marginRight="5px" />
-          Back to top
-        </a>
+              </section>
+            ))}
+
+            <a className={ComponentStyles.event_search_back_to_top} href="#">
+              <EventIcon image="/assets/topArrow.png" width="30px" height="30px" marginRight="5px" />
+              Back to top
+            </a>
+          </>}
       </div>
       <div className={ComponentStyles.event_search_page_sec_two}>
         <FeatureEventAdd />

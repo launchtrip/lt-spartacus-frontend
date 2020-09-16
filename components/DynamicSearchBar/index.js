@@ -1,97 +1,119 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { Input, AutoComplete } from 'antd';
+import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
 import { FetchSearchRequest } from '../../pages/api/Routes';
-import Link from 'next/link';
 
-function getRandomInt(max, min = 0) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
-const searchResult = query => {
-  console.log(query);
-  if (query[0].total === 0 && query[1].total === 0) {
+const createUrl = (description, id) => `/event/${description.split(' ').join('-')}-id-${id}`;
+const searchResult = (query, updateSearchFunction, updateSearch) => {
+  const industry = query.find((q) => q.type === 'Industry');
+  const event = query.find((q) => q.type === 'Event');
+
+  if (industry.total === 0 && event.total === 0) {
     return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
   }
-  return (
-    new Array(getRandomInt(1))
-      .join('.')
-      .split('.')
-      .map((item, idx) => {
-        const category = `${query}${idx}`;
-        return {
-          value: category,
-          label: (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
+  return [{
+    value: (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
+        <span
+          className={searchStyle}
+        >
+          Industry
+        </span>
+
+        <section className={ComponentStyles.search_result_type}>
+          {!industry.total &&
+          <span>Sorry we currently don’t have
+            <br />this industry. Stay tuned
+          </span>}
+          {industry.data.map((ind) =>
+            <span
+              key={ind.id}
+              className="typography_spartacus_one"
+              onClick={() => {
+                updateSearchFunction(ind.id);
+                updateSearch(ind.description);
               }}
-            >
-              <span
-                className={searchStyle}
-              >
-                Industry
-              </span>
+            >{ind.description}
+            </span>)}
+        </section>
 
-              <section className={ComponentStyles.search_result_type}>
-                {query[0].total < 1 &&
-                <span>Sorry we currently don’t have
-                  <br />this industry. Stay tuned
-                </span>}
-                {query[0].total >= 1 && query[0].data.map((industry) =>
-                  <span
-                    key={industry.id}
-                    className="typography_spartacus_one"
-                  >{industry.description}
-                  </span>)}
-              </section>
-
+        <span
+          className={searchStyle}
+        >
+          Event
+        </span>
+        <section className={ComponentStyles.search_result_type}>
+          {!event.total &&
+          <span>Sorry we currently don’t have
+            <br />this event. Stay tuned
+          </span>}
+          {event.data.map((e) =>
+            <Link href={createUrl(e.description, e.id)}>
               <span
-                className={searchStyle}
-              >
-                Event
+                key={e.id}
+                className="typography_spartacus_one"
+              >{e.description}
               </span>
-              <section className={ComponentStyles.search_result_type}>
-                {query[1].total < 1 &&
-                <span>Sorry we currently don’t have
-                  <br />this event. Stay tuned
-                </span>}
-                {query[1].total >= 1 && query[1].data.map((event) =>
-                <Link href={`/event/${event.description.split(' ').join('-')}`}>
-                  <span
-                    key={event.id}
-                    className="typography_spartacus_one"
-                  >{event.description}
-                  </span>
-                </Link>
-                )}
-              </section>
-            </div>
-          ),
-        };
-      })
-  );
+            </Link>
+          )}
+        </section>
+      </div>
+    )
+  }];
 };
 
-export default function DynamicSearchBar() {
+export default function DynamicSearchBar({ updateSearchFunction, refreshWithOriginalData, setSearchError }) {
   const [options, setOptions] = useState([]);
-  const [search, updateSearch] = useState('')
+  const [search, updateSearch] = useState('');
+
   const handleSearch = async value => {
     try {
-      updateSearch(value)
+      updateSearch(value);
       const res = await FetchSearchRequest(value);
-      setOptions(value ? searchResult(res) : []);
+      console.log(res);
+      setOptions(value ? searchResult(res, updateSearchFunction, updateSearch) : []);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onSelect = value => {
-    console.log('onSelect', value);
+  const handleEnter = async (event) => {
+    if (event.keyCode === 13) {
+      if (event.target.value.length === 0) {
+        refreshWithOriginalData();
+        return;
+      }
+      try {
+        const res = await FetchSearchRequest(event.target.value);
+        if (res && res[0].total) {
+          updateSearchFunction(res[0].data[0].id);
+          updateSearch('');
+          return;
+        }
+        setSearchError(
+          {
+            type: 404,
+            title: 'Page Not Found',
+            reason: 'The industry or event you are looking for does not exist',
+          }
+        );
+        updateSearch('');
+      } catch (error) {
+        updateSearch('');
+
+        console.log(error);
+      }
+    }
   };
 
   const name = `home_sec_search ${ComponentStyles.search_container}`;
@@ -101,7 +123,7 @@ export default function DynamicSearchBar() {
       <AutoComplete
         dropdownMatchSelectWidth={252}
         options={options}
-        onSelect={onSelect}
+        onKeyDown={handleEnter}
         onSearch={handleSearch}
         value={search}
         className={ComponentStyles.search_container_input}

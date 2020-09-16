@@ -6,8 +6,10 @@ export default function NewsCard({ alternate, line, withImage, article }) {
   if (!article) {
     return <p>no article</p>;
   }
+  const date = article.date ? article.date : article.updated_at;
   const mainContainer = withImage ? ComponentStyles.news_container_with_image : ComponentStyles.news_container;
   const titleClass = withImage ? `typography_spartacus_nineteen ${ComponentStyles.news_title}` : 'typography_spartacus_one_demi_bold';
+  console.log(article);
   const renderSubs = () => {
     const subs = article.subindustries && article.subindustries.map((sub, i) => {
       const { length } = article.subindustries;
@@ -35,7 +37,7 @@ export default function NewsCard({ alternate, line, withImage, article }) {
           {renderSubs()}
         </p> |
         <p className="typography_spartacus_twelve">
-          {countdownInDays(article.date)} {countdownInDays(article.date) > 1 ? 'days' : 'day'} ago
+          {countdownInDays(date)} {countdownInDays(date) > 1 ? 'days' : 'day'} ago
         </p>
       </div>}
       {alternate &&
@@ -46,7 +48,7 @@ export default function NewsCard({ alternate, line, withImage, article }) {
           {renderSubs()}
         </span>
         <span className={`typography_spartacus_twelve ${ComponentStyles.news_container_detials_alt_item}`}>
-          {countdownInDays(article.date)} {countdownInDays(article.date) > 1 ? 'days' : 'day'} ago
+          {countdownInDays(date)} {countdownInDays(date) > 1 ? 'days' : 'day'} ago
         </span>
       </div>}
 

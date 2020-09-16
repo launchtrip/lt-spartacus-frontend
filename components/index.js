@@ -10,11 +10,13 @@ import ResetPassword from './ResetPassword';
 import Confirmation from './Confirmation';
 import EventSearchPage from './EventSearchPage';
 import EventPage from './EventPage';
+import Error from './Error';
 
 export {
   BaseContainer,
   Confirmation,
   DynamicSearchBar,
+  Error,
   EventCarousel,
   EventPage,
   EventSearchPage,

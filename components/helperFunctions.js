@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
+import moment from 'moment';
 import EventIcon from './EventIcon';
 
 export function split(array, n) {
@@ -26,4 +27,20 @@ export function renderIcon(type) {
     'In Person': <EventIcon image="/assets/icon-inperson.png" height="1em" width="15px" marginRight="7px" />,
   };
   return icons[type];
+}
+
+export function organizeEventsByMonth(events) {
+  const allMonths = moment.months();
+  const results = [];
+  events.forEach((event) => {
+    const monthstart = allMonths[new Date(event.dateStart).getMonth()];
+    const checkMonth = results.find((result) =>
+      (result.month === monthstart && result.year === new Date(event.dateStart).getFullYear()));
+    if (!checkMonth) {
+      results.push({ month: monthstart, events: [event], year: new Date(event.dateStart).getFullYear() });
+      return;
+    }
+    checkMonth.events.push(event);
+  });
+  return results;
 }

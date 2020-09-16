@@ -6,6 +6,7 @@ import SpeakerCard from '../SpeakerCard';
 import ComponentStyles from './style/styles.module.css';
 
 export default function SpeakerCarousel({ title, hideEventTitle, speakers }) {
+  console.log(speakers);
   const titleClass = `typography_spartacus_eight ${ComponentStyles.title}`;
   function NextArrow(props) {
     const { className, style, onClick } = props;

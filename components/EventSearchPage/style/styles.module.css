@@ -110,6 +110,13 @@
     margin: 15px;
 }
 
+.search_result_title{
+    margin: 15px 0 5px 0 ;
+}
+.search_result_type{
+    display: flex;
+    flex-direction: column;
+}
 @media screen and (max-width: 1294px) {
 
     .event_date_picker {
