@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import ComponentStyles from './style/styles.module.css';
 import { countdownInDays } from '../helperFunctions';
 
-export default function NewsCard({ alternate, line, withImage, article }) {
-  const date = article.date ? article.date : article.updated_at;
+export default function NewsCard({ alternate, line, withImage, article, external }) {
+  const pathname = external ? article.link : `/article/${article.title.split(' ').join('-')}-id-${article.id}`;
   const mainContainer = withImage ? ComponentStyles.news_container_with_image : ComponentStyles.news_container;
   const titleClass = withImage ? `typography_spartacus_nineteen ${ComponentStyles.news_title}` : 'typography_spartacus_one_demi_bold';
   const renderSubs = () => {
@@ -17,38 +18,40 @@ export default function NewsCard({ alternate, line, withImage, article }) {
     return subs;
   };
   return (
-    <div className={mainContainer}>
-      <span className={`${titleClass} ${ComponentStyles.news_item}`}>{article.title}</span>
-      {!alternate &&
-      <span
-        className={` typography_spartacus_seven ${ComponentStyles.news_item}`}
-      >
-        {article.body}
-      </span>}
-      {!alternate &&
-      <div
-        className={ComponentStyles.news_container_detials}
-      >
-        <p className="typography_spartacus_eleven">
-          {renderSubs()}
-        </p> |
-        <p className="typography_spartacus_twelve">
-          {countdownInDays(date)} {countdownInDays(date) > 1 ? 'days' : 'day'} ago
-        </p>
-      </div>}
-      {alternate &&
-      <div
-        className={ComponentStyles.news_container_detials_alt}
-      >
-        <span className="typography_spartacus_eleven">
-          {renderSubs()}
-        </span>
-        <span className={`typography_spartacus_twelve ${ComponentStyles.news_container_detials_alt_item}`}>
-          {countdownInDays(date)} {countdownInDays(date) > 1 ? 'days' : 'day'} ago
-        </span>
-      </div>}
+    <a target={external ? '_blank' : ''} href={pathname}>
+      <div className={mainContainer}>
+        <span className={`${titleClass} ${ComponentStyles.news_item}`}>{article.title}</span>
+        {!alternate &&
+          <span
+            className={` typography_spartacus_seven ${ComponentStyles.news_item}`}
+          >
+            {article.body}
+          </span>}
+        {!alternate &&
+          <div
+            className={ComponentStyles.news_container_detials}
+          >
+            <p className="typography_spartacus_eleven">
+              {renderSubs()}
+            </p> |
+            <p className="typography_spartacus_twelve">
+              {countdownInDays(article.date)} {countdownInDays(article.date) > 1 ? 'days' : 'day'} ago
+            </p>
+          </div>}
+        {alternate &&
+          <div
+            className={ComponentStyles.news_container_detials_alt}
+          >
+            <span className="typography_spartacus_eleven">
+              {renderSubs()}
+            </span>
+            <span className={`typography_spartacus_twelve ${ComponentStyles.news_container_detials_alt_item}`}>
+              {countdownInDays(article.date)} {countdownInDays(article.date) > 1 ? 'days' : 'day'} ago
+            </span>
+          </div>}
 
-      {line && <hr className={ComponentStyles.news_hr} />}
-    </div>
+        {line && <hr className={ComponentStyles.news_hr} />}
+      </div>
+    </a>
   );
 }

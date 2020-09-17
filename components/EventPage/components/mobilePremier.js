@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import ComponentStyles from '../style/styles.module.css';
 import QuestionWidget from '../../QuestionWidget';
@@ -10,7 +11,7 @@ export default function MobilePremier({
   renderLocation,
   renderViewingOptions,
   updateSpeakerModal,
-  updateTicketsModal }) {
+}) {
   return (
     <section className={ComponentStyles.event_page_small_screen_ghost}>
       <section className={ComponentStyles.event_page_small_screen_container}>
@@ -31,12 +32,13 @@ export default function MobilePremier({
             className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
           >{renderLocation()}
           </span>
-          <button
-            onClick={() => updateTicketsModal(true)}
-            type="button"
+          <a
+            target="_blank"
+            href={event.ticketsUrl || 'www.google.ca'}
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
-          >Get Tickets
-          </button>
+          >
+            Get Tickets
+          </a>
           <hr className={ComponentStyles.event_page_section_two_divider} />
           <button
             onClick={() => updateSpeakerModal(true)}

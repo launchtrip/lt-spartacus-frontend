@@ -1,7 +1,11 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
+import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
 
 export default function SpeakerCard({ hideEventTitle, data }) {
+  const pathname = hideEventTitle ? null : `/event/${data.event.name.split(' ').join('-')}-id-${data.event.id}`;
+
   return (
     <div className={ComponentStyles.container}>
       <img alt="" src={data.image.url ? data.image.url : data.image} className={ComponentStyles.speaker_image} />
@@ -10,7 +14,13 @@ export default function SpeakerCard({ hideEventTitle, data }) {
       {!hideEventTitle &&
       <span
         className={`typography_spartacus_nine ${ComponentStyles.event}`}
-      >Speaking at <span className={`${ComponentStyles.event_title}`}>{data.event.name}</span>
+      >Speaking at <Link href={pathname}>
+        <a href={pathname}>
+          <span className={`${ComponentStyles.event_title}`}>
+            {data.event.name}
+          </span>
+        </a>
+      </Link>
       </span>}
     </div>
   );

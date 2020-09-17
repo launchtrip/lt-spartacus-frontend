@@ -8,7 +8,7 @@ import {
   Sponsor
 } from './Templates';
 
-export default function DynamicModal({ updateModal, modal, type, width }) {
+export default function DynamicModal({ updateModal, modal, type, width, event }) {
   const [state, setState] = useState(type);
   const [note, setNote] = useState('');
 
@@ -33,12 +33,14 @@ export default function DynamicModal({ updateModal, modal, type, width }) {
         setState={setState}
         setNote={setNote}
         original={type}
+        event={event}
       />,
       sponsor: <Sponsor
         updateModal={updateModal}
         setState={setState}
         setNote={setNote}
         original={type}
+        event={event}
       />
     };
     return templates[txt];

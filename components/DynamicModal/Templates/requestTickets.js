@@ -6,7 +6,7 @@ import ComponentStyles from './styles.module.css';
 import { RequestDiscountTickets } from '../../../pages/api/Routes/Requests';
 import Error from './error';
 
-export default function RequestTickets({ setState, setNote, original, updateModal }) {
+export default function RequestTickets({ setState, setNote, original, updateModal, event }) {
   const [error, setError] = useState('');
   const layout = {
     labelCol: {
@@ -15,7 +15,8 @@ export default function RequestTickets({ setState, setNote, original, updateModa
   };
   const onFinish = async values => {
     try {
-      await RequestDiscountTickets(values);
+      const data = { ...values, event };
+      await RequestDiscountTickets(data);
       setNote('Thank you for contacting us. We will get in touch with you shortly');
       setState('note');
       setTimeout(() => {
