@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
 import moment from 'moment';
 import ComponentStyles from './style/styles.module.css';
@@ -27,7 +28,7 @@ export default function EventPage({ premier, event }) {
   const startDay = moment(event.dateStart).date();
   const endDay = moment(event.dateEnd).date();
   const year = moment(event.dateEnd).year();
-
+  console.log(event);
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
       <>
@@ -73,12 +74,15 @@ export default function EventPage({ premier, event }) {
         modal={ticketsModal}
         width={600}
         type="request"
+        event={event.id}
       />
       <DynamicModal
         updateModal={updateSpeakerModal}
         modal={speakerModal}
         width={600}
         type="sponsor"
+        event={event.id}
+
       />
 
       <section className={ComponentStyles.event_page_section_one}>
@@ -118,14 +122,14 @@ export default function EventPage({ premier, event }) {
           />}
           {!premier && <RelatedEvents />}
 
-          {premier &&
+          {premier && event.media.length &&
             <>
               <Multimedia data={event.media} length={event.media.length} />
               <hr />
             </>}
 
           {premier && event.testimonials.length > 0 && <Testemonials event={event} />}
-          {premier && event.articles.length > 0 &&
+          {premier && event.external_articles.length > 0 &&
             <>
               <section className={ComponentStyles.event_page_news_outter}>
                 <PremierNews event={event} />
@@ -138,7 +142,7 @@ export default function EventPage({ premier, event }) {
             <>
               <QuestionWidget type="horizontal" id={event.id} />
               <hr />
-              <Social event={event} display="start" />
+              <Social display="start" />
             </>}
         </section>
       </section>
@@ -165,12 +169,13 @@ export default function EventPage({ premier, event }) {
           >Request Discount Tickets
           </button>}
         {premier &&
-          <button
-            onClick={() => updateTicketsModal(true)}
-            type="button"
-            className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
-          >Get Tickets
-          </button>}
+        <a
+          target="_blank"
+          href={event.ticketsUrl || 'www.google.ca'}
+          className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
+        >
+          Get Tickets
+        </a>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button
           onClick={() => updateSpeakerModal(true)}
@@ -181,7 +186,7 @@ export default function EventPage({ premier, event }) {
         <hr className={ComponentStyles.event_page_section_two_divider} />
         {premier &&
           <>
-            <Social event={event} display="center" />
+            <Social display="center" />
             <hr className={ComponentStyles.event_page_section_two_divider} />
           </>}
 

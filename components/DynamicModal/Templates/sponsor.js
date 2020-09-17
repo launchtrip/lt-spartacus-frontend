@@ -6,7 +6,7 @@ import ComponentStyles from './styles.module.css';
 import { BecomeASponsor } from '../../../pages/api/Routes/Requests';
 import Error from './error';
 
-export default function Sponsor({ setState, setNote, original, updateModal }) {
+export default function Sponsor({ setState, setNote, original, updateModal, event }) {
   const [error, setError] = useState('');
   const layout = {
     labelCol: {
@@ -15,7 +15,8 @@ export default function Sponsor({ setState, setNote, original, updateModal }) {
   };
   const onFinish = async values => {
     try {
-      await BecomeASponsor(values);
+      const data = { ...values, event };
+      await BecomeASponsor(data);
       setNote('Thank you for contacting us. We will get in touch with you shortly');
       setState('note');
       setTimeout(() => {

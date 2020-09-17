@@ -101,7 +101,7 @@ export default function QuestionWidget({ type, id }) {
 
           <Form.Item className={ComponentStyles.button}>
             <button
-              disable={loading}
+              disabled={loading}
               type="primary"
               htmltype="submit"
               className={vertical ? 'button_lg_styled' : 'button_lg_styled_filled'}

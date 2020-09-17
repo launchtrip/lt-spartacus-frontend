@@ -1,3 +1,4 @@
+import Article from './Articles';
 import BaseContainer from './BaseContainer';
 import DynamicSearchBar from './DynamicSearchBar';
 import HeroCarousel from './HeroCarousel';
@@ -14,6 +15,7 @@ import Error from './Error';
 import ChangePassword from './ChangePassword';
 
 export {
+  Article,
   BaseContainer,
   ChangePassword,
   Confirmation,

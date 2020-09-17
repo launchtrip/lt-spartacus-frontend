@@ -8,11 +8,10 @@ export default function Testemonials({ event }) {
         <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>Testemonials</span>
         <div className={ComponentStyles.event_page_testemonials_inner}>
           {event.testimonials.map((t) =>
-            <p key={t} className={`${ComponentStyles.event_page_testemonial}`}>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-              nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-              <p>- Jane Doe</p>
-            </p>
+            <section key={t} className={ComponentStyles.event_page_testemonial}>
+              <p className={ComponentStyles.event_page_testemonial_copy}>{t.description}</p>
+              <p>- {t.author}</p>
+            </section>
           )}
         </div>
       </section>

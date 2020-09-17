@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { BaseContainer, EventPage, Error } from '../../components';
-import { FetchIndividualEvent } from '../api/Routes/Events';
+import { BaseContainer, Article, Error } from '../../components';
+import { FetchIndividualArticle } from '../api/Routes/Articles';
 
-export default function Events({ data }) {
+export default function Articles({ data }) {
   const router = useRouter();
 
   if (!data) {
@@ -22,8 +22,8 @@ export default function Events({ data }) {
     );
   }
   return (
-    <BaseContainer page={data.name}>
-      <EventPage premier={data.premier} event={data} />
+    <BaseContainer page={data.title}>
+      <Article article={data} />
     </BaseContainer>
   );
 }
@@ -34,8 +34,8 @@ export const getServerSideProps = async (props) => {
     return { props: { data: null } };
   }
   try {
-    const event = await FetchIndividualEvent(id);
-    return { props: { data: event } };
+    const article = await FetchIndividualArticle(id);
+    return { props: { data: article } };
   } catch (error) {
     return { props: { data: null } };
   }
