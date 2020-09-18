@@ -235,9 +235,10 @@
     width: 30%;
     text-align: left;
     font-style: italic;
- 
+
 }
-.event_page_testemonial_copy{
+
+.event_page_testemonial_copy {
     overflow: hidden;
     content: "Read more ...";
     text-align: justify;
@@ -307,7 +308,7 @@
 
     .event_page_section_one {
         width: 100%;
-        padding: 0 5%
+        padding: 0 7%
     }
 
     .event_page_glance_details_container {

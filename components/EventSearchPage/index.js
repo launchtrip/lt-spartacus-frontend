@@ -39,7 +39,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
 
             <section className={ComponentStyles.search_result_type}>
               {!company.total &&
-              <span>Sorry we currently don’t have
+                <span>Sorry we currently don’t have
                 <br />this company. Stay tuned
               </span>}
               {company.data.map((c) =>
@@ -64,7 +64,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
 
             <section className={ComponentStyles.search_result_type}>
               {!industry.total &&
-              <span>Sorry we currently don’t have
+                <span>Sorry we currently don’t have
                 <br />this industry. Stay tuned
               </span>}
               {industry.data.map((c) =>
@@ -89,7 +89,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
 
             <section className={ComponentStyles.search_result_type}>
               {!event.total &&
-              <span>Sorry we currently don’t have
+                <span>Sorry we currently don’t have
                 <br />this event. Stay tuned
               </span>}
               {event.data.map((c) =>
@@ -207,7 +207,7 @@ export default function EventSearchPage({ data, methods }) {
           </AutoComplete>
           <Dropdown overlay={menu} className={`${ComponentStyles.event_drop_down} typography_spartacus_thirteen`}>
             <a className="ant-dropdown-link">
-              Expereince  Type - {type ? type === 'inPerson' ? 'In Person' : type : 'All'}
+              Event Type - {type ? type === 'inPerson' ? 'In Person' : type : 'All'}
               <CaretDownOutlined className={ComponentStyles.event_drop_down_arrow} />
             </a>
           </Dropdown>
