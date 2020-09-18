@@ -1,23 +1,31 @@
 import React from 'react';
+import moment from 'moment';
+import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
-import EventIcon from '../EventIcon';
+import { renderIcon } from '../helperFunctions';
 
-export default function RelatedEventCard() {
+export default function RelatedEventCard({ event }) {
+  const allMonths = moment.months();
+  const pathname = `/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+
   return (
-    <div className={ComponentStyles.related_card_container}>
-      <img src="/assets/banner1.png" alt="" className={ComponentStyles.related_card_img} />
-      <span id={ComponentStyles.related_card_item} className="typography_spartacus_two_bold">Elevate</span>
-      <span id={ComponentStyles.related_card_item} className="typography_spartacus_nine_demi_bold">June 3rd, 2020</span>
-      <span id={ComponentStyles.related_card_item} className="typography_spartacus_six">PERSONAL DEVELOPMENT</span>
-      <span id={ComponentStyles.related_card_item} className={`typography_spartacus_twelve_light ${ComponentStyles.related_card_info}`}>
-        Learn from industry lea Learn from industry leaders on the future of work
-      </span>
-      <span id={ComponentStyles.related_card_item}>
-        <EventIcon image="/assets/icon-paid.png" width="8px" height="10px" marginRight="5px" />
-        <EventIcon image="/assets/icon-virtual.png" width="12px" height="10px" marginRight="5px" />
-        |
-        <span className="typography_spartacus_fifteen_italic"> Hybrid</span>
-      </span>
-    </div>
+    <Link href={pathname}>
+      <div className={ComponentStyles.related_card_container}>
+        <img src={event.logo.url} alt="" className={ComponentStyles.related_card_img} />
+        <span id={ComponentStyles.related_card_item} className="typography_spartacus_two_bold">{event.name}</span>
+        <span id={ComponentStyles.related_card_item} className="typography_spartacus_nine_demi_bold">
+          {allMonths[new Date(event.dateStart).getMonth()]} {moment(event.dateStart).format('Do')}, {new Date(event.dateStart).getFullYear()}
+        </span>
+        <span id={ComponentStyles.related_card_item} className="typography_spartacus_six">{event.industry.description}</span>
+        <span id={ComponentStyles.related_card_item} className={`typography_spartacus_twelve_light ${ComponentStyles.related_card_info}`}>
+          {event.description}
+        </span>
+        <span id={ComponentStyles.related_card_item}>
+          {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
+          |
+          <span className="typography_spartacus_fifteen_italic"> {event.type === 'InPerson' ? 'In Person' : event.type}</span>
+        </span>
+      </div>
+    </Link>
   );
 }

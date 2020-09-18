@@ -12,13 +12,13 @@ export default function CarouselItem({ data }) {
   return (
     <div className={ComponentStyles.carousel_card_container}>
       <div className={ComponentStyles.carousel_card_container_inner}>
-        <a href={urlOne} target="_blank" className={ComponentStyles.carousel_card_item_one_link}>
+        <a href={urlOne} className={ComponentStyles.carousel_card_item_one_link}>
           <div
             style={{ backgroundImage: imageOne }}
             className={ComponentStyles.carousel_card_item_one}
           />
         </a>
-        <a href={urlTwo} target="_blank" className={ComponentStyles.carousel_card_item_two_link}>
+        <a href={urlTwo} className={ComponentStyles.carousel_card_item_two_link}>
           <div
             style={{ backgroundImage: imageTwo }}
             className={ComponentStyles.carousel_card_item_two}

@@ -4,6 +4,7 @@
     width: 25%;
     padding-right: 25px;
     margin: 10px 0;
+    cursor: pointer;
 }
 
 .related_card_img {
