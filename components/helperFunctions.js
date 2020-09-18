@@ -22,9 +22,9 @@ export function countdownInDays(date) {
 
 export function renderIcon(type) {
   const icons = {
-    Paid: <EventIcon image="/assets/icon-paid.png" height="1em" width="10px" marginRight="7px" />,
-    Virtual: <EventIcon image="/assets/icon-virtual.png" height="1em" width="15px" marginRight="7px" />,
-    'In Person': <EventIcon image="/assets/icon-inperson.png" height="1em" width="15px" marginRight="7px" />,
+    Paid: <EventIcon image="/assets/icon-paid.png" height="1em" width="10px" marginRight="7px" marginLeft="7px" />,
+    Virtual: <EventIcon image="/assets/icon-virtual.png" height="1em" width="15px" marginRight="7px" marginLeft="7px" />,
+    'In Person': <EventIcon image="/assets/icon-inperson.png" height="1em" width="15px" marginRight="7px" marginLeft="7px" />,
   };
   return icons[type];
 }
