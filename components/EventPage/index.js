@@ -120,9 +120,9 @@ export default function EventPage({ premier, event }) {
             updateSpeakerModal={updateSpeakerModal}
             updateTicketsModal={updateTicketsModal}
           />}
-          {!premier && <RelatedEvents />}
+          {!premier && <RelatedEvents events={event.related_events} />}
 
-          {premier && event.media.length &&
+          {premier && event.media.length > 0 &&
             <>
               <Multimedia data={event.media} length={event.media.length} />
               <hr />
@@ -137,7 +137,6 @@ export default function EventPage({ premier, event }) {
               </section>
               <hr />
             </>}
-
           {premier &&
             <>
               <QuestionWidget type="horizontal" id={event.id} />

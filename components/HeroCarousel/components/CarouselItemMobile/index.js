@@ -5,7 +5,6 @@ import ComponentStyles from './style/styles.module.css';
 export default function CarouselItemMobile({ data }) {
   const url = data.link;
   const image = `url(${data.image})`;
-
   return (
     <div className={ComponentStyles.carousel_card_container}>
       <div className={ComponentStyles.carousel_card_container_inner}>
