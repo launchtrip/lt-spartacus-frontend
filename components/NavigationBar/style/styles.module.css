@@ -169,7 +169,7 @@
 
     .navigation_section_one_mene_icon {
         font-size: 30px;
-        margin-left: 5%;
+        margin-left: 3%;
         position: absolute;
         visibility: visible;
         top: 20px;
@@ -181,6 +181,8 @@
 
     .navigation_section_one {
         text-align: center;
+        flex-basis: 100%;
+        font-size: 32px;
 
     }
 }
