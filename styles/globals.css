@@ -19,8 +19,6 @@ a {
 .home_sec_base_container {
   display: flex;
   flex-direction: column;
-  max-width: 1700px;
-  margin: auto;
 }
 
 .home_sec_base_container_error {
