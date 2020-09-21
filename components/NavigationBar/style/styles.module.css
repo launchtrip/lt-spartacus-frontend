@@ -10,7 +10,7 @@
 
 .navigation_section_one {
     text-align: left;
-    flex-grow: 1;
+    flex: 0 0 150px;
     color: #302C35;
     font-size: 36px;
     font-weight: 700;
