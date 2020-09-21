@@ -1,7 +1,5 @@
 .event_search_page_container {
     display: flex;
-    max-width: 1700px;
-    margin: auto;
 }
 
 .event_search {
