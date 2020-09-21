@@ -1,5 +1,5 @@
 .navigation_main_container {
-    width: 100%;
+    width: 95%;
     border-bottom: 1px solid #EBEBEB;
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .navigation_section_one {
-    text-align: center;
+    text-align: left;
     flex-grow: 1;
     color: #302C35;
     font-size: 36px;
@@ -60,7 +60,7 @@
 
 .navigation_section_three {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     height: 70%;
     flex-grow: 1;

@@ -5,19 +5,22 @@
     align-content: flex-end;
 
 }
-.search_result_title{
-    margin: 15px 0 5px 0 ;
+
+.search_result_title {
+    margin: 15px 0 5px 0;
 }
+
 .search_container_searchPage {
     display: flex;
     justify-content: center;
     align-content: flex-end;
 }
 
-.search_result_type{
+.search_result_type {
     display: flex;
     flex-direction: column;
 }
+
 .search_container_input {
     width: 350px;
     border-radius: 0px 10px 10px 0px !important;
@@ -66,6 +69,7 @@
         width: 100%;
         flex-direction: column;
         padding: 20px 0;
+        margin-top: 25px;
     }
 
     .search_container_copy {

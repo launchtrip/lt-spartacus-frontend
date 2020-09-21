@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    padding: 2%
+    padding: 2%;
 }
 
 .section_a {
@@ -90,5 +90,10 @@
 @media screen and (max-width: 600px) {
     .upcoming_event_card_container {
         justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        padding: 2% 0 0 4%;
     }
 }
