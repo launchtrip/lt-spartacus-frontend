@@ -179,4 +179,9 @@
     .navigation_main_container {
         padding: 9px 0 7px 0;
     }
+
+    .navigation_section_one {
+        text-align: center;
+
+    }
 }
