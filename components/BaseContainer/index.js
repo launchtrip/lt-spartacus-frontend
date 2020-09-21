@@ -13,8 +13,8 @@ export default function BaseContainer(props) {
         <meta property="fb:app_id" content="560462338187989" />
         <meta property="og:title" content="Unify." />
         <meta property="og:site_name" content="Unify." />
-        {/* <meta property="og:image" content="https://launchtrip.com/img/lt-logo-fb.png" /> */}
-        {/* <meta property="og:updated_time" content="1589479982" />
+        <meta property="og:image" content="https://launchtrip.com/img/lt-logo-fb.png" />
+        <meta property="og:updated_time" content="1589479982" />
         <meta property="og:url" content={process.env.BASE_URL} />
         <meta property="og:description" content="Assembley of World Leading Events!" />
         <meta property="og:locale" content="en_us" /> */}
