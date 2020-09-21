@@ -24,49 +24,49 @@ const searchResult = (query, updateSearchFunction, updateSearch) => {
           justifyContent: 'space-between',
         }}
       >
-        <span
-          className={searchStyle}
-        >
-          Industry
-        </span>
+        {industry.total > 0 &&
+        <>
+          <span
+            className={searchStyle}
+          >
+            Industry
+          </span>
 
-        <section className={ComponentStyles.search_result_type}>
-          {!industry.total &&
-          <span>Sorry we currently don’t have
-            <br />this industry. Stay tuned
-          </span>}
-          {industry.data.map((ind) =>
-            <span
-              key={ind.id}
-              className="typography_spartacus_one"
-              onClick={() => {
-                updateSearchFunction(ind.id);
-                updateSearch(ind.description);
-              }}
-            >{ind.description}
-            </span>)}
-        </section>
-
-        <span
-          className={searchStyle}
-        >
-          Event
-        </span>
-        <section className={ComponentStyles.search_result_type}>
-          {!event.total &&
-          <span>Sorry we currently don’t have
-            <br />this event. Stay tuned
-          </span>}
-          {event.data.map((e) =>
-            <Link href={createUrl(e.description, e.id)}>
+          <section className={ComponentStyles.search_result_type}>
+            {industry.data.map((ind) =>
               <span
-                key={e.id}
+                key={ind.id}
                 className="typography_spartacus_one"
-              >{e.description}
-              </span>
-            </Link>
-          )}
-        </section>
+                onClick={() => {
+                  updateSearchFunction(ind.id);
+                  updateSearch(ind.description);
+                }}
+              >{ind.description}
+              </span>)}
+          </section>
+        </>}
+
+        {event.total > 0 &&
+          <>
+            <span
+              className={searchStyle}
+            >
+              Event
+            </span>
+            <section className={ComponentStyles.search_result_type}>
+              {event.data.map((e) =>
+                <Link href={createUrl(e.description, e.id)}>
+                  <span
+                    key={e.id}
+                    className="typography_spartacus_one"
+                  >{e.description}
+                  </span>
+                </Link>
+              )}
+            </section>
+
+          </>}
+
       </div>
     )
   }];

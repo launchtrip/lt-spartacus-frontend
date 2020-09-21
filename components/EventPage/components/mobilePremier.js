@@ -16,9 +16,10 @@ export default function MobilePremier({
     <section className={ComponentStyles.event_page_small_screen_ghost}>
       <section className={ComponentStyles.event_page_small_screen_container}>
         <div className={ComponentStyles.event_page_small_screen_div}>
+          <QuestionWidget type="vertical" />
         </div>
         <div className={ComponentStyles.event_page_small_screen_div_two}>
-          <div className={ComponentStyles.event_page_mobile_hide} >
+          <div className={ComponentStyles.event_page_mobile_hide}>
             <span className="typography_spartacus_eight ">
               {event.type}
               {event.badges && event.badges.map((badge) => renderIcon(badge.description))}

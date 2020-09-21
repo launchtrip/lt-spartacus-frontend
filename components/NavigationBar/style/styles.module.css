@@ -15,6 +15,11 @@
     color: #302C35;
     font-size: 36px;
     font-weight: 700;
+    outline: none;
+    
+}
+.navigation_section_one:hover {
+    color: #302C35;   
 }
 
 .navigation_section_two {

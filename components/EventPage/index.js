@@ -28,7 +28,8 @@ export default function EventPage({ premier, event }) {
   const startDay = moment(event.dateStart).date();
   const endDay = moment(event.dateEnd).date();
   const year = moment(event.dateEnd).year();
-  console.log(event);
+  const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
       <>
@@ -141,7 +142,7 @@ export default function EventPage({ premier, event }) {
             <>
               <QuestionWidget type="horizontal" id={event.id} />
               <hr />
-              <Social display="start" />
+              <Social display="start" url={url} />
             </>}
         </section>
       </section>
@@ -185,7 +186,7 @@ export default function EventPage({ premier, event }) {
         <hr className={ComponentStyles.event_page_section_two_divider} />
         {premier &&
           <>
-            <Social display="center" />
+            <Social display="center" url={url} />
             <hr className={ComponentStyles.event_page_section_two_divider} />
           </>}
 

@@ -117,11 +117,13 @@ export default function NavgiationBar({ page }) {
     <div className={ComponentStyles.navigation_main_container}>
       <DynamicModal type="signIn" modal={modal} updateModal={setModal} width={600} />
       <MenuOutlined className={ComponentStyles.navigation_section_one_mene_icon} onClick={() => showDrawer()} />
-
-      <section className={ComponentStyles.navigation_section_one}>
-
-        Unify.
-      </section>
+      <Link href="/">
+        <a href="/" className={ComponentStyles.navigation_section_one}>
+          <section>
+            Unify.
+          </section>
+        </a>
+      </Link>
       <section className={ComponentStyles.navigation_section_two}>
         <section className={ComponentStyles.section_two_button_container}>
           <Link href="/">
