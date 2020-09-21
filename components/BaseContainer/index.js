@@ -13,12 +13,12 @@ export default function BaseContainer(props) {
         <meta property="fb:app_id" content="560462338187989" />
         <meta property="og:title" content="Unify." />
         <meta property="og:site_name" content="Unify." />
-        {/* <meta property="og:image" content="https://launchtrip.com/img/lt-logo-fb.png" /> */}
-        {/* <meta property="og:updated_time" content="1589479982" />
+        <meta property="og:image" content="https://launchtrip.com/img/lt-logo-fb.png" />
+        <meta property="og:updated_time" content="1589479982" />
         <meta property="og:url" content={process.env.BASE_URL} />
         <meta property="og:description" content="Assembley of World Leading Events!" />
-        <meta property="og:locale" content="en_us" />
-        <meta property="og:type" content="website" />  */}
+        <meta property="og:locale" content="en_us" /> */}
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
