@@ -6,6 +6,18 @@ import { countdownInDays, renderIcon } from '../helperFunctions';
 
 export default function EventCard({ data }) {
   const pathname = `/event/${data.name.split(' ').join('-')}-id-${data.id}`;
+
+  const renderCorrectCoundown = () => {
+    const countdown = countdownInDays(data.dateStart, true);
+
+    if (countdown === 1) {
+      return '1 Day';
+    }
+    if (countdown < 1) {
+      return 'Today';
+    }
+    return `${countdown} Days`;
+  };
   return (
     <Link
       href={{ pathname }}
@@ -22,7 +34,7 @@ export default function EventCard({ data }) {
           <span
             id={ComponentStyles.section_two_event_item}
             className="typography_spartacus_four"
-          >LIVE: <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_four_bold">{countdownInDays(data.dateStart, true)} DAYS</span>
+          >LIVE: <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_four_bold">{renderCorrectCoundown()}</span>
           </span>
           <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_five_demi_bold">{data.name}</span>
           <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_six">

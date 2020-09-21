@@ -15,7 +15,9 @@ export default function MobilePremier({
   return (
     <section className={ComponentStyles.event_page_small_screen_ghost}>
       <section className={ComponentStyles.event_page_small_screen_container}>
-        <div className={ComponentStyles.event_page_small_screen_div} />
+        <div className={ComponentStyles.event_page_small_screen_div}>
+          <QuestionWidget type="vertical" />
+        </div>
         <div className={ComponentStyles.event_page_small_screen_div_two}>
           <div className={ComponentStyles.event_page_mobile_hide}>
             <span className="typography_spartacus_eight ">
