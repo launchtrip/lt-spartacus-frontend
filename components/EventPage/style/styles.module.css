@@ -204,7 +204,9 @@
     display: flex;
     align-items: flex-end;
 }
-
+.event_page_social_item{
+    margin : 0px 15 !important;
+}
 
 .event_page_related_events_inner_img_news {
     margin: 15px 0;
