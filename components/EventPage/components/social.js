@@ -1,15 +1,30 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
-import ComponentStyles from '../style/styles.module.css';
-import EventIcon from '../../EventIcon';
+import {
 
-export default function Social({ display }) {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton
+
+} from 'react-share';
+import ComponentStyles from '../style/styles.module.css';
+
+export default function Social({ display, url }) {
   return (
     <div className={ComponentStyles.event_page_social_container} style={{ justifyContent: display }}>
       <span className="typography_spartacus_eight_light">Share:</span>
-      <EventIcon image="/assets/facebook.png" width="30px" height="30px" marginRight="5px" marginLeft="5px" />
-      <EventIcon image="/assets/twitter.png" width="30px" height="30px" marginLeft="5px" marginRight="5px" />
-      <EventIcon image="/assets/linkedin.png" width="30px" height="30px" marginRight="5px" marginLeft="5px" />
+      <FacebookShareButton url={url}>
+        <FacebookIcon size={32} borderRadius={10} />
+      </FacebookShareButton>
+      <TwitterShareButton url={url}>
+        <TwitterIcon size={32} borderRadius={10} />
+      </TwitterShareButton>
+      <LinkedinShareButton url={url}>
+        <LinkedinIcon size={32} borderRadius={10} />
+      </LinkedinShareButton>
     </div>
   );
 }

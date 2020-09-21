@@ -3,7 +3,6 @@ import ComponentStyles from '../style/styles.module.css';
 import RelatedEventCard from '../../RelatedEventCard';
 
 export default function RelatedEvents({ events }) {
-  console.log(events);
   return (
     <section className={ComponentStyles.event_page_related_events}>
       <span className={`typography_spartacus_eight ${ComponentStyles.event_page_related_title}`}>Related Events</span>

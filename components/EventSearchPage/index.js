@@ -29,7 +29,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
           justifyContent: 'space-between',
         }}
       >
-        {company &&
+        {company && company.total > 0 &&
           <>
             <span
               className={searchStyle}
@@ -38,10 +38,6 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
             </span>
 
             <section className={ComponentStyles.search_result_type}>
-              {!company.total &&
-                <span>Sorry we currently don’t have
-                <br />this company. Stay tuned
-              </span>}
               {company.data.map((c) =>
                 <span
                   key={c.id}
@@ -54,7 +50,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
                 </span>)}
             </section>
           </>}
-        {industry &&
+        {industry && industry.total > 0 &&
           <>
             <span
               className={searchStyle}
@@ -63,10 +59,6 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
             </span>
 
             <section className={ComponentStyles.search_result_type}>
-              {!industry.total &&
-                <span>Sorry we currently don’t have
-                <br />this industry. Stay tuned
-              </span>}
               {industry.data.map((c) =>
                 <span
                   key={c.id}
@@ -79,7 +71,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
                 </span>)}
             </section>
           </>}
-        {event &&
+        {event && event.total > 0 &&
           <>
             <span
               className={searchStyle}
@@ -88,10 +80,6 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
             </span>
 
             <section className={ComponentStyles.search_result_type}>
-              {!event.total &&
-                <span>Sorry we currently don’t have
-                <br />this event. Stay tuned
-              </span>}
               {event.data.map((c) =>
                 <span
                   key={c.id}
