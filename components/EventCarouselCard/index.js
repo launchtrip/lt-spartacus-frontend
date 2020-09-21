@@ -29,16 +29,16 @@ export default function EventCard({ data }) {
             {data.subindustry && data.subindustry.map((sub, i) => {
               const { length } = data.subindustry;
               if (i + 1 === length) {
-                return sub.description;
+                return <span key={sub.id}>{sub.description}</span>;
               }
-              return `${sub.description}, `;
+              return <span key={sub.id}>{sub.description}, </span>;
             })}
           </span>
           <span id={ComponentStyles.section_two_event_item} className={`typography_spartacus_seven ${ComponentStyles.card_copy}`}>
             {data.description}
           </span>
           <section id={ComponentStyles.section_two_event_item} className={ComponentStyles.section_two_image_container}>
-            {data.badges && data.badges.map((badge) => renderIcon(badge.description))}
+            {data.badges && data.badges.map((badge) => <span key={badge.id}>{renderIcon(badge.description)}</span>)}
           </section>
         </section>
       </div>

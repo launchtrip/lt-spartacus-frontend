@@ -16,9 +16,9 @@ export default function EventCard({ showLine, event, showDate }) {
     const { length } = event.subindustries ? event.subindustries : event.subindustry;
     const subs = selectSubs && selectSubs.map((sub, i) => {
       if (i + 1 === length) {
-        return sub.description;
+        return <span key={sub.id}>{sub.description}</span>;
       }
-      return `${sub.description}, `;
+      return <span key={sub.id}>{sub.description}, </span>;
     });
     return subs;
   };
@@ -41,7 +41,7 @@ export default function EventCard({ showLine, event, showDate }) {
             {event.description}
           </p>
           <span>
-            {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
+            {event.badges && event.badges.map((badge) => <span key={badge.id}> {renderIcon(badge.description)} </span>)}
             |
             <span className={`${ComponentStyles.event_type} typography_spartacus_ten_italic `}>
               {event.type === 'InPerson' ? 'In Person' : event.type}

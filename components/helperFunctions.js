@@ -9,7 +9,8 @@ export function split(array, n) {
   while (arr.length) {
     res.push(arr.splice(0, n));
   }
-  return res;
+  const properValue = res.filter((r) => r.length === n);
+  return properValue;
 }
 
 export function countdownInDays(date) {

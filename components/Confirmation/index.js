@@ -6,7 +6,7 @@ export default function Confirmation() {
     <div className={ComponentStyles.confirmation_container}>
       <div>
         <span className="typography_spartacus_sixteen">
-          Hi David
+          Hi There!
           <br />
           Welcom to Unify.
         </span>
