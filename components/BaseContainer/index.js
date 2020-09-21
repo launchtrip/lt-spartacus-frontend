@@ -15,8 +15,8 @@ export default function BaseContainer(props) {
         <meta property="og:site_name" content="Unify." />
         <meta property="og:image" content="https://launchtrip.com/img/lt-logo-fb.png" />
         <meta property="og:updated_time" content="1589479982" />
-        <meta property="og:url" content="https://launchtrip.com/plus" />
-        <meta property="og:description" content="Your number one source for top virtual events in the world." />
+        <meta property="og:url" content={process.env.BASE_URL} />
+        <meta property="og:description" content="Assembley of World Leading Events!" />
         <meta property="og:locale" content="en_us" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
