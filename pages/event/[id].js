@@ -27,7 +27,7 @@ export default function Events({ data }) {
   return (
     <BaseContainer page={data.name}>
       <Head>
-        <meta property="og:site_name" content="Unify." />
+        {/* <meta property="og:site_name" content="Unify." />
         <meta property="fb:app_id" content="560462338187989" />
         <meta property="og:title" content={data.name} />
         <meta property="og:site_name" content="Unify." />
@@ -36,7 +36,7 @@ export default function Events({ data }) {
         <meta property="og:url" content={url} />
         <meta property="og:description" content={data.slogan} />
         <meta property="og:locale" content="en_us" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="website" /> */}
       </Head>
       <EventPage premier={data.premier} event={data} />
     </BaseContainer>
