@@ -16,22 +16,23 @@ export default function MobilePremier({
     <section className={ComponentStyles.event_page_small_screen_ghost}>
       <section className={ComponentStyles.event_page_small_screen_container}>
         <div className={ComponentStyles.event_page_small_screen_div}>
-          <QuestionWidget type="vertical" />
         </div>
         <div className={ComponentStyles.event_page_small_screen_div_two}>
-          <span className="typography_spartacus_eight ">
-            {event.type}
-            {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
-          </span>
-          {renderViewingOptions()}
-          <span
-            className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
-          >{renderDates()}
-          </span>
-          <span
-            className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
-          >{renderLocation()}
-          </span>
+          <div className={ComponentStyles.event_page_mobile_hide} >
+            <span className="typography_spartacus_eight ">
+              {event.type}
+              {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
+            </span>
+            {renderViewingOptions()}
+            <span
+              className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
+            >{renderDates()}
+            </span>
+            <span
+              className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
+            >{renderLocation()}
+            </span>
+          </div>
           <a
             target="_blank"
             href={event.ticketsUrl || 'www.google.ca'}

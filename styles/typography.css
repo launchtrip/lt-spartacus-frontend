@@ -34,13 +34,13 @@
 }
 
 .typography_spartacus_three {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 22px;
     font-family: AvenirNext;
 }
 
 .typography_spartacus_three_bold {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 20px;
     font-family: AvenirNextBold;
 
@@ -49,10 +49,12 @@
 .typography_spartacus_four {
     font-size: 15px;
     line-height: 20px;
+    letter-spacing: 0.1px;
     font-family: AvenirNext;
     color: #363636;
 }
-.typography_spartacus_four_italic{
+
+.typography_spartacus_four_italic {
     font-size: 15px;
     line-height: 20px;
     font-family: AvenirNext;
@@ -229,20 +231,23 @@
     font-weight: 900;
     color: #373737;
 }
+
 .typography_spartacus_twenty_one {
     font-size: 40px;
     line-height: 48px;
     font-family: AvenirNext;
-    opacity:0.2;
+    opacity: 0.2;
     color: #685C9E;
 }
+
 .typography_spartacus_twenty_two_bold {
     font-size: 35px;
     line-height: 40px;
     font-family: AvenirNextBold;
     color: #292929;
 }
-.typography_spartacus_twenty_three{
+
+.typography_spartacus_twenty_three {
     font-size: 20px;
     line-height: 24px;
     font-family: AvenirNext;
@@ -252,5 +257,16 @@
 @media screen and (max-width: 820px) {
     .typography_spartacus_seven {
         font-size: 13px;
+    }
+
+    .typography_spartacus_three {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .typography_spartacus_three_bold {
+        font-size: 16px;
+        line-height: 20px;
+
     }
 }
