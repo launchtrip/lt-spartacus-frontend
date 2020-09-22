@@ -1,25 +1,25 @@
 .navigation_main_container {
-    width: 100%;
+    width: 95%;
+    margin: auto;
     border-bottom: 1px solid #EBEBEB;
     display: flex;
     align-items: center;
     padding: 12px 0 0 0;
     align-items: baseline;
-    max-width: 1700px;
-    margin: auto;
 }
 
 .navigation_section_one {
-    text-align: center;
-    flex-grow: 1;
+    text-align: left;
+    flex: 0 0 150px;
     color: #302C35;
     font-size: 36px;
     font-weight: 700;
     outline: none;
-    
+
 }
+
 .navigation_section_one:hover {
-    color: #302C35;   
+    color: #302C35;
 }
 
 .navigation_section_two {
@@ -34,7 +34,7 @@
     align-items: flex-end;
     text-align: center;
     justify-content: space-evenly;
-    width: 65%
+    width: 55%;
 }
 
 .navigation_menu_button_active {
@@ -45,15 +45,26 @@
     outline: none;
     cursor: pointer;
     border-bottom: 5px solid #DD2786;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
+
 
 .navigation_menu_button {
     color: #363636;
     border: none;
     background-color: white;
+    padding-bottom: 20px;
     outline: none;
     cursor: pointer;
     padding-bottom: 25px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.dropdown_parent {
+    border-bottom: 2px solid transparent !important;
+    color: inherit !important;
 }
 
 .navigation_menu_button:focus,
@@ -65,11 +76,10 @@
 
 .navigation_section_three {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     height: 70%;
-    flex-grow: 1;
-    flex-shrink: 0;
+    flex: 0 0 250px;
 
 
 }
@@ -141,6 +151,10 @@
     .section_three_button_container {
         width: 70% !important;
     }
+
+    .section_two_button_container {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 1020px) {
@@ -151,6 +165,7 @@
     .section_three_button_container {
         width: 80% !important;
     }
+
 }
 
 @media screen and (max-width: 870px) {
@@ -170,7 +185,7 @@
 
     .navigation_section_one_mene_icon {
         font-size: 30px;
-        margin-left: 5%;
+        margin-left: 3%;
         position: absolute;
         visibility: visible;
         top: 20px;
@@ -178,5 +193,12 @@
 
     .navigation_main_container {
         padding: 9px 0 7px 0;
+    }
+
+    .navigation_section_one {
+        text-align: center;
+        flex-basis: 100%;
+        font-size: 32px;
+
     }
 }

@@ -140,7 +140,7 @@ export default function NavgiationBar({ page }) {
             className={checkState('Events')}
 
           >
-            <SubMenu title="Events">
+            <SubMenu title="Events" className={ComponentStyles.dropdown_parent}>
               <Menu.Item onClick={() => routeToEventPage('/virtualevents')} key="virtual">Virtual Events</Menu.Item>
               <Menu.Item onClick={() => routeToEventPage('/events')} key="all events">All Events</Menu.Item>
             </SubMenu>
@@ -167,33 +167,33 @@ export default function NavgiationBar({ page }) {
 
       </section>
       {!user &&
-      <section className={ComponentStyles.navigation_section_three}>
-        <section className={ComponentStyles.section_three_button_container}>
-          <Link href="/sign-up">
+        <section className={ComponentStyles.navigation_section_three}>
+          <section className={ComponentStyles.section_three_button_container}>
+            <Link href="/sign-up">
 
-            <button type="button" className="button_small_styled typography_spartacus_one_bold">
-              Sign Up
+              <button type="button" className="button_small_styled typography_spartacus_one_bold">
+                Sign Up
             </button>
-          </Link>
-          <button
-            type="button"
-            className="button_small_plain typography_spartacus_one"
-            onClick={() => setModal(true)}
-          >
-            Log In
+            </Link>
+            <button
+              type="button"
+              className="button_small_plain typography_spartacus_one"
+              onClick={() => setModal(true)}
+            >
+              Log In
           </button>
-        </section>
-      </section>}
+          </section>
+        </section>}
       {user &&
-      <section className={ComponentStyles.navigation_section_three}>
-        <section className={ComponentStyles.section_three_button_container}>
-          <Dropdown overlay={menu} placement="bottomRight">
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-              <EventIcon image="/assets/logged.png" width="20px" height="20px" />
-            </a>
-          </Dropdown>
-        </section>
-      </section>}
+        <section className={ComponentStyles.navigation_section_three}>
+          <section className={ComponentStyles.section_three_button_container}>
+            <Dropdown overlay={menu} placement="bottomRight">
+              <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                <EventIcon image="/assets/logged.png" width="20px" height="20px" />
+              </a>
+            </Dropdown>
+          </section>
+        </section>}
       <Drawer
         title={mobileTitle()}
         placement="left"

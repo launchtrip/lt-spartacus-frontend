@@ -3,13 +3,15 @@ import Head from 'next/head';
 import NavigationBar from '../NavigationBar';
 import Footer from '../Footer';
 import { Provider } from '../../providers/userContext';
+import ComponentStyles from './style/styles.module.css';
+
 
 export default function BaseContainer(props) {
   return (
     <>
       <Head>
         <title>{`Unify. | ${props.page}`}</title>
-        {/* <meta property="og:site_name" content="Unify." />
+        <meta property="og:site_name" content="Unify." />
         <meta property="fb:app_id" content="560462338187989" />
         <meta property="og:title" content="Unify." />
         <meta property="og:site_name" content="Unify." />
@@ -18,7 +20,7 @@ export default function BaseContainer(props) {
         <meta property="og:url" content={process.env.BASE_URL} />
         <meta property="og:description" content="Assembley of World Leading Events!" />
         <meta property="og:locale" content="en_us" />
-        <meta property="og:type" content="website" /> */}
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
@@ -33,10 +35,16 @@ export default function BaseContainer(props) {
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" />
       </Head>
       <Provider>
-        <NavigationBar page={props.page} />
+        <div className={ComponentStyles.container_maxWidth}>
+          <NavigationBar page={props.page} />
+        </div>
       </Provider>
-      {props.children}
-      <Footer />
+      <div className={ComponentStyles.container_maxWidth}>
+        {props.children}
+        <Footer />
+      </div>
     </>
   );
 }
+
+
