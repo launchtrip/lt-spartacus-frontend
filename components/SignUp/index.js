@@ -113,19 +113,12 @@ export default function SignUp() {
                     message: 'Please select an Industry',
                   },
                 ]}
-                className={ComponentStyles.signUp_form_item_base}
               >
-                <Select
+                <input
+                  className={ComponentStyles.signUp_form_item}
                   placeholder="Industry"
-                  allowClear
-                  className={ComponentStyles.signUp_form_item_select}
-                >
-                  <Option value="Tech">Tech</Option>
-                  <Option value="Medical">Medical</Option>
-                  <Option value="Music">Music</Option>
-                </Select>
+                />
               </Form.Item>
-
               <Form.Item
                 name="email"
                 rules={[
@@ -133,6 +126,10 @@ export default function SignUp() {
                     required: true,
                     message: 'Please input your Email',
                   },
+                  {
+                    type: 'email',
+                    message: 'Please input a valid email',
+                  }
                 ]}
               >
                 <input

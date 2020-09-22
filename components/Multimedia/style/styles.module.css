@@ -19,7 +19,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    width: 48%;
+    width: 51%;
 }
 
 .play_button {
@@ -120,7 +120,7 @@
         width: 100%;
     }
     .multimedia_container_video {
-        width: 50%;
+        width: 100%;
     }
     .multimedia_container_sec_two_inner{
         width: 100%;
