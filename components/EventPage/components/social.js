@@ -17,13 +17,13 @@ export default function Social({ display, url }) {
     <div className={ComponentStyles.event_page_social_container} style={{ justifyContent: display }}>
       <span className="typography_spartacus_eight_light">Share:</span>
       <FacebookShareButton url={url} className={ComponentStyles.event_page_social_item}>
-        <FacebookIcon size={25} round style={{ margin: '0px 5px' }} />
+        <FacebookIcon size={25} round />
       </FacebookShareButton>
       <TwitterShareButton url={url} className={ComponentStyles.event_page_social_item}>
-        <TwitterIcon size={25} round style={{ margin: '0px 5px' }} />
+        <TwitterIcon size={25} round />
       </TwitterShareButton>
       <LinkedinShareButton url={url} className={ComponentStyles.event_page_social_item}>
-        <LinkedinIcon size={25} round style={{ margin: '0px 5px' }} />
+        <LinkedinIcon size={25} round />
       </LinkedinShareButton>
     </div>
   );

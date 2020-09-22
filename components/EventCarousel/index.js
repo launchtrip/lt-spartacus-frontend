@@ -47,6 +47,7 @@ export default function EventCarousel({ title, eventPage, data, isLast }) {
     dots: false,
     arrows: true,
     speed: 500,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,

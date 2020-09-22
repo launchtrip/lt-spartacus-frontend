@@ -50,6 +50,7 @@ export default function SpeakerCarousel({ title, hideEventTitle, speakers }) {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1200,

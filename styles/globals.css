@@ -40,7 +40,10 @@ hr {
 .slick-cloned {
   display: none !important;
 }
-
+.react-share__ShareButton{
+  outline: none !important;
+  margin: 0px 5px;
+}
 @media screen and (max-width: 820px) {
   .home_sec_search {
     order: 3;

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, } from 'react';
-import { PlayCircleTwoTone } from '@ant-design/icons';
+import { PlayCircleOutlined } from '@ant-design/icons';
 import ReactImageVideoLightbox from 'react-image-video-lightbox';
 import ComponentStyles from './style/styles.module.css';
 
@@ -13,70 +13,78 @@ export default function Multimedia({ data }) {
     setState(true);
   };
 
-  const renderVideoOrImage = (src, val) => {
+  const renderVideoOrImage = (src, val, clss) => {
+    const imageUrl = `url(${src.url})`;
     if (src.caption) {
       if (!vid) {
         setVideo(true);
       }
       return (
-
-        <figure className={`col-md-6 ${ComponentStyles.multimedia_container_video}`} onClick={() => setSlideAndOpen(val)}>
-          <PlayCircleTwoTone twoToneColor="black" className={ComponentStyles.play_button} />
-          <img
-            alt="pictures"
-            src={src.url}
-            className="img-fluid"
-
-          />
-
-        </figure>
+        <div className={`${ComponentStyles.multimedia_container_video} ${clss}`} onClick={() => setSlideAndOpen(val)} style={{ backgroundImage: imageUrl }}>
+          <PlayCircleOutlined className={ComponentStyles.play_button} />
+        </div>
       );
     }
     return (
-      <figure
-        className={`col-md-6 ${ComponentStyles.multimedia_container_image}`}
-        onClick={() => setSlideAndOpen(val)}
-      >
-        <img
-          alt="pictures"
-          src={src.url}
-          className="img-fluid"
-        />
-      </figure>
+      <div style={{ backgroundImage: imageUrl }} className={clss} onClick={() => setSlideAndOpen(val)} />
     );
   };
 
   const sectionsTwo = (d) => {
+    if (d.length === 1) {
+      return (
+        renderVideoOrImage(data[0], 0, ComponentStyles.media_item_single)
+      );
+    }
     if (d.length === 2) {
       return (
-        renderVideoOrImage(data[1], 1)
+        <>
+          {renderVideoOrImage(data[0], 0, ComponentStyles.media_item_two)}
+          {renderVideoOrImage(data[1], 1, ComponentStyles.media_item_two)}
+        </>
+
       );
     }
     if (d.length === 3) {
       return (
-        <div className={ComponentStyles.multimedia_container_sec_two}>
-          {renderVideoOrImage(data[1], 1)}
-          {renderVideoOrImage(data[2], 2)}
-        </div>
+        <>
+          {renderVideoOrImage(data[0], 0, ComponentStyles.media_item_two)}
+          <div className={ComponentStyles.multimedia_container_sec_two}>
+            {renderVideoOrImage(data[1], 1, ComponentStyles.media_item_three)}
+            {renderVideoOrImage(data[2], 2, ComponentStyles.media_item_three)}
+          </div>
+        </>
       );
     }
     if (d.length === 4) {
       return (
-        <div className={ComponentStyles.multimedia_container_sec_two}>
-          {renderVideoOrImage(data[1], 1)}
-          {renderVideoOrImage(data[2], 2)}
-          {renderVideoOrImage(data[3], 3)}
-        </div>
+        <>
+          {renderVideoOrImage(data[0], 0, ComponentStyles.media_item_two)}
+          <div className={ComponentStyles.multimedia_container_sec_two}>
+            <div className={ComponentStyles.multimedia_container_sec_two_inner}>
+              {renderVideoOrImage(data[1], 1, ComponentStyles.media_item_four)}
+              {renderVideoOrImage(data[2], 2, ComponentStyles.media_item_four)}
+            </div>
+            {renderVideoOrImage(data[3], 3, ComponentStyles.media_item_three)}
+
+          </div>
+        </>
       );
     }
     return (
-      <div className={ComponentStyles.multimedia_container_sec_two}>
-        {renderVideoOrImage(data[1], 1)}
-        {renderVideoOrImage(data[2], 2)}
-
-        {renderVideoOrImage(data[3], 3)}
-        {renderVideoOrImage(data[4], 4)}
-      </div>
+      <>
+        {renderVideoOrImage(data[0], 0, ComponentStyles.media_item_two)}
+        <div className={ComponentStyles.multimedia_container_sec_two}>
+          <div className={ComponentStyles.multimedia_container_sec_two_inner}>
+            {renderVideoOrImage(data[1], 1, ComponentStyles.media_item_four)}
+            {renderVideoOrImage(data[2], 2, ComponentStyles.media_item_four)}
+          </div>
+          <div className={ComponentStyles.multimedia_container_sec_two_inner}>
+            {renderVideoOrImage(data[3], 3, ComponentStyles.media_item_four)}
+            {renderVideoOrImage(data[4], 4, ComponentStyles.media_item_four)}
+          </div>
+        </div>
+      </>
     );
   };
 
@@ -89,15 +97,8 @@ export default function Multimedia({ data }) {
   return (
     <div className={ComponentStyles.multimedia_container}>
       <section className="typography_spartacus_eight">Multimedia</section>
-      <div className="row">
-        <div className="col-md-12">
-          <div id="mdb-lightbox-ui" />
-          <div className={`mdb-lightbox no-margin ${ComponentStyles.multimedia_container_inner}`}>
-            {renderVideoOrImage(data[0], 0)}
-            {data.length > 1 && sectionsTwo(data)}
-
-          </div>
-        </div>
+      <div className={ComponentStyles.multimedia_container_inner}>
+        {sectionsTwo(data)}
       </div>
       {state &&
       <section className={ComponentStyles.multimedia_lightbox}>
