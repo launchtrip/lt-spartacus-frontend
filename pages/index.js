@@ -7,7 +7,8 @@ import {
   HeroCarousel,
   HomePageBottomHalf,
   MobileCopy,
-  Error
+  Error,
+  HeadMeta
 } from '../components';
 
 import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
@@ -52,6 +53,7 @@ export default function Home({ data }) {
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
   return (
     <BaseContainer page="Home">
+      <HeadMeta />
       <div className="home_sec_base_container">
         <DynamicSearchBar
           updateSearchFunction={updateHomePageData}

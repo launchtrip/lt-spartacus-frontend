@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { BaseContainer, DynamicSearchBar, EventCarousel, Error } from '../components';
+import { BaseContainer, DynamicSearchBar, EventCarousel, Error, HeadMeta } from '../components';
 import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes/Events';
 
 export default function VirtualEvents({ data }) {
@@ -55,6 +55,7 @@ export default function VirtualEvents({ data }) {
 
   return (
     <BaseContainer page="Virtual Events">
+      <HeadMeta />
       <DynamicSearchBar
         updateSearchFunction={updateVirtualPageData}
         refreshWithOriginalData={refreshWithOriginalData}

@@ -13,6 +13,7 @@ import EventSearchPage from './EventSearchPage';
 import EventPage from './EventPage';
 import Error from './Error';
 import ChangePassword from './ChangePassword';
+import HeadMeta from './HeadMeta';
 
 export {
   Article,
@@ -24,6 +25,7 @@ export {
   EventCarousel,
   EventPage,
   EventSearchPage,
+  HeadMeta,
   HomePageBottomHalf,
   HeroCarousel,
   MobileCopy,

@@ -5,7 +5,6 @@ import Footer from '../Footer';
 import { Provider } from '../../providers/userContext';
 import ComponentStyles from './style/styles.module.css';
 
-
 export default function BaseContainer(props) {
   return (
     <>
@@ -46,5 +45,3 @@ export default function BaseContainer(props) {
     </>
   );
 }
-
-

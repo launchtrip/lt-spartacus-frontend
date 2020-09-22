@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useRouter } from 'next/router';
-import { BaseContainer, EventSearchPage, Error } from '../components';
+import { BaseContainer, EventSearchPage, Error, HeadMeta } from '../components';
 import { FetchAllEvents } from './api/Routes/Events';
 import { organizeEventsByMonth } from '../components/helperFunctions';
 
@@ -88,6 +88,7 @@ export default function Events({ data }) {
 
   return (
     <BaseContainer page="Events">
+      <HeadMeta />
       <EventSearchPage data={eventPageData} methods={methods} />
     </BaseContainer>
   );
