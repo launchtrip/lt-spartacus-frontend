@@ -41,7 +41,7 @@ export default function SpeakerCarousel({ title, hideEventTitle, speakers }) {
       </div>
     );
   }
-
+  const infinite = speakers.length >= 4;
   const settings = {
     dots: false,
     arrows: true,
@@ -50,7 +50,7 @@ export default function SpeakerCarousel({ title, hideEventTitle, speakers }) {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    infinite: true,
+    infinite,
     responsive: [
       {
         breakpoint: 1200,

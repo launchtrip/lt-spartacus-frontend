@@ -42,12 +42,13 @@ export default function EventCarousel({ title, eventPage, data, isLast }) {
       </div>
     );
   }
+  const infinite = data.length >= 4;
 
   const settings = {
     dots: false,
     arrows: true,
     speed: 500,
-    infinite: true,
+    infinite,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
@@ -78,6 +79,8 @@ export default function EventCarousel({ title, eventPage, data, isLast }) {
       }
     ]
   };
+
+  const eventCards = () => data && data.map((event) => <EventCard key={event.id} data={event} />);
   const titleClass = !eventPage ? 'typography_spartacus_eight' : `typography_spartacus_eight ${ComponentStyles.event_carousel_title}`;
   const baseClass = !eventPage ? `${ComponentStyles.event_carousel_container} home_sec_vc` : ComponentStyles.event_carousel_container;
   return (
@@ -86,7 +89,7 @@ export default function EventCarousel({ title, eventPage, data, isLast }) {
       <span className={titleClass}>{title}</span>
       <div className={ComponentStyles.carousel_container}>
         <Slider {...settings}>
-          {data && data.map((event) => <EventCard key={event.id} data={event} />)}
+          {eventCards()}
         </Slider>
       </div>
 
