@@ -24,7 +24,7 @@ export default function BaseContainer(props) {
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" />
       </Head>
       <Provider>
-        <div className={ComponentStyles.container_maxWidth}>
+        <div className={ComponentStyles.nav_container_maxWidth}>
           <NavigationBar page={props.page} />
         </div>
       </Provider>

@@ -86,7 +86,7 @@
 
 .section_three_button_container {
     display: flex;
-    width: 60%;
+    width: 100%;
     justify-content: space-evenly;
     align-items: baseline;
 }
