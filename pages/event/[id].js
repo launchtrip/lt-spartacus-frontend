@@ -6,7 +6,7 @@ import { FetchIndividualEvent } from '../api/Routes/Events';
 
 export default function Events({ data }) {
   const router = useRouter();
-
+  console.log('>>>>', data);
   if (!data) {
     const errorMessage = {
       type: 404,
@@ -22,12 +22,12 @@ export default function Events({ data }) {
       </BaseContainer>
     );
   }
-  // const url = `${process.env.BASE_URL}/event/${data.name.split(' ').join('-')}-id-${data.id}`;
+  const url = `${process.env.BASE_URL}/event/${data.name.split(' ').join('-')}-id-${data.id}`;
 
   return (
     <BaseContainer page={data.name}>
       <Head>
-        {/* <meta property="og:site_name" content="Unify." />
+        <meta property="og:site_name" content="Unify." />
         <meta property="fb:app_id" content="560462338187989" />
         <meta property="og:title" content={data.name} />
         <meta property="og:site_name" content="Unify." />
@@ -36,7 +36,7 @@ export default function Events({ data }) {
         <meta property="og:url" content={url} />
         <meta property="og:description" content={data.slogan} />
         <meta property="og:locale" content="en_us" />
-        <meta property="og:type" content="website" /> */}
+        <meta property="og:type" content="website" />
       </Head>
       <EventPage premier={data.premier} event={data} />
     </BaseContainer>
