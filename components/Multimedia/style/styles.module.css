@@ -69,13 +69,13 @@
 }
 .media_item_three{
     width: 100%;
-    height: 48%;
+    height: 46%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center
 }
 .media_item_four{
-    width: 48%;
+    width: 46%;
     /* height: 48%; */
     background-repeat: no-repeat;
     background-size: cover;

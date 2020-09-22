@@ -12,6 +12,8 @@ export default function MobilePremier({
   renderViewingOptions,
   updateSpeakerModal,
 }) {
+  const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+
   return (
     <section className={ComponentStyles.event_page_small_screen_ghost}>
       <section className={ComponentStyles.event_page_small_screen_container}>
@@ -48,7 +50,7 @@ export default function MobilePremier({
             className={`button_lg_styled_light ${ComponentStyles.event_page_section_two_button}`}
           >Become a Sponsor/Speaker
           </button>
-          <Social event={event} display="center" />
+          <Social url={url} display="center" />
         </div>
       </section>
       <hr className={ComponentStyles.event_page_glance_bottom} />

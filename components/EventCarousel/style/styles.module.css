@@ -58,6 +58,7 @@
 .carousel_container {
     width: 90%;
     padding: 20px 0;
+
 }
 
 @media screen and (max-width: 600px) {
