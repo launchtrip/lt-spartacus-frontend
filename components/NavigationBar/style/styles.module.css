@@ -34,7 +34,7 @@
     align-items: flex-end;
     text-align: center;
     justify-content: space-evenly;
-    width: 65%
+    width: 55%;
 }
 
 .navigation_menu_button_active {
@@ -45,15 +45,26 @@
     outline: none;
     cursor: pointer;
     border-bottom: 5px solid #DD2786;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
+
 
 .navigation_menu_button {
     color: #363636;
     border: none;
     background-color: white;
+    padding-bottom: 20px;
     outline: none;
     cursor: pointer;
     padding-bottom: 25px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.dropdown_parent {
+    border-bottom: 2px solid transparent !important;
+    color: inherit !important;
 }
 
 .navigation_menu_button:focus,
@@ -140,6 +151,10 @@
     .section_three_button_container {
         width: 70% !important;
     }
+
+    .section_two_button_container {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 1020px) {
@@ -150,6 +165,7 @@
     .section_three_button_container {
         width: 80% !important;
     }
+
 }
 
 @media screen and (max-width: 870px) {
