@@ -2,11 +2,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-import { Form, Select } from 'antd';
+import { Form, Select, Alert } from 'antd';
 import ComponentStyles from './style/styles.module.css';
+import { BecomeAPartner } from '../../pages/api/Routes/Requests';
 
 export default function PartnershipForm() {
   const [submit, updateSubmit] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { Option } = Select;
 
   const layout = {
@@ -15,9 +18,20 @@ export default function PartnershipForm() {
     }
   };
 
-  const onFinish = values => {
-    updateSubmit(true);
-    console.log('Success:', values);
+  const onFinish = async values => {
+    try {
+      setLoading(true);
+      await BecomeAPartner(values);
+      updateSubmit(true);
+    } catch (err) {
+      setLoading(false);
+      setLoading(false);
+
+      setError('error trying to submit your parntership claim');
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -81,7 +95,25 @@ export default function PartnershipForm() {
                 />
               </Form.Item>
               <Form.Item
-                name="company"
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your email',
+                  },
+                  {
+                    type: 'email',
+                    message: 'Please input a valid email',
+                  }
+                ]}
+              >
+                <input
+                  className={ComponentStyles.partnership_form_item}
+                  placeholder="Email"
+                />
+              </Form.Item>
+              <Form.Item
+                name="eventName"
                 rules={[
                   {
                     required: true,
@@ -119,23 +151,17 @@ export default function PartnershipForm() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please select an Industry',
+                    message: 'Please input your industry',
                   },
                 ]}
-                className={ComponentStyles.partnership_form_item_base}
               >
-                <Select
+                <input
+                  className={ComponentStyles.partnership_form_item}
                   placeholder="Industry"
-                  allowClear
-                  className={ComponentStyles.partnership_form_item_select}
-                >
-                  <Option value="Tech">Tech</Option>
-                  <Option value="Medical">Medical</Option>
-                  <Option value="Music">Music</Option>
-                </Select>
+                />
               </Form.Item>
               <Form.Item
-                name="years"
+                name="yearBusiness"
                 rules={[
                   {
                     required: true,
@@ -149,7 +175,7 @@ export default function PartnershipForm() {
                 />
               </Form.Item>
               <Form.Item
-                name="virtualEvent"
+                name="virtual"
                 rules={[
                   {
                     required: true,
@@ -163,8 +189,8 @@ export default function PartnershipForm() {
                   allowClear
                   className={ComponentStyles.partnership_form_item_select}
                 >
-                  <Option value="Yes">Yes</Option>
-                  <Option value="No">No</Option>
+                  <Option value="true">Yes</Option>
+                  <Option value="false">No</Option>
                 </Select>
               </Form.Item>
               <Form.Item
@@ -178,7 +204,12 @@ export default function PartnershipForm() {
               </Form.Item>
 
               <Form.Item className={ComponentStyles.button}>
-                <button type="primary" htmltype="submit" className="button_lg_styled">
+                <button
+                  disabled={loading}
+                  type="primary"
+                  htmltype="submit"
+                  className="button_lg_styled"
+                >
                   Submit
                 </button>
               </Form.Item>
@@ -196,6 +227,8 @@ export default function PartnershipForm() {
               <li>Access Tons of Attendees</li>
               <li>Include Banner Ads and More!</li>
             </ul>
+            {error && <Alert message={error} type="error" showIcon />}
+
           </section>
         </>
         :
