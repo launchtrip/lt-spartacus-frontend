@@ -22,7 +22,7 @@ export default function Events({ data }) {
       </BaseContainer>
     );
   }
-  const url = `${process.env.BASE_URL}/event/${data.name.split(' ').join('-')}-id-${data.id}`;
+  // const url = `${process.env.BASE_URL}/event/${data.name.split(' ').join('-')}-id-${data.id}`;
 
   return (
     <BaseContainer page={data.name}>
