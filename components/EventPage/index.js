@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
 import moment from 'moment';
@@ -62,11 +63,16 @@ export default function EventPage({ premier, event }) {
       {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
     </>
   );
-  const renderLocation = () => (
-    <>
-      {event.city.name}, {event.city.countryAbbr}
-    </>
-  );
+  const renderLocation = () => {
+    console.log(event.type);
+    if (event.city && event.city.countryAbbr) {
+      return (
+        <>
+          {event.city.name}, {event.city.countryAbbr}
+        </>
+      );
+    }
+  };
 
   return (
     <div className={ComponentStyles.event_page_container}>
