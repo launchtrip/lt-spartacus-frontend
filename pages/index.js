@@ -35,7 +35,7 @@ export default function Home({ data }) {
     setHomePageData(data);
   };
 
-  if (!homePageData) {
+  if (!homePageData || Object.keys(homePageData).length === 0) {
     const errorMessage = {
       type: 503,
       title: 'Something Went Wrong',
@@ -66,7 +66,7 @@ export default function Home({ data }) {
           :
           <>
             <MobileCopy />
-            <HeroCarousel data={spotlight} />
+            {spotlight.length > 0 && <HeroCarousel data={spotlight} />}
             <EventCarousel title="Virtual Events" data={virtualEvents} />
             <HomePageBottomHalf articles={articles} events={events} speakers={speakers} />
           </>}

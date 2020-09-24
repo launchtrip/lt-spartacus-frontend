@@ -1,11 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
+import { fadeIn } from 'react-animations';
+import Radium, { StyleRoot } from 'radium';
 import NavigationBar from '../NavigationBar';
 import Footer from '../Footer';
 import { Provider } from '../../providers/userContext';
 import ComponentStyles from './style/styles.module.css';
 
 export default function BaseContainer(props) {
+  const styles = {
+    fadeIn: {
+      animation: 'x 2s',
+      animationName: Radium.keyframes(fadeIn, 'fadeIn')
+    }
+  };
   return (
     <>
       <Head>
@@ -29,7 +37,11 @@ export default function BaseContainer(props) {
         </div>
       </Provider>
       <div className={ComponentStyles.container_maxWidth}>
-        {props.children}
+        <StyleRoot>
+          <div style={styles.fadeIn}>
+            {props.children}
+          </div>
+        </StyleRoot>
         <Footer />
       </div>
     </>

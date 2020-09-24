@@ -64,7 +64,6 @@ export default function EventPage({ premier, event }) {
     </>
   );
   const renderLocation = () => {
-    console.log(event.type);
     if (event.city && event.city.countryAbbr) {
       return (
         <>

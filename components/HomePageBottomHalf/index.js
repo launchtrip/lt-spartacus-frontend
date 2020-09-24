@@ -10,6 +10,7 @@ import FeatureEventAd from '../FeatureEventAdd';
 import NewsCard from '../NewsCard';
 import EventCard from '../EventCard';
 import EventIcon from '../EventIcon';
+import { organizeEventsByMonth } from '../helperFunctions';
 
 export default function HomePageBottomHalf({ articles, events, speakers }) {
   const { TabPane } = Tabs;
@@ -29,6 +30,7 @@ export default function HomePageBottomHalf({ articles, events, speakers }) {
     }
     return months;
   };
+  const organizedEvents = organizeEventsByMonth(events);
   return (
     <div className={`${ComponentStyles.container} home_sec_bottom`}>
       <section className={ComponentStyles.section_a}>
@@ -47,13 +49,19 @@ export default function HomePageBottomHalf({ articles, events, speakers }) {
           >
             {displayMonth().map(i => (
               <TabPane tab={`${i}`} key={i}>
-                <section className={ComponentStyles.upcoming_event_card_container}>
-                  {events && events.map((event) => {
-                    if (allMonths[new Date(event.dateStart).getMonth()] === i) {
-                      return <EventCard showLine event={event} showDate key={event.id} />;
-                    }
-                  })}
-                </section>
+                {organizedEvents.find((event) => event.month === i) ?
+                  <section className={ComponentStyles.upcoming_event_card_container}>
+                    {events && events.map((event) => {
+                      if (allMonths[new Date(event.dateStart).getMonth()] === i) {
+                        return <EventCard showLine event={event} showDate key={event.id} />;
+                      }
+                    })}
+                  </section>
+                  :
+                  <p key={i} className={`${ComponentStyles.no_event_container} typography_spartacus_ten_italic`}>
+                    {`Sorry! We currently do not have any events for ${i}`}
+                  </p>}
+
               </TabPane>
             ))}
           </Tabs>
