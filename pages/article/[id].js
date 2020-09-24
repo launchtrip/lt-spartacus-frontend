@@ -3,9 +3,8 @@ import { useRouter } from 'next/router';
 import { BaseContainer, Article, Error } from '../../components';
 import { FetchIndividualArticle } from '../api/Routes/Articles';
 
-export default function Articles({ data }) {
+export default function Articles({ data, url }) {
   const router = useRouter();
-
   if (!data) {
     const errorMessage = {
       type: 404,
@@ -23,19 +22,20 @@ export default function Articles({ data }) {
   }
   return (
     <BaseContainer page={data.title}>
-      <Article article={data} />
+      <Article article={data} url={url} />
     </BaseContainer>
   );
 }
 
 export const getServerSideProps = async (props) => {
   const id = props.req.url.replace('?', 'Q').split('-id-')[1];
+  const url = `${process.env.BASE_URL}${props.req.url}`;
   if (!id) {
     return { props: { data: null } };
   }
   try {
     const article = await FetchIndividualArticle(id);
-    return { props: { data: article } };
+    return { props: { data: article, url } };
   } catch (error) {
     return { props: { data: null } };
   }
