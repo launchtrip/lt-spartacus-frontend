@@ -5,7 +5,7 @@
   padding: 5px 25px;
   border-radius: 8px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 .button_small_styled:hover {
@@ -18,7 +18,7 @@
   border: none;
   color: #3E3E3E;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 
 }
 
@@ -29,7 +29,7 @@
   padding: 8px 25px;
   border-radius: 8px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
   white-space: nowrap;
 }
 
@@ -46,7 +46,7 @@
   padding: 8px 50px;
   border-radius: 8px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 .button_lg_styled:hover {
@@ -61,7 +61,7 @@
   padding: 8px 50px;
   border-radius: 8px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 .button_lg_styled_light:hover {
@@ -76,7 +76,7 @@
   padding: 8px 50px;
   border-radius: 8px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 .button_lg_styled_filled:hover {

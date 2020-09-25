@@ -17,6 +17,14 @@ export default function NewsCard({ alternate, line, withImage, article, external
     });
     return subs;
   };
+
+  const renderDays = (date) => {
+    const dateType = countdownInDays(date) > 1 ? 'days' : 'day';
+    if (countdownInDays(date) > 0) {
+      return `${countdownInDays(date)} ${dateType} ago`;
+    }
+    return 'Today';
+  };
   return (
     <a target={external ? '_blank' : ''} href={pathname}>
       <div className={mainContainer}>
@@ -31,11 +39,11 @@ export default function NewsCard({ alternate, line, withImage, article, external
           <div
             className={ComponentStyles.news_container_detials}
           >
-            <p className="typography_spartacus_eleven">
+            <p className={`typography_spartacus_eleven ${ComponentStyles.news_container_detials_subs}`}>
               {renderSubs()}
             </p> |
             <p className="typography_spartacus_twelve">
-              {countdownInDays(article.date)} {countdownInDays(article.date) > 1 ? 'days' : 'day'} ago
+              {renderDays(article.date)}
             </p>
           </div>}
         {alternate &&
