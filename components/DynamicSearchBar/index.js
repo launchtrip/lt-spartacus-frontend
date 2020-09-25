@@ -8,7 +8,7 @@ import { FetchSearchRequest } from '../../pages/api/Routes/Events';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 const createUrl = (description, id) => `/event/${description.split(' ').join('-')}-id-${id}`;
-const searchResult = (query, updateSearchFunction, updateSearch) => {
+const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedSearch) => {
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
 
@@ -38,7 +38,8 @@ const searchResult = (query, updateSearchFunction, updateSearch) => {
                 key={ind.id}
                 className="typography_spartacus_one"
                 onClick={() => {
-                  updateSearchFunction(ind.id);
+                  updateSearchFunction(ind.id, ind.description);
+                  updateSelectedSearch(ind.description);
                   updateSearch(ind.description);
                 }}
               >{ind.description}
@@ -75,12 +76,13 @@ const searchResult = (query, updateSearchFunction, updateSearch) => {
 export default function DynamicSearchBar({ updateSearchFunction, refreshWithOriginalData, setSearchError }) {
   const [options, setOptions] = useState([]);
   const [search, updateSearch] = useState('');
+  const [selectedSearch, updateSelectedSearch] = useState('');
 
   const handleSearch = async value => {
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
-      setOptions(value ? searchResult(res, updateSearchFunction, updateSearch) : []);
+      setOptions(value ? searchResult(res, updateSearchFunction, updateSearch, updateSelectedSearch) : []);
     } catch (error) {
       console.log(error);
     }
@@ -90,6 +92,8 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
     if (event.keyCode === 13) {
       if (event.target.value.length === 0) {
         refreshWithOriginalData();
+        updateSelectedSearch('');
+
         return;
       }
       try {
@@ -97,6 +101,7 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         if (res && res[0].total) {
           updateSearchFunction(res[0].data[0].id);
           updateSearch('');
+          updateSelectedSearch('');
           return;
         }
         setSearchError(
@@ -107,8 +112,10 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
           }
         );
         updateSearch('');
+        updateSelectedSearch('');
       } catch (error) {
         updateSearch('');
+        updateSelectedSearch('');
 
         console.log(error);
       }
@@ -126,9 +133,16 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         onSearch={handleSearch}
         value={search}
         className={ComponentStyles.search_container_input}
+        allowClear
       >
         <Input.Search size="large" placeholder="Enter Event or Industry" enterButton className="searchBar" />
       </AutoComplete>
+      {selectedSearch &&
+      <section className={ComponentStyles.selected_search_display}>
+        <div className="typography_spartacus_ten_italic">
+          {`Displaying results for ${selectedSearch}`}
+        </div>
+      </section>}
       <section className={ComponentStyles.legend_container}>
         <span
           className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}

@@ -17,6 +17,13 @@
     height: 45px;
     margin-right: 10px;
 }
+.selected_search_display{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
 
 .event_drop_down {
     border: 1px solid #BBBBBC;

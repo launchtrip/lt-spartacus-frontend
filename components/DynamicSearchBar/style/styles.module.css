@@ -3,11 +3,18 @@
     display: flex;
     justify-content: center;
     align-content: flex-end;
-
+    flex-wrap: wrap;
 }
 
 .search_result_title {
     margin: 15px 0 5px 0;
+}
+.selected_search_display{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .search_container_searchPage {

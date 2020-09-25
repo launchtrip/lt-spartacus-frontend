@@ -13,7 +13,7 @@ import Error from '../Error';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 // const createUrl = (description) => `/event/${description.split(' ').join('-')}`;
-const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
+const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSelectedSearch) => {
   const company = query.find((q) => q.type === 'Company');
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
@@ -44,6 +44,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
                   className="typography_spartacus_one"
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'company' });
+                    updateSelectedSearch({ type: 'comapny', name: c.description });
                     updateSearch(c.description);
                   }}
                 >{c.description}
@@ -65,6 +66,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
                   className="typography_spartacus_one"
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
+                    updateSelectedSearch({ type: 'industry', name: c.description });
                     updateSearch(c.description);
                   }}
                 >{c.description}
@@ -86,6 +88,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
                   className="typography_spartacus_one"
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'event' });
+                    updateSelectedSearch({ type: 'event', name: c.description });
                     updateSearch(c.description);
                   }}
                 >{c.description}
@@ -100,6 +103,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch) => {
 export default function EventSearchPage({ data, methods }) {
   const [options, setOptions] = useState([]);
   const [search, updateSearch] = useState('');
+  const [selectedSearch, updateSelectedSearch] = useState({});
 
   const {
     setState,
@@ -116,7 +120,7 @@ export default function EventSearchPage({ data, methods }) {
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
-      setOptions(value ? searchResult(res, SetCompanyIndustryOrEvent, updateSearch) : []);
+      setOptions(value ? searchResult(res, SetCompanyIndustryOrEvent, updateSearch, updateSelectedSearch) : []);
     } catch (error) {
       console.log(error);
     }
@@ -126,6 +130,8 @@ export default function EventSearchPage({ data, methods }) {
     if (event.keyCode === 13) {
       if (event.target.value.length === 0) {
         refreshWithOriginalData();
+        updateSelectedSearch('');
+
         return;
       }
       try {
@@ -135,6 +141,8 @@ export default function EventSearchPage({ data, methods }) {
         if (industry && industry.length) {
           updateEventPageData(industry.data[0].id);
           updateSearch('');
+          updateSelectedSearch('');
+
           return;
         }
         setSearchError(
@@ -145,8 +153,10 @@ export default function EventSearchPage({ data, methods }) {
           }
         );
         updateSearch('');
+        updateSelectedSearch('');
       } catch (error) {
         updateSearch('');
+        updateSelectedSearch('');
 
         console.log(error);
       }
@@ -190,6 +200,7 @@ export default function EventSearchPage({ data, methods }) {
             onSearch={handleSearch}
             value={search}
             className={`${ComponentStyles.search_container_input} searchPage`}
+            allowClear
           >
             <Input.Search size="large" placeholder="Enter Company, Industry or Event" enterButton />
           </AutoComplete>
@@ -205,6 +216,12 @@ export default function EventSearchPage({ data, methods }) {
             suffixIcon={<EventIcon image="/assets/calendar.png" width="16px" height="16px" />}
           />
         </section>
+        {Object.keys(selectedSearch).length > 0 &&
+        <section className={ComponentStyles.selected_search_display}>
+          <div className="typography_spartacus_ten_italic">
+            {`Displaying results for ${selectedSearch.type} : ${selectedSearch.name}`}
+          </div>
+        </section>}
         {searchError ?
           <section className={ComponentStyles.event_search_monthly_result}>
             <section className={ComponentStyles.event_search_monthly_result_card}>
