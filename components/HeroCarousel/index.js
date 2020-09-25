@@ -34,7 +34,7 @@ export default function HeroCarousel({ data }) {
     <div className="home_sec_hero">
       <div className={ComponentStyles.carousel_container}>
         <Carousel
-          swipeable={false}
+          swipeable
           draggable={false}
           showDots
           minimumTouchDrag={80}
@@ -60,7 +60,7 @@ export default function HeroCarousel({ data }) {
       </div>
       <div className={ComponentStyles.carousel_container_mobile}>
         <Carousel
-          swipeable={false}
+          swipeable
           draggable={false}
           showDots
           minimumTouchDrag={80}
