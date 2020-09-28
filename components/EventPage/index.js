@@ -75,7 +75,6 @@ export default function EventPage({ premier, event }) {
       );
     }
   };
-  console.log(event.logo.url);
   return (
     <div className={ComponentStyles.event_page_container}>
       <DynamicModal
