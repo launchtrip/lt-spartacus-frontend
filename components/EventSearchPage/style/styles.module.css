@@ -17,6 +17,13 @@
     height: 45px;
     margin-right: 10px;
 }
+.selected_search_display{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
 
 .event_drop_down {
     border: 1px solid #BBBBBC;
@@ -117,6 +124,13 @@
 .search_result_type {
     display: flex;
     flex-direction: column;
+}
+
+.search_result_item:hover{
+    color: #AD3372 !important;
+    font-size: 17px;
+    line-height: 23px;
+    font-family: AvenirNextBold;
 }
 
 @media screen and (max-width: 1294px) {

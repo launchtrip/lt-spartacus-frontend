@@ -327,6 +327,8 @@
 
     .event_page_section_two_button {
         margin-right: 0;
+        outline: none ;
+        border: 0
     }
 
 

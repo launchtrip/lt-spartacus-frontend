@@ -23,6 +23,7 @@ import {
 } from './components';
 
 export default function EventPage({ premier, event }) {
+  console.log(event);
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
   const allMonths = moment.months();
@@ -41,7 +42,8 @@ export default function EventPage({ premier, event }) {
           <span
             className="typography_spartacus_three_bold"
           > In Person
-          </span> and <span className="typography_spartacus_three_bold">Virtual</span> options
+          </span> and <span className="typography_spartacus_three_bold">Virtual </span>
+          options
         </span>
       </>
       :
@@ -52,8 +54,9 @@ export default function EventPage({ premier, event }) {
           This event has a
           <span
             className="typography_spartacus_three_bold"
-          > {event.type} option
+          > {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
           </span>
+          option
         </span>
       </>
   );
@@ -72,7 +75,6 @@ export default function EventPage({ premier, event }) {
       );
     }
   };
-
   return (
     <div className={ComponentStyles.event_page_container}>
       <DynamicModal
@@ -154,7 +156,7 @@ export default function EventPage({ premier, event }) {
 
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
-          {event.type}
+          {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
           {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
         </span>
         {renderViewingOptions()}

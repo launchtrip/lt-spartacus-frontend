@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
-import { Form, Select } from 'antd';
+import { Form } from 'antd';
 import ComponentStyles from './styles.module.css';
 import { RequestDiscountTickets } from '../../../pages/api/Routes/Requests';
 import Error from './error';
@@ -30,7 +30,6 @@ export default function RequestTickets({ setState, setNote, original, updateModa
       }, 5000);
     }
   };
-  const { Option } = Select;
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
@@ -77,15 +76,12 @@ export default function RequestTickets({ setState, setNote, original, updateModa
           <Form.Item
             name="quantity"
           >
-            <Select
+
+            <input
               placeholder="Number of Tickets"
-              allowClear
-              className={ComponentStyles.form_item_select}
-            >
-              <Option value="1">1</Option>
-              <Option value="2">2</Option>
-              <Option value="3">3</Option>
-            </Select>
+              className={ComponentStyles.form_item}
+              type="number"
+            />
           </Form.Item>
 
           <Form.Item className={ComponentStyles.button}>
