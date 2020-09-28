@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
@@ -108,9 +109,15 @@ export default function NavgiationBar({ page }) {
   };
   const socialDisplay = () => (
     <section className={ComponentStyles.mobile_section_social}>
-      <EventIcon image="/assets/twitter.png" />
-      <EventIcon image="/assets/facebook.png" />
-      <EventIcon image="/assets/linkedin.png" />
+      <a href="https://www.facebook.com/UnifyPlatform/" target="_blank">
+        <EventIcon image="/assets/facebook.png" height="25px" />
+      </a>
+      <a href="https://www.linkedin.com/company/unify-platform/" target="_blank">
+        <EventIcon image="/assets/linkedin.png" height="25px" />
+      </a>
+      <a href="https://twitter.com/Unify_Events" target="_blank">
+        <EventIcon image="/assets/twitter.png" height="25px" />
+      </a>
     </section>
   );
   return (
@@ -170,10 +177,9 @@ export default function NavgiationBar({ page }) {
         <section className={ComponentStyles.navigation_section_three}>
           <section className={ComponentStyles.section_three_button_container}>
             <Link href="/sign-up">
-
               <button type="button" className="button_small_styled typography_spartacus_one_bold">
                 Sign Up
-            </button>
+              </button>
             </Link>
             <button
               type="button"
@@ -181,7 +187,7 @@ export default function NavgiationBar({ page }) {
               onClick={() => setModal(true)}
             >
               Log In
-          </button>
+            </button>
           </section>
         </section>}
       {user &&
@@ -202,11 +208,11 @@ export default function NavgiationBar({ page }) {
         visible={visible}
         key="left"
       >
-        <Link href="/"><p className={checkStateMobile('Home')}>Home</p></Link>
-        <Link href="/virtualevents"><p className={checkStateMobile('Virtual Events')}>Virtual Events</p></Link>
-        <Link href="/events"><p className={checkStateMobile('Events')}>All Events</p></Link>
-        <Link href="/partnerships"><p className={checkStateMobile('Partnerships')}>Partnerships</p></Link>
-        <Link href="/about" as="About-Us"><p className={checkStateMobile('About')}>About Us</p></Link>
+        <Link href="/"><p id={ComponentStyles.mobile_item} className={checkStateMobile('Home')}>Home</p></Link>
+        <Link href="/virtualevents"><p id={ComponentStyles.mobile_item} className={checkStateMobile('Virtual Events')}>Virtual Events</p></Link>
+        <Link href="/events"><p id={ComponentStyles.mobile_item} className={checkStateMobile('Events')}>All Events</p></Link>
+        <Link href="/partnerships"><p id={ComponentStyles.mobile_item} className={checkStateMobile('Partnerships')}>Partnerships</p></Link>
+        <Link href="/about" as="About-Us"><p id={ComponentStyles.mobile_item} className={checkStateMobile('About')}>About Us</p></Link>
         {socialDisplay()}
       </Drawer>
     </div>

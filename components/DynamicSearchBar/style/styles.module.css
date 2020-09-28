@@ -5,9 +5,17 @@
     align-content: flex-end;
     flex-wrap: wrap;
 }
+.auto_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+
+}
 
 .search_result_title {
     margin: 15px 0 5px 0;
+    background: white;
 }
 .selected_search_display{
     width: 100%;
@@ -26,6 +34,7 @@
 .search_result_type {
     display: flex;
     flex-direction: column;
+    background: white !important
 }
 
 .search_container_input {
@@ -52,6 +61,12 @@
 .legend_item {
     display: flex;
     align-items: center;
+}
+.search_result_item:hover{
+    color: #AD3372 !important;
+    font-size: 17px;
+    line-height: 23px;
+    font-family: AvenirNextBold;
 }
 
 @media screen and (max-width: 820px) {

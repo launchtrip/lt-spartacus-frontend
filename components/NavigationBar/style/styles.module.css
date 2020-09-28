@@ -147,6 +147,9 @@
     color: #868686;
 }
 
+#mobile_item{
+    cursor: pointer
+}
 @media screen and (max-width: 1190px) {
     .section_three_button_container {
         width: 70% !important;

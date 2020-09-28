@@ -41,7 +41,8 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
               {company.data.map((c) =>
                 <span
                   key={c.id}
-                  className="typography_spartacus_one"
+                  className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
+
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'company' });
                     updateSelectedSearch({ type: 'comapny', name: c.description });
@@ -63,7 +64,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
               {industry.data.map((c) =>
                 <span
                   key={c.id}
-                  className="typography_spartacus_one"
+                   className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
                     updateSelectedSearch({ type: 'industry', name: c.description });
@@ -85,7 +86,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
               {event.data.map((c) =>
                 <span
                   key={c.id}
-                  className="typography_spartacus_one"
+                  className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'event' });
                     updateSelectedSearch({ type: 'event', name: c.description });
@@ -141,7 +142,7 @@ export default function EventSearchPage({ data, methods }) {
         if (industry && industry.length) {
           updateEventPageData(industry.data[0].id);
           updateSearch('');
-          updateSelectedSearch('');
+          updateSelectedSearch({ type: 'industry', name: industry.data[0].description });
 
           return;
         }
@@ -200,7 +201,6 @@ export default function EventSearchPage({ data, methods }) {
             onSearch={handleSearch}
             value={search}
             className={`${ComponentStyles.search_container_input} searchPage`}
-            allowClear
           >
             <Input.Search size="large" placeholder="Enter Company, Industry or Event" enterButton />
           </AutoComplete>
