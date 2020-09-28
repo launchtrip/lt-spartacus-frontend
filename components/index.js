@@ -14,6 +14,7 @@ import EventPage from './EventPage';
 import Error from './Error';
 import ChangePassword from './ChangePassword';
 import HeadMeta from './HeadMeta';
+import TermsAndConditions from './TermsAndConditions';
 
 export {
   Article,
@@ -31,5 +32,6 @@ export {
   MobileCopy,
   PartnershipForm,
   ResetPassword,
-  SignUp
+  SignUp,
+  TermsAndConditions
 };
