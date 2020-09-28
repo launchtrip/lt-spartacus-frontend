@@ -41,7 +41,7 @@ export default function Home({ data }) {
       title: 'Something Went Wrong',
       reason: 'Service is temporarily unavailable. Please try again.',
       actionDisplay: 'Refresh Page',
-      action: router.push('/')
+      action: () => router.push('/')
 
     };
     return (

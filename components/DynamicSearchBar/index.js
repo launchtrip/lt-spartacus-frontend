@@ -11,18 +11,14 @@ const createUrl = (description, id) => `/event/${description.split(' ').join('-'
 const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedSearch) => {
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
-
+  const itemClassName = `${ComponentStyles.search_result_item} typography_spartacus_one`;
   if (industry.total === 0 && event.total === 0) {
     return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
   }
   return [{
     value: (
       <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
+        className={ComponentStyles.auto_container}
       >
         {industry.total > 0 &&
         <>
@@ -36,7 +32,7 @@ const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedS
             {industry.data.map((ind) =>
               <span
                 key={ind.id}
-                className="typography_spartacus_one"
+                className={itemClassName}
                 onClick={() => {
                   updateSearchFunction(ind.id, ind.description);
                   updateSelectedSearch(ind.description);
@@ -56,10 +52,13 @@ const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedS
             </span>
             <section className={ComponentStyles.search_result_type}>
               {event.data.map((e) =>
-                <Link href={createUrl(e.description, e.id)}>
+                <Link
+                  href={createUrl(e.description, e.id)}
+                  className={itemClassName}
+                >
                   <span
                     key={e.id}
-                    className="typography_spartacus_one"
+                    className={itemClassName}
                   >{e.description}
                   </span>
                 </Link>
@@ -101,7 +100,8 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         if (res && res[0].total) {
           updateSearchFunction(res[0].data[0].id);
           updateSearch('');
-          updateSelectedSearch('');
+          updateSelectedSearch(res[0].data[0].description);
+
           return;
         }
         setSearchError(
@@ -133,7 +133,6 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         onSearch={handleSearch}
         value={search}
         className={ComponentStyles.search_container_input}
-        allowClear
       >
         <Input.Search size="large" placeholder="Enter Event or Industry" enterButton className="searchBar" />
       </AutoComplete>
