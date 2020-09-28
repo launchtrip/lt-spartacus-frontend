@@ -22,11 +22,12 @@ export default function EventCard({ showLine, event, showDate }) {
     });
     return subs;
   };
+  const image = event.logo && <img alt={event.name} src={event.logo.url ? event.logo.url : event.logo} className={ComponentStyles.event_card_img} />;
 
   return (
     <>
       <div className={ComponentStyles.event_card_container}>
-        <img alt={event.name} src={event.logo.url ? event.logo.url : event.logo} className={ComponentStyles.event_card_img} />
+        {image}
         <section className={ComponentStyles.event_card_info_container}>
           <span id={ComponentStyles.event_item} className="typography_spartacus_three_bold">{event.name}</span>
           {showDate &&
