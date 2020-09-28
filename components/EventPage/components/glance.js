@@ -34,7 +34,8 @@ export default function Glance({ event }) {
         >In Person or Virtual<br />
           <span
             className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}
-          >{event.type }
+          >
+            {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
           </span>
         </span>
 
