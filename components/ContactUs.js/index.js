@@ -127,8 +127,7 @@ export default function ContactForm() {
           <section className={ComponentStyles.section_two}>
             <span className="typography_spartacus_sixteen">Have a Question?</span>
             <span className={`typography_spartacus_seven ${ComponentStyles.copy}`}>
-              We are always here to answer any questions you may have about upcoming events,
-              our platform, or related content!
+              We are here to answer any questions you have about upcoming events, the Unify platform or other related content.
             </span>
             {error && <Alert message={error} type="error" showIcon />}
 
