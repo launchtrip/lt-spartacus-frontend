@@ -67,7 +67,7 @@ export default function Home({ data }) {
           <>
             <MobileCopy />
             {spotlight.length > 0 && <HeroCarousel data={spotlight} />}
-            <EventCarousel title="Virtual Events" data={virtualEvents} />
+            {virtualEvents.length > 3 && <EventCarousel title="Virtual Events" data={virtualEvents} />}
             <HomePageBottomHalf articles={articles} events={events} speakers={speakers} />
           </>}
 
