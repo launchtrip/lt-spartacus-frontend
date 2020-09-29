@@ -253,6 +253,36 @@
     font-family: AvenirNext;
     color: #656565;
 }
+.typography_spartacus_twenty_four_bold {
+    font-size: 18px;
+    line-height: 25px;
+    font-family: AvenirNextBold;
+    color: #1C1E54
+}
+.typography_spartacus_twenty_four_bold_grey {
+    font-size: 18px;
+    line-height: 25px;
+    font-family: AvenirNextBold;
+    color: #373737 
+}
+.typography_spartacus_twenty_five {
+    font-size: 15px !important;
+    line-height: 21px !important;
+    font-family: AvenirNext !important;
+    color: #373737 !important;
+}
+.typography_spartacus_twenty_five_bold {
+    font-size: 15px;
+    line-height: 21px;
+    font-family: AvenirNextBold;
+    color: #373737;
+}
+.typography_spartacus_twenty_five_bold_sm {
+    font-size: 12px;
+    line-height: 21px;
+    font-family: AvenirNextBold;
+    color: #373737;
+}
 
 @media screen and (max-width: 820px) {
     .typography_spartacus_seven {

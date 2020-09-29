@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
+import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
 
 export default function Footer() {
@@ -13,9 +14,15 @@ export default function Footer() {
       </section>
       <section className={ComponentStyles.footer_container_two}>
         <section className={ComponentStyles.footer_container_two_inner}>
-          <span className="typography_spartacus_fifteen">Privacy Policy</span>
-          <span className="typography_spartacus_fifteen">Terms of Service</span>
-          <span className="typography_spartacus_fifteen">Launchtrip</span>
+          <Link href="/privacy-policy">
+            <span className="typography_spartacus_fifteen">Privacy Policy</span>
+          </Link>
+          <Link href="/terms-and-conditions">
+            <span className="typography_spartacus_fifteen">Terms of Service</span>
+          </Link>
+          <a href="https://launchtrip.com/" target="_blank">
+            <span className="typography_spartacus_fifteen">Launchtrip</span>
+          </a>
           <span className="typography_spartacus_fifteen">Contact</span>
         </section>
       </section>

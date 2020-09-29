@@ -1,11 +1,11 @@
 import React from 'react';
-import { BaseContainer, HeadMeta } from '../components';
+import { AboutPage, BaseContainer, HeadMeta } from '../components';
 
 export default function About() {
   return (
     <BaseContainer page="About">
       <HeadMeta />
-      <div>About</div>
+      <AboutPage />
     </BaseContainer>
   );
 }
