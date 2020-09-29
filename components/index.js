@@ -1,3 +1,4 @@
+import AboutPage from './About';
 import Article from './Articles';
 import BaseContainer from './BaseContainer';
 import DynamicSearchBar from './DynamicSearchBar';
@@ -15,8 +16,10 @@ import Error from './Error';
 import ChangePassword from './ChangePassword';
 import HeadMeta from './HeadMeta';
 import TermsAndConditions from './TermsAndConditions';
+import PrivacyPolicy from './PrivacyPolicy';
 
 export {
+  AboutPage,
   Article,
   BaseContainer,
   ChangePassword,
@@ -31,6 +34,7 @@ export {
   HeroCarousel,
   MobileCopy,
   PartnershipForm,
+  PrivacyPolicy,
   ResetPassword,
   SignUp,
   TermsAndConditions

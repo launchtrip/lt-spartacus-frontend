@@ -161,7 +161,7 @@ export default function NavgiationBar({ page }) {
               Partnerships
             </button>
           </Link>
-          <Link href="/about" as="About-Us">
+          <Link href="/about">
             <button
               type="button"
               className={checkState('About')}
