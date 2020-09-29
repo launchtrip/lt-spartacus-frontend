@@ -8,7 +8,7 @@ export default function Footer() {
     <div className={ComponentStyles.footer_container}>
       <section className={ComponentStyles.footer_container_one}>
         <section className={ComponentStyles.footer_container_one_inner}>
-          <span>Unify.</span>
+          <span className="typography_spartacus_twenty_six_bold">Unify.</span>
           <span className={ComponentStyles.footer_container_one_copy}>Assembly of World Leading Industy Events</span>
         </section>
       </section>
@@ -23,7 +23,9 @@ export default function Footer() {
           <a href="https://launchtrip.com/" target="_blank">
             <span className="typography_spartacus_fifteen">Launchtrip</span>
           </a>
-          <span className="typography_spartacus_fifteen">Contact</span>
+          <Link href="/contact-us">
+            <span className="typography_spartacus_fifteen">Contact</span>
+          </Link>
         </section>
       </section>
       <section className={ComponentStyles.footer_container_three}>
