@@ -61,7 +61,7 @@ export default function ContactForm() {
               >
                 <input
                   className={ComponentStyles.partnership_form_item}
-                  placeholder="First Name"
+                  placeholder="Name"
                 />
               </Form.Item>
               <Form.Item
