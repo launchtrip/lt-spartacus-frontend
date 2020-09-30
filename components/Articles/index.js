@@ -33,7 +33,7 @@ export default function Article({ article, url }) {
         <section className={`${ComponentStyles.articl_copy_section_two} typography_spartacus_four`}>
           {body.map((p) => <section key={Math.random()} className={ComponentStyles.articl_copy_section_two_paragraph}>{p}</section>)}
         </section>
-        <section className={ComponentStyles.articl_copy_section_three}>hey</section>
+        {/* <section className={ComponentStyles.articl_copy_section_three}>hey</section> */}
       </section>
     </div>
   );

@@ -23,7 +23,6 @@ import {
 } from './components';
 
 export default function EventPage({ premier, event }) {
-  console.log(event);
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
   const allMonths = moment.months();
@@ -128,7 +127,7 @@ export default function EventPage({ premier, event }) {
             updateSpeakerModal={updateSpeakerModal}
             updateTicketsModal={updateTicketsModal}
           />}
-          {!premier && <RelatedEvents events={event.related_events} />}
+          {!premier && event.related_events.length > 0 && <RelatedEvents events={event.related_events} />}
 
           {premier && event.media.length > 0 &&
             <>
@@ -198,10 +197,10 @@ export default function EventPage({ premier, event }) {
           </>}
 
         {premier && <QuestionWidget type="vertical" id={event.id} />}
-        {!premier && <RegularNews event={event} />}
+        {!premier && event.articles.length > 0 && <RegularNews event={event} />}
         {premier && event.twitterAccount && <TwitterWeb twitterName={event.twitterAccount} />}
 
-        {!premier && <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>}
+        {/* {!premier && <div className={ComponentStyles.event_page_section_two_ad}>Google Add</div>} */}
       </section>
     </div>
   );

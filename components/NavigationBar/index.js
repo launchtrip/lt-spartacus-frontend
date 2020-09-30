@@ -126,7 +126,7 @@ export default function NavgiationBar({ page }) {
       <MenuOutlined className={ComponentStyles.navigation_section_one_mene_icon} onClick={() => showDrawer()} />
       <Link href="/">
         <a href="/" className={ComponentStyles.navigation_section_one}>
-          <section>
+          <section className="typography_spartacus_twenty_six_bold">
             Unify.
           </section>
         </a>

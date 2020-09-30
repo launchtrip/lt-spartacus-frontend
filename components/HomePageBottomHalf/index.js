@@ -35,9 +35,10 @@ export default function HomePageBottomHalf({ articles, events, speakers }) {
     <div className={`${ComponentStyles.container} home_sec_bottom`}>
       <section className={ComponentStyles.section_a}>
         <section className={ComponentStyles.section_a_speaker_container}>
-          <SpeakerCarousel title="Speakers You Don’t Want to Miss" speakers={speakers} />
+          {speakers.length > 2 && <SpeakerCarousel title="Speakers You Don’t Want to Miss" speakers={speakers} />}
           <hr className={ComponentStyles.section_a_divider} />
         </section>
+        {events.length &&
         <section className={ComponentStyles.upcoming_event_container}>
           <span className={`typography_spartacus_eight ${ComponentStyles.upcoming_vents_title}`}>Upcoming Events</span>
           <Tabs
@@ -71,13 +72,16 @@ export default function HomePageBottomHalf({ articles, events, speakers }) {
             >View More <span><EventIcon image="/assets/viewMore.png" width="25px" height="25px" /></span>
             </span>
           </Link>
-        </section>
+        </section>}
       </section>
       <section className={ComponentStyles.section_b}>
         <FeatureEventAd />
         <hr className={ComponentStyles.section_b_divider} />
-        <span className="typography_spartacus_eight">News & Updates</span>
-        {articles && articles.map((article) => <NewsCard line key={article.id} article={article} />)}
+        {articles.length > 0 &&
+          <>
+            <span className="typography_spartacus_eight">News & Updates</span>
+            {articles && articles.map((article) => <NewsCard line key={article.id} article={article} />)}
+          </>}
       </section>
     </div>
   );

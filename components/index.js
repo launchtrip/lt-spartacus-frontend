@@ -17,6 +17,7 @@ import ChangePassword from './ChangePassword';
 import HeadMeta from './HeadMeta';
 import TermsAndConditions from './TermsAndConditions';
 import PrivacyPolicy from './PrivacyPolicy';
+import ContactForm from './ContactUs.js';
 
 export {
   AboutPage,
@@ -24,6 +25,7 @@ export {
   BaseContainer,
   ChangePassword,
   Confirmation,
+  ContactForm,
   DynamicSearchBar,
   Error,
   EventCarousel,

@@ -26,37 +26,40 @@ export default function EventCard({ showLine, event, showDate }) {
 
   return (
     <>
-      <div className={ComponentStyles.event_card_container}>
-        {image}
-        <section className={ComponentStyles.event_card_info_container}>
-          <span id={ComponentStyles.event_item} className="typography_spartacus_three_bold">{event.name}</span>
-          {showDate &&
-          <span
-            id={ComponentStyles.event_item}
-            className="typography_spartacus_thirteen_demi_bold"
-          >
-            {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
-          </span>}
-          <span id={ComponentStyles.event_item} className="typography_spartacus_six">{renderSubs()}</span>
-          <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
-            {event.description}
-          </p>
-          <span>
-            {event.badges && event.badges.map((badge) => <span key={badge.id}> {renderIcon(badge.description)} </span>)}
-            |
-            <span className={`${ComponentStyles.event_type} typography_spartacus_ten_italic `}>
-              {event.type === 'InPerson' ? 'In Person' : event.type}
+      <Link href={pathname}>
+        <div className={ComponentStyles.event_card_container}>
+          {image}
+
+          <section className={ComponentStyles.event_card_info_container}>
+            <span id={ComponentStyles.event_item} className="typography_spartacus_three_bold">{event.name}</span>
+            {showDate &&
+            <span
+              id={ComponentStyles.event_item}
+              className="typography_spartacus_thirteen_demi_bold"
+            >
+              {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
+            </span>}
+            <span id={ComponentStyles.event_item} className="typography_spartacus_six">{renderSubs()}</span>
+            <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
+              {event.description}
+            </p>
+            <span>
+              {event.badges && event.badges.map((badge) => <span key={badge.id}> {renderIcon(badge.description)} </span>)}
+              |
+              <span className={`${ComponentStyles.event_type} typography_spartacus_ten_italic `}>
+                {event.type === 'InPerson' ? 'In Person' : event.type}
+              </span>
             </span>
-          </span>
-        </section>
-        <Link href={pathname}>
-          <button className={`button_med_styled ${ComponentStyles.button}`} type="button">
-            Learn More
-          </button>
+          </section>
+          <Link href={pathname}>
+            <button className={`button_med_styled ${ComponentStyles.button}`} type="button">
+              Learn More
+            </button>
 
-        </Link>
+          </Link>
+        </div>
+      </Link>
 
-      </div>
       {showLine && <hr className={ComponentStyles.event_hr} />}
 
     </>
