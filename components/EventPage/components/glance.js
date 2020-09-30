@@ -31,7 +31,7 @@ export default function Glance({ event }) {
         </span>
         <span
           className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}
-        >In Person or Virtual<br />
+        >In-Person or Virtual<br />
           <span
             className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}
           >

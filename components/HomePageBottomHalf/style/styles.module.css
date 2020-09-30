@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    padding: 2%;
+    padding: 2% 4%;
 }
 
 .section_a {
@@ -48,10 +48,12 @@
     margin-top: 20px;
     cursor: pointer;
 }
-.no_event_container{
-    padding:100px 0px;
+
+.no_event_container {
+    padding: 100px 0px;
     text-align: center;
 }
+
 @media screen and (max-width: 820px) {
     .section_a {
         width: 100%;

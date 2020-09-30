@@ -40,7 +40,7 @@ export default function EventPage({ premier, event }) {
           This event has both
           <span
             className="typography_spartacus_three_bold"
-          > In Person
+          > In-Person
           </span> and <span className="typography_spartacus_three_bold">Virtual </span>
           options
         </span>
@@ -53,7 +53,7 @@ export default function EventPage({ premier, event }) {
           This event has a
           <span
             className="typography_spartacus_three_bold"
-          > {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
+          > {event.type.toLowerCase() === 'inperson' ? 'In-Person ' : `${event.type} `}
           </span>
           option
         </span>
@@ -110,23 +110,23 @@ export default function EventPage({ premier, event }) {
 
           {premier && <Speaker event={event} />}
           {premier &&
-          <MobilePremier
-            event={event}
-            renderDates={renderDates}
-            renderLocation={renderLocation}
-            renderViewingOptions={renderViewingOptions}
-            updateSpeakerModal={updateSpeakerModal}
-            updateTicketsModal={updateTicketsModal}
-          />}
+            <MobilePremier
+              event={event}
+              renderDates={renderDates}
+              renderLocation={renderLocation}
+              renderViewingOptions={renderViewingOptions}
+              updateSpeakerModal={updateSpeakerModal}
+              updateTicketsModal={updateTicketsModal}
+            />}
           {!premier &&
-          <MobileRegular
-            event={event}
-            renderDates={renderDates}
-            renderLocation={renderLocation}
-            renderViewingOptions={renderViewingOptions}
-            updateSpeakerModal={updateSpeakerModal}
-            updateTicketsModal={updateTicketsModal}
-          />}
+            <MobileRegular
+              event={event}
+              renderDates={renderDates}
+              renderLocation={renderLocation}
+              renderViewingOptions={renderViewingOptions}
+              updateSpeakerModal={updateSpeakerModal}
+              updateTicketsModal={updateTicketsModal}
+            />}
           {!premier && event.related_events.length > 0 && <RelatedEvents events={event.related_events} />}
 
           {premier && event.media.length > 0 &&
@@ -155,7 +155,7 @@ export default function EventPage({ premier, event }) {
 
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
-          {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
+          {event.type.toLowerCase() === 'inperson' ? 'In-Person ' : `${event.type} `}
           {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
         </span>
         {renderViewingOptions()}
@@ -175,12 +175,12 @@ export default function EventPage({ premier, event }) {
           >Request Discount Tickets
           </button>}
         {premier &&
-        <a
-          target="_blank"
-          href={event.ticketsUrl || 'www.google.ca'}
-          className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
-        >
-          Get Tickets
+          <a
+            target="_blank"
+            href={event.ticketsUrl || 'www.google.ca'}
+            className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
+          >
+            Get Tickets
         </a>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button

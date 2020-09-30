@@ -64,7 +64,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
               {industry.data.map((c) =>
                 <span
                   key={c.id}
-                   className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
+                  className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
                     updateSelectedSearch({ type: 'industry', name: c.description });
@@ -217,11 +217,11 @@ export default function EventSearchPage({ data, methods }) {
           />
         </section>
         {Object.keys(selectedSearch).length > 0 &&
-        <section className={ComponentStyles.selected_search_display}>
-          <div className="typography_spartacus_ten_italic">
-            {`Displaying results for ${selectedSearch.type} : ${selectedSearch.name}`}
-          </div>
-        </section>}
+          <section className={ComponentStyles.selected_search_display}>
+            <div className="typography_spartacus_ten_italic">
+              {`Displaying results for ${selectedSearch.type} : ${selectedSearch.name}`}
+            </div>
+          </section>}
         {searchError ?
           <section className={ComponentStyles.event_search_monthly_result}>
             <section className={ComponentStyles.event_search_monthly_result_card}>
