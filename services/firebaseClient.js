@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import firebaseClient from 'firebase/app';
 import 'firebase/auth';
 
@@ -13,9 +14,6 @@ const firebaseClientConfig = {
   privateKey: process.env.FIREBASE_PRIVATE_KEY,
   clientEmai: process.env.FIREBASE_CLIENT_EMAIL,
 };
-console.log('firebaseClientConfig===>>>', firebaseClientConfig);
-console.log('SERVER_BASE_URL===>>>', process.env.SERVER_BASE_URL);
-console.log('BASE_URL===>>>', process.env.BASE_URL);
 if (!firebaseClient.apps.length) {
   firebaseClient.initializeApp(firebaseClientConfig);
 }

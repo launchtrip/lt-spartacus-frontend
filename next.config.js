@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const url = process.env.SERVER_BASE_URL;
-console.log('url===>>', url);
 const firebaseProjectId = process.env.FIREBASE_PROJECT_ID;
 const firebaseApiKey = process.env.FIREBASE_APIKEY;
 const firebaseMeasurementId = process.env.FIREBASE_MEASUREMENTID;
