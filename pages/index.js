@@ -52,28 +52,29 @@ export default function Home({ data }) {
   }
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
   return (
-    <BaseContainer page="Home">
-      <HeadMeta />
-      <div className="home_sec_base_container">
-        <DynamicSearchBar
-          updateSearchFunction={updateHomePageData}
-          refreshWithOriginalData={refreshWithOriginalData}
-          setSearchError={setSearchError}
-          type=""
-        />
-        {searchError
-          ? <Error error={searchError} />
-          :
-          <>
-            <MobileCopy />
-            {spotlight.length > 0 && <HeroCarousel data={spotlight} />}
-            {virtualEvents.length > 3 && <EventCarousel title="Virtual Events" data={virtualEvents} />}
-            <HomePageBottomHalf articles={articles} events={events} speakers={speakers} />
-          </>}
+    // <BaseContainer page="Home">
+    //   <HeadMeta />
+    //   <div className="home_sec_base_container">
+    //     <DynamicSearchBar
+    //       updateSearchFunction={updateHomePageData}
+    //       refreshWithOriginalData={refreshWithOriginalData}
+    //       setSearchError={setSearchError}
+    //       type=""
+    //     />
+    //     {searchError
+    //       ? <Error error={searchError} />
+    //       :
+    //       <>
+    //         <MobileCopy />
+    //         {spotlight.length > 0 && <HeroCarousel data={spotlight} />}
+    //         {virtualEvents.length > 3 && <EventCarousel title="Virtual Events" data={virtualEvents} />}
+    //         <HomePageBottomHalf articles={articles} events={events} speakers={speakers} />
+    //       </>}
 
-      </div>
+    //   </div>
 
-    </BaseContainer>
+    // </BaseContainer>
+    <div>Coming soon</div>
   );
 }
 export const getServerSideProps = async () => {
