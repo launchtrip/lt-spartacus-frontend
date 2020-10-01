@@ -14,6 +14,7 @@ const firebaseClientConfig = {
   privateKey: process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY,
   clientEmai: process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL,
 };
+console.log('firebaseClientConfig===>>>', firebaseClientConfig);
 
 if (!firebaseClient.apps.length) {
   firebaseClient.initializeApp(firebaseClientConfig);
