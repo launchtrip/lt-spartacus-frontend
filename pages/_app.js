@@ -7,6 +7,7 @@ import '../styles/button.css';
 import '../styles/typography.css';
 import '../styles/container.css';
 import '../styles/carousel.css';
+import '../styles/styles.css';
 import 'react-multi-carousel/lib/styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
