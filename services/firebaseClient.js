@@ -15,8 +15,6 @@ const firebaseClientConfig = {
   clientEmai: process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL,
 };
 
-console.log('====>', firebaseClientConfig);
-
 if (!firebaseClient.apps.length) {
   firebaseClient.initializeApp(firebaseClientConfig);
 }
