@@ -29,7 +29,7 @@ export default function Articles({ data, url }) {
 
 export const getServerSideProps = async (props) => {
   const id = props.req.url.replace('?', 'Q').split('-id-')[1];
-  const url = `${process.env.BASE_URL}${props.req.url}`;
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}${props.req.url}`;
   if (!id) {
     return { props: { data: null } };
   }
