@@ -15,6 +15,8 @@ const firebaseClientConfig = {
   clientEmai: process.env.FIREBASE_CLIENT_EMAIL,
 };
 console.log('firebaseClientConfig===>>>', firebaseClientConfig);
+console.log('SERVER_BASE_URL===>>>', process.env.SERVER_BASE_URL);
+console.log('BASE_URL===>>>', process.env.BASE_URL);
 if (!firebaseClient.apps.length) {
   firebaseClient.initializeApp(firebaseClientConfig);
 }
