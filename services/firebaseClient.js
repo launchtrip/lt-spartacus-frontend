@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import firebaseClient from 'firebase/app';
 import 'firebase/auth';
+require('dotenv').config();
 
 const firebaseClientConfig = {
   apiKey: process.env.FIREBASE_APIKEY,
