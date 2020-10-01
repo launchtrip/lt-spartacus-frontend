@@ -29,7 +29,7 @@ export default function EventPage({ premier, event }) {
   const startDay = moment(event.dateStart).date();
   const endDay = moment(event.dateEnd).date();
   const year = moment(event.dateEnd).year();
-  const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
 
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
