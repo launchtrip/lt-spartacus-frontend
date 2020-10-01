@@ -18,6 +18,8 @@ export default function Home({ data }) {
   const [searchError, setSearchError] = useState(undefined);
   const router = useRouter();
 
+  console.log('process.env.NEXT_PUBLIC_FIREBASE_APPID', process.env.NEXT_PUBLIC_FIREBASE_APPID);
+
   const updateHomePageData = async (id) => {
     try {
       const newHomePageData = await FetchHomePageDataById(id);
