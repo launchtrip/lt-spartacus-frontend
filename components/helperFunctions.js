@@ -35,8 +35,7 @@ export function organizeEventsByMonth(events) {
   const results = [];
   events.forEach((event) => {
     const monthstart = allMonths[new Date(event.dateStart).getMonth()];
-    const checkMonth = results.find((result) =>
-      (result.month === monthstart && result.year === new Date(event.dateStart).getFullYear()));
+    const checkMonth = results.find((result) => (result.month === monthstart));
     if (!checkMonth) {
       results.push({ month: monthstart, events: [event], year: new Date(event.dateStart).getFullYear() });
       return;
