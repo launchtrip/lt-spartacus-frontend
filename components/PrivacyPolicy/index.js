@@ -6,7 +6,7 @@ import ComponentStyles from './style/styles.module.css';
 export default function PrivacyPolicy() {
   return (
     <div className={`typography_spartacus_twenty_five ${ComponentStyles.privacy_container}`}>
-      <p><span>Privacy Policy</span></p>
+      <p><span className="typography_spartacus_twenty_four_bold">Privacy Policy</span></p>
       <p><span>Last updated: September 21, 2020</span></p>
       <p><span>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</span></p>
       <p><span>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</span></p>

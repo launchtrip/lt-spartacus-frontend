@@ -29,7 +29,7 @@ export default function MobilePremier({
             {renderViewingOptions()}
             <span
               className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
-            >{renderDates()}
+            >{renderDates(event.dateStart, event.dateEnd)}
             </span>
             <span
               className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}

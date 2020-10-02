@@ -1,12 +1,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
-import moment from 'moment';
 import ComponentStyles from './style/styles.module.css';
 import DynamicModal from '../DynamicModal';
 import Multimedia from '../Multimedia';
 import QuestionWidget from '../QuestionWidget';
-import { renderIcon } from '../helperFunctions';
+import { renderIcon, renderDates } from '../helperFunctions';
 import {
   Description,
   Glance,
@@ -25,12 +24,7 @@ import {
 export default function EventPage({ premier, event }) {
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
-  const allMonths = moment.months();
-  const startDay = moment(event.dateStart).date();
-  const endDay = moment(event.dateEnd).date();
-  const year = moment(event.dateEnd).year();
   const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
-
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
       <>
@@ -58,12 +52,6 @@ export default function EventPage({ premier, event }) {
           option
         </span>
       </>
-  );
-
-  const renderDates = () => (
-    <>
-      {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
-    </>
   );
   const renderLocation = () => {
     if (event.city && event.city.countryAbbr) {
@@ -100,7 +88,7 @@ export default function EventPage({ premier, event }) {
             <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
           </span>
           <span className="typography_spartacus_seventeen_bold">
-            {renderDates()} | {renderLocation()}
+            {renderDates(event.dateStart, event.dateEnd)} | {renderLocation()}
           </span>
           <span className={`${ComponentStyles.event_page_draw_line} typography_spartacus_four`}>
             {event.slogan}
@@ -161,7 +149,7 @@ export default function EventPage({ premier, event }) {
         {renderViewingOptions()}
         <span
           className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
-        >{renderDates()}
+        >{renderDates(event.dateStart, event.dateEnd)}
         </span>
         <span
           className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}

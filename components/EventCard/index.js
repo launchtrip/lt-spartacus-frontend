@@ -1,14 +1,9 @@
 import React from 'react';
-import moment from 'moment';
 import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
-import { renderIcon } from '../helperFunctions';
+import { renderIcon, renderDates } from '../helperFunctions';
 
 export default function EventCard({ showLine, event, showDate }) {
-  const allMonths = moment.months();
-  const startDay = moment(event.dateStart).date();
-  const endDay = moment(event.dateEnd).date();
-  const year = moment(event.dateEnd).year();
   const pathname = `/event/${event.name.split(' ').join('-')}-id-${event.id}`;
 
   const renderSubs = () => {
@@ -37,7 +32,7 @@ export default function EventCard({ showLine, event, showDate }) {
               id={ComponentStyles.event_item}
               className="typography_spartacus_thirteen_demi_bold"
             >
-              {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
+              {renderDates(event.dateStart, event.dateEnd)}
             </span>}
             <span id={ComponentStyles.event_item} className="typography_spartacus_six">{renderSubs()}</span>
             <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
