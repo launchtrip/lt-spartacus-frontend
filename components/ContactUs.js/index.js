@@ -127,15 +127,8 @@ export default function ContactForm() {
           <section className={ComponentStyles.section_two}>
             <span className="typography_spartacus_sixteen">Have a Question?</span>
             <span className={`typography_spartacus_seven ${ComponentStyles.copy}`}>
-              We are building a media platform to showcase the world’s industry leading events. If you see your event on our platform,
-              fill out the contact form below and a member from our sales team will be in touch.
+              We are here to answer any questions you have about upcoming events, the Unify platform or other related content.
             </span>
-            <span className={`${ComponentStyles.sub_heading} typography_spartacus_sixteen`}>With Unify we focus on:</span>
-            <ul className={`typography_spartacus_one_bold ${ComponentStyles.list}`}>
-              <li>Increasing brand awareness to reach a global audience</li>
-              <li>Increasing registration and sponsorships</li>
-              <li>Showcasing both virtual and hybrid events to the corporate event community</li>
-            </ul>
             {error && <Alert message={error} type="error" showIcon />}
 
           </section>
