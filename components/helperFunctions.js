@@ -35,8 +35,7 @@ export function organizeEventsByMonth(events) {
   const results = [];
   events.forEach((event) => {
     const monthstart = allMonths[new Date(event.dateStart).getMonth()];
-    const checkMonth = results.find((result) =>
-      (result.month === monthstart && result.year === new Date(event.dateStart).getFullYear()));
+    const checkMonth = results.find((result) => (result.month === monthstart));
     if (!checkMonth) {
       results.push({ month: monthstart, events: [event], year: new Date(event.dateStart).getFullYear() });
       return;
@@ -44,4 +43,34 @@ export function organizeEventsByMonth(events) {
     checkMonth.events.push(event);
   });
   return results;
+}
+
+export function renderDates(dateStart, dateEnd) {
+  const allMonths = moment.months();
+  const startDay = moment(dateStart).date();
+  const endDay = moment(dateEnd).date();
+  const startYear = moment(dateStart).year();
+  const endYear = moment(dateEnd).year();
+  const endMonth = allMonths[new Date(dateEnd).getMonth()];
+  const sameMonth = allMonths[new Date(dateStart).getMonth()] === allMonths[new Date(dateEnd).getMonth()];
+
+  if (startYear !== endYear) {
+    return (
+      <>
+        {allMonths[new Date(dateStart).getMonth()]} {startDay}, {startYear} - {allMonths[new Date(dateEnd).getMonth()]} {endDay}, {endYear}
+      </>
+    );
+  }
+  if (startDay === endDay) {
+    return (
+      <>
+        {allMonths[new Date(dateStart).getMonth()]} {startDay}, {startYear}
+      </>
+    );
+  }
+  return (
+    <>
+      {allMonths[new Date(dateStart).getMonth()]} {startDay} - {sameMonth ? endDay : `${endMonth} ${endDay}` }, {startYear}
+    </>
+  );
 }

@@ -95,6 +95,7 @@ hr {
   transform: scale(1);
 }
 
+
 @media (max-width: 450px) {
   .gallery {
     -webkit-column-count: 1;

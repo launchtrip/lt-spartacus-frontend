@@ -10,7 +10,7 @@ export default function Events({ data }) {
   const [searchError, setSearchError] = useState(undefined);
   const [state, setState] = useState({
     dateStart: moment().format('YYYY-MM-DD'),
-    dateEnd: moment().endOf('year').format('YYYY-MM-DD'),
+    dateEnd: '',
   });
   const [type, setType] = useState(undefined);
   const [companyIndustryOrEvent, SetCompanyIndustryOrEvent] = useState(undefined);
@@ -46,7 +46,6 @@ export default function Events({ data }) {
     } catch (error) {
       setEventPageData(undefined);
       // need to updatr this to set error if error exists or happens
-      console.log(error);
     }
   };
 
@@ -98,7 +97,7 @@ export const getServerSideProps = async () => {
   try {
     const data = {
       dateStart: moment().format('YYYY-MM-DD'),
-      dateEnd: moment().endOf('year').format('YYYY-MM-DD')
+      dateEnd: ''
     };
     const events = await FetchAllEvents(data);
     const results = organizeEventsByMonth(events);
