@@ -27,3 +27,4 @@ module.exports = {
   },
   target: 'serverless',
 };
+console.log('server?', process.env.NEXT_PUBLIC_BASE_URL);
