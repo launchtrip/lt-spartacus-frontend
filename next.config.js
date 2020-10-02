@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config();
-}
-
 const url = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
 const firebaseProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_APIKEY;
