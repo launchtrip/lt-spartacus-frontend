@@ -76,6 +76,10 @@
     margin-top: 10px;
     padding-left: 18px;
     color: #41438F !important;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+    font-family: AvenirNext;
 }
 
 .submit_container {

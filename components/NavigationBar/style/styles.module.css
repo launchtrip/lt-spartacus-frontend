@@ -147,9 +147,10 @@
     color: #868686;
 }
 
-#mobile_item{
+#mobile_item {
     cursor: pointer
 }
+
 @media screen and (max-width: 1190px) {
     .section_three_button_container {
         width: 70% !important;
@@ -191,11 +192,11 @@
         margin-left: 3%;
         position: absolute;
         visibility: visible;
-        top: 20px;
+        top: 15px;
     }
 
     .navigation_main_container {
-        padding: 9px 0 7px 0;
+        padding: 12px 0;
     }
 
     .navigation_section_one {

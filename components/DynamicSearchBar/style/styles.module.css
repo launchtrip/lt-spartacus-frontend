@@ -41,6 +41,7 @@
 
 .search_container_input {
     width: 350px;
+    line-height: 45px;
     border-radius: 0px 10px 10px 0px !important;
 }
 
