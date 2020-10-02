@@ -45,3 +45,33 @@ export function organizeEventsByMonth(events) {
   });
   return results;
 }
+
+export function renderDates(dateStart, dateEnd) {
+  const allMonths = moment.months();
+  const startDay = moment(dateStart).date();
+  const endDay = moment(dateEnd).date();
+  const startYear = moment(dateStart).year();
+  const endYear = moment(dateEnd).year();
+  const endMonth = allMonths[new Date(dateEnd).getMonth()];
+  const sameMonth = allMonths[new Date(dateStart).getMonth()] === allMonths[new Date(dateEnd).getMonth()];
+
+  if (startYear !== endYear) {
+    return (
+      <>
+        {allMonths[new Date(dateStart).getMonth()]} {startDay}, {startYear} - {allMonths[new Date(dateEnd).getMonth()]} {endDay}, {endYear}
+      </>
+    );
+  }
+  if (startDay === endDay) {
+    return (
+      <>
+        {allMonths[new Date(dateStart).getMonth()]} {startDay}, {startYear}
+      </>
+    );
+  }
+  return (
+    <>
+      {allMonths[new Date(dateStart).getMonth()]} {startDay} - {sameMonth ? endDay : `${endMonth} ${endDay}` }, {startYear}
+    </>
+  );
+}

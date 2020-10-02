@@ -48,5 +48,6 @@
     }
     .carousel_container_dot_style_mobile{
         visibility: visible;
+        z-index: 2;
     }
 }

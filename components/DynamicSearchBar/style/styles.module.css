@@ -72,6 +72,10 @@
     line-height: 23px;
     font-family: AvenirNextBold;
 }
+.search_container_input 
+.search_bar{
+    line-height: 450px !important;
+}
 
 @media screen and (max-width: 820px) {
     .search_container {

@@ -14,7 +14,7 @@ const firebaseClientEmail = process.env.FIREBASE_CLIENT_EMAIL;
 const baseUrl = process.env.BASE_URL;
 module.exports = {
   env: {
-    SERVER_BASE_URL: 'https://prod.spartacus-web-be.launchtrip.com',
+    SERVER_BASE_URL: url,
     FIREBASE_APIKEY: firebaseApiKey,
     FIREBASE_AUTH_DOMAIN: firebaseAuthDomain,
     FIREBASE_DATABASE_URL: firebaseDatabaseURL,
