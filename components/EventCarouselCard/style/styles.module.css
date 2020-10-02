@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: row !important;
     justify-content: flex-start;
+    align-items: baseline;
 }
 
 #section_two_event_item {
