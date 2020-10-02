@@ -28,12 +28,12 @@ export default function EventCard({ showLine, event, showDate }) {
           <section className={ComponentStyles.event_card_info_container}>
             <span id={ComponentStyles.event_item} className="typography_spartacus_three_bold">{event.name}</span>
             {showDate &&
-            <span
-              id={ComponentStyles.event_item}
-              className="typography_spartacus_thirteen_demi_bold"
-            >
-              {renderDates(event.dateStart, event.dateEnd)}
-            </span>}
+              <span
+                id={ComponentStyles.event_item}
+                className="typography_spartacus_thirteen_demi_bold"
+              >
+                {renderDates(event.dateStart, event.dateEnd)}
+              </span>}
             <span id={ComponentStyles.event_item} className="typography_spartacus_six">{renderSubs()}</span>
             <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
               {event.description}
@@ -42,7 +42,7 @@ export default function EventCard({ showLine, event, showDate }) {
               {event.badges && event.badges.map((badge) => <span key={badge.id}> {renderIcon(badge.description)} </span>)}
               |
               <span className={`${ComponentStyles.event_type} typography_spartacus_ten_italic `}>
-                {event.type === 'InPerson' ? 'In Person' : event.type}
+                {event.type === 'InPerson' ? 'In-Person' : event.type}
               </span>
             </span>
           </section>

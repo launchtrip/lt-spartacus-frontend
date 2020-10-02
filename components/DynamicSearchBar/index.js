@@ -21,27 +21,27 @@ const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedS
         className={ComponentStyles.auto_container}
       >
         {industry.total > 0 &&
-        <>
-          <span
-            className={searchStyle}
-          >
-            Industry
+          <>
+            <span
+              className={searchStyle}
+            >
+              Industry
           </span>
 
-          <section className={ComponentStyles.search_result_type}>
-            {industry.data.map((ind) =>
-              <span
-                key={ind.id}
-                className={itemClassName}
-                onClick={() => {
-                  updateSearchFunction(ind.id, ind.description);
-                  updateSelectedSearch(ind.description);
-                  updateSearch(ind.description);
-                }}
-              >{ind.description}
-              </span>)}
-          </section>
-        </>}
+            <section className={ComponentStyles.search_result_type}>
+              {industry.data.map((ind) =>
+                <span
+                  key={ind.id}
+                  className={itemClassName}
+                  onClick={() => {
+                    updateSearchFunction(ind.id, ind.description);
+                    updateSelectedSearch(ind.description);
+                    updateSearch(ind.description);
+                  }}
+                >{ind.description}
+                </span>)}
+            </section>
+          </>}
 
         {event.total > 0 &&
           <>
@@ -125,7 +125,7 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
   const name = `home_sec_search ${ComponentStyles.search_container}`;
   return (
     <div className={name}>
-      <span className={`typography_spartacus_two_bold ${ComponentStyles.search_container_copy}`}>Your Industry:</span>
+      <span className={`typography_spartacus_two_bold ${ComponentStyles.search_container_copy}`}>Select Industry:</span>
       <AutoComplete
         dropdownMatchSelectWidth={252}
         options={options}
@@ -137,11 +137,11 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         <Input.Search size="large" placeholder="Enter Event or Industry" enterButton className="searchBar" />
       </AutoComplete>
       {selectedSearch &&
-      <section className={ComponentStyles.selected_search_display}>
-        <div className="typography_spartacus_ten_italic">
-          {`Displaying results for ${selectedSearch}`}
-        </div>
-      </section>}
+        <section className={ComponentStyles.selected_search_display}>
+          <div className="typography_spartacus_ten_italic">
+            {`Displaying results for ${selectedSearch}`}
+          </div>
+        </section>}
       <section className={ComponentStyles.legend_container}>
         <span
           className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}
@@ -159,7 +159,7 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
           className={`typography_spartacus_fourteen ${ComponentStyles.legend_item}`}
         >
           <EventIcon image="/assets/icon-inperson.png" height="0.9em" width="12px" marginRight="4px" />
-          <span>In Person</span>
+          <span>In-Person</span>
         </span>
       </section>
     </div>
