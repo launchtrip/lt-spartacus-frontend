@@ -9,7 +9,7 @@ export default function Glance({ event }) {
       </section>
 
       <section className={ComponentStyles.event_page_glance_details_container}>
-        {event.size &&
+        {event.size > 0 &&
         <span className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}>Size <br />
           <span className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}>{event.size} Attendees</span>
         </span>}
