@@ -292,8 +292,6 @@ export default function EventSearchPage({ data, methods }) {
       </div>
       <div className={ComponentStyles.event_search_page_sec_two}>
         <FeatureEventAdd />
-        <br />
-        <FeatureEventAdd />
       </div>
     </div>
   );
