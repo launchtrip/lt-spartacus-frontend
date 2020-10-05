@@ -169,7 +169,7 @@ export default function EventPage({ premier, event }) {
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
           >
             Get Tickets
-        </a>}
+          </a>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button
           onClick={() => updateSpeakerModal(true)}
