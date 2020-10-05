@@ -26,7 +26,7 @@ const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedS
               className={searchStyle}
             >
               Industry
-          </span>
+            </span>
 
             <section className={ComponentStyles.search_result_type}>
               {industry.data.map((ind) =>

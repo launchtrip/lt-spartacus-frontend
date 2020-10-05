@@ -85,6 +85,6 @@ export const getServerSideProps = async () => {
       },
     };
   } catch (error) {
-    return { props: { data: undefined } };
+    return { props: { data: null } };
   }
 };
