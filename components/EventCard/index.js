@@ -24,7 +24,6 @@ export default function EventCard({ showLine, event, showDate }) {
       <Link href={pathname}>
         <div className={ComponentStyles.event_card_container}>
           {image}
-
           <section className={ComponentStyles.event_card_info_container}>
             <span id={ComponentStyles.event_item} className="typography_spartacus_three_bold">{event.name}</span>
             {showDate &&
