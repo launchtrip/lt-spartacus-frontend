@@ -1,12 +1,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
-import moment from 'moment';
 import ComponentStyles from './style/styles.module.css';
 import DynamicModal from '../DynamicModal';
 import Multimedia from '../Multimedia';
 import QuestionWidget from '../QuestionWidget';
-import { renderIcon } from '../helperFunctions';
+import { renderIcon, renderDates } from '../helperFunctions';
 import {
   Description,
   Glance,
@@ -25,12 +24,7 @@ import {
 export default function EventPage({ premier, event }) {
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
-  const allMonths = moment.months();
-  const startDay = moment(event.dateStart).date();
-  const endDay = moment(event.dateEnd).date();
-  const year = moment(event.dateEnd).year();
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
-
+  const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
       <>
@@ -40,7 +34,7 @@ export default function EventPage({ premier, event }) {
           This event has both
           <span
             className="typography_spartacus_three_bold"
-          > In Person
+          > In-Person
           </span> and <span className="typography_spartacus_three_bold">Virtual </span>
           options
         </span>
@@ -53,17 +47,11 @@ export default function EventPage({ premier, event }) {
           This event has a
           <span
             className="typography_spartacus_three_bold"
-          > {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
+          > {event.type.toLowerCase() === 'inperson' ? 'In-Person ' : `${event.type} `}
           </span>
           option
         </span>
       </>
-  );
-
-  const renderDates = () => (
-    <>
-      {allMonths[new Date(event.dateStart).getMonth()]} {startDay}-{endDay}, {year}
-    </>
   );
   const renderLocation = () => {
     if (event.city && event.city.countryAbbr) {
@@ -100,7 +88,7 @@ export default function EventPage({ premier, event }) {
             <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
           </span>
           <span className="typography_spartacus_seventeen_bold">
-            {renderDates()} | {renderLocation()}
+            {renderDates(event.dateStart, event.dateEnd)} | {renderLocation()}
           </span>
           <span className={`${ComponentStyles.event_page_draw_line} typography_spartacus_four`}>
             {event.slogan}
@@ -110,23 +98,23 @@ export default function EventPage({ premier, event }) {
 
           {premier && <Speaker event={event} />}
           {premier &&
-          <MobilePremier
-            event={event}
-            renderDates={renderDates}
-            renderLocation={renderLocation}
-            renderViewingOptions={renderViewingOptions}
-            updateSpeakerModal={updateSpeakerModal}
-            updateTicketsModal={updateTicketsModal}
-          />}
+            <MobilePremier
+              event={event}
+              renderDates={renderDates}
+              renderLocation={renderLocation}
+              renderViewingOptions={renderViewingOptions}
+              updateSpeakerModal={updateSpeakerModal}
+              updateTicketsModal={updateTicketsModal}
+            />}
           {!premier &&
-          <MobileRegular
-            event={event}
-            renderDates={renderDates}
-            renderLocation={renderLocation}
-            renderViewingOptions={renderViewingOptions}
-            updateSpeakerModal={updateSpeakerModal}
-            updateTicketsModal={updateTicketsModal}
-          />}
+            <MobileRegular
+              event={event}
+              renderDates={renderDates}
+              renderLocation={renderLocation}
+              renderViewingOptions={renderViewingOptions}
+              updateSpeakerModal={updateSpeakerModal}
+              updateTicketsModal={updateTicketsModal}
+            />}
           {!premier && event.related_events.length > 0 && <RelatedEvents events={event.related_events} />}
 
           {premier && event.media.length > 0 &&
@@ -155,13 +143,13 @@ export default function EventPage({ premier, event }) {
 
       <section className={ComponentStyles.event_page_section_two}>
         <span className="typography_spartacus_eight ">
-          {event.type.toLowerCase() === 'inperson' ? 'In Person ' : `${event.type} `}
+          {event.type.toLowerCase() === 'inperson' ? 'In-Person ' : `${event.type} `}
           {event.badges && event.badges.map((badge) => renderIcon(badge.description))}
         </span>
         {renderViewingOptions()}
         <span
           className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
-        >{renderDates()}
+        >{renderDates(event.dateStart, event.dateEnd)}
         </span>
         <span
           className={`typography_spartacus_seventeen_bold ${ComponentStyles.event_page_section_two_event_types_details}`}
@@ -175,12 +163,12 @@ export default function EventPage({ premier, event }) {
           >Request Discount Tickets
           </button>}
         {premier &&
-        <a
-          target="_blank"
-          href={event.ticketsUrl || 'www.google.ca'}
-          className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
-        >
-          Get Tickets
+          <a
+            target="_blank"
+            href={event.ticketsUrl || 'www.google.ca'}
+            className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
+          >
+            Get Tickets
         </a>}
         <hr className={ComponentStyles.event_page_section_two_divider} />
         <button

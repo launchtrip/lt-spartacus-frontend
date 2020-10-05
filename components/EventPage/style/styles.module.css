@@ -179,7 +179,7 @@
 .event_page_related_events {
     display: flex;
     flex-direction: column;
-    margin: 150px 0 30px;
+    margin: 50px 0 30px;
 }
 
 .event_page_related_events>div:last-child {

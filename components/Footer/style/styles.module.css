@@ -7,6 +7,7 @@
     height: auto;
     padding-left: 2%;
     padding-right: 2%;
+    position: relative;
 }
 
 .footer_container_one {
@@ -39,6 +40,7 @@
     position: absolute;
     align-self: end;
     margin-top: 35px;
+    top: 33px;
 }
 
 .footer_container_two_inner {

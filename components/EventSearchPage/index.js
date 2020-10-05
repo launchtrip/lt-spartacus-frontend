@@ -64,7 +64,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
               {industry.data.map((c) =>
                 <span
                   key={c.id}
-                   className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
+                  className={`${ComponentStyles.search_result_item} typography_spartacus_one`}
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'industry' });
                     updateSelectedSearch({ type: 'industry', name: c.description });
@@ -164,10 +164,6 @@ export default function EventSearchPage({ data, methods }) {
     }
   };
 
-  // const onSelect = value => {
-  //   console.log('onSelect', value);
-  // };
-
   function onChange(dates, dateStrings) {
     setState({ dateStart: dateStrings[0], dateEnd: dateStrings[1] });
   }
@@ -189,6 +185,45 @@ export default function EventSearchPage({ data, methods }) {
       </Menu.Item>
     </Menu>
   );
+  const renderDate = (dateStart, dateEnd) => {
+    if(new Date(dateStart).toDateString() === new Date(dateEnd).toDateString()){
+      return `${moment(dateStart).date()}`
+    }
+    return `${moment(dateStart).date()} - ${moment(dateEnd).date()}`
+  }
+  const renderMonth = (month, dateStart, dateEnd) => {
+    const allMonths = moment.months();
+    const endMonth = allMonths[new Date(dateEnd).getMonth()];
+    if(month !== endMonth){
+      return(
+        <>
+          <span className="typography_spartacus_one_bold">
+            {moment(dateStart).date()}
+          </span>
+          <span className="typography_spartacus_one">
+            {month}
+          </span>
+          <span className="typography_spartacus_one_bold">
+            {moment(dateEnd).date()}
+          </span>
+          <span className="typography_spartacus_one">
+            {endMonth}
+          </span>
+      </>
+      )
+    }
+    return ( 
+      <>
+        <span className="typography_spartacus_one_bold">
+        {renderDate(dateStart, dateEnd)}
+        </span>
+        <span className="typography_spartacus_one">
+          {month}
+        </span>
+      </>
+    )
+
+  }
 
   return (
     <div className={ComponentStyles.event_search_page_container}>
@@ -217,11 +252,11 @@ export default function EventSearchPage({ data, methods }) {
           />
         </section>
         {Object.keys(selectedSearch).length > 0 &&
-        <section className={ComponentStyles.selected_search_display}>
-          <div className="typography_spartacus_ten_italic">
-            {`Displaying results for ${selectedSearch.type} : ${selectedSearch.name}`}
-          </div>
-        </section>}
+          <section className={ComponentStyles.selected_search_display}>
+            <div className="typography_spartacus_ten_italic">
+              {`Displaying results for ${selectedSearch.type} : ${selectedSearch.name}`}
+            </div>
+          </section>}
         {searchError ?
           <section className={ComponentStyles.event_search_monthly_result}>
             <section className={ComponentStyles.event_search_monthly_result_card}>
@@ -237,13 +272,7 @@ export default function EventSearchPage({ data, methods }) {
                 {item.events.map((event) => (
                   <section className={ComponentStyles.event_search_monthly_result_card}>
                     <span className={ComponentStyles.event_search_monthly_result_card_date}>
-                      <span className="typography_spartacus_one_bold">
-                        {moment(event.dateStart).date()} - {moment(event.dateEnd).date()}
-                      </span>
-                      <span className="typography_spartacus_one">
-                        {item.month}
-                      </span>
-
+                    {renderMonth(item.month, event.dateStart, event.dateEnd)}
                     </span>
                     <div className={ComponentStyles.event_search_monthly_result_event_card}>
                       <EventCard event={event} key={event.id} />

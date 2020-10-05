@@ -9,16 +9,17 @@ export default function Glance({ event }) {
       </section>
 
       <section className={ComponentStyles.event_page_glance_details_container}>
+        {event.size > 0 &&
         <span className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}>Size <br />
           <span className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}>{event.size} Attendees</span>
-        </span>
+        </span>}
         <span
           className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}
         >Industry(s)<br />
           <span
             className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}
           >
-            {event.subindustries && event.subindustries.map((sub) => <span key={sub.id}>{sub.description}</span>)}
+            {event.industry.description}, {event.subindustries && event.subindustries.map((sub) => <span key={sub.id}>{sub.description}</span>)}
           </span>
         </span>
         <span
@@ -31,7 +32,7 @@ export default function Glance({ event }) {
         </span>
         <span
           className={`${ComponentStyles.event_page_glance_detail} typography_spartacus_four`}
-        >In Person or Virtual<br />
+        >In-Person or Virtual<br />
           <span
             className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}
           >
