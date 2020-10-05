@@ -18,7 +18,8 @@ export default function ResetPassword({ token }) {
   };
   const onFinish = async values => {
     try {
-      await ResetPasswordCall(values, token);
+      const data = { ...values, code: token };
+      await ResetPasswordCall(data);
       updateSubmit(true);
       setTimeout(() => {
         Router.push('/');
