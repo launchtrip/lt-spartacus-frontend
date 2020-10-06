@@ -8,13 +8,13 @@ import {
   HomePageBottomHalf,
   MobileCopy,
   Error,
-  HeadMeta
+  HeadMeta,
+  MainPoster
 } from '../components';
 
 import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
 
 export default function Home({ data }) {
-  console.log(data);
   const [homePageData, setHomePageData] = useState(data);
   const [searchError, setSearchError] = useState(undefined);
   const router = useRouter();
@@ -51,10 +51,17 @@ export default function Home({ data }) {
     );
   }
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
+
+  if (process.env.MAINTENANCE_MODE === 'true') {
+    return (
+      <MainPoster />
+    );
+  }
+
   return (
     <BaseContainer page="Home">
       <HeadMeta />
-      <div classNameName="home_sec_base_container">
+      <div className="home_sec_base_container">
         <DynamicSearchBar
           updateSearchFunction={updateHomePageData}
           refreshWithOriginalData={refreshWithOriginalData}
@@ -72,7 +79,6 @@ export default function Home({ data }) {
           </>}
 
       </div>
-
     </BaseContainer>
   );
 }

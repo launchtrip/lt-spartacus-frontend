@@ -18,6 +18,7 @@ import HeadMeta from './HeadMeta';
 import TermsAndConditions from './TermsAndConditions';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactForm from './ContactUs.js';
+import MainPoster from './MainPoster';
 
 export {
   AboutPage,
@@ -34,6 +35,7 @@ export {
   HeadMeta,
   HomePageBottomHalf,
   HeroCarousel,
+  MainPoster,
   MobileCopy,
   PartnershipForm,
   PrivacyPolicy,

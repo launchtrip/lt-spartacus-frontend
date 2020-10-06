@@ -10,6 +10,7 @@ const firebaseSenderId = process.env.NEXT_PUBLIC_FIREBASE_SENDERID;
 const firebasePrivateKey = process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY;
 const firebaseClientEmail = process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL;
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const maintenaceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE;
 module.exports = {
   env: {
     SERVER_BASE_URL: url,
@@ -23,7 +24,8 @@ module.exports = {
     FIREBASE_MEASUREMENTID: firebaseMeasurementId,
     FIREBASE_PRIVATE_KEY: firebasePrivateKey,
     FIREBASE_CLIENT_EMAIL: firebaseClientEmail,
-    BASE_URL: baseUrl
+    BASE_URL: baseUrl,
+    MAINTENANCE_MODE: maintenaceMode
   },
   target: 'serverless',
 };
