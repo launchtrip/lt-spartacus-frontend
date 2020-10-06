@@ -20,6 +20,16 @@ export default function EventCard({ data }) {
     }
     return `${countdown} Days`;
   };
+
+  const imageUrl = (logo) => {
+    if (!logo) {
+      return '/assets/logo.png';
+    }
+    if (data.logo.url) {
+      return data.logo.url;
+    }
+    return data.logo;
+  };
   return (
     <Link
       href={{ pathname }}
@@ -27,7 +37,7 @@ export default function EventCard({ data }) {
       <div className={ComponentStyles.card_container}>
         <section className={ComponentStyles.card_container_section_one}>
           <img
-            src={data.logo.url ? data.logo.url : data.logo}
+            src={imageUrl(data.logo)}
             alt=""
             className={ComponentStyles.card_container_section_one_image}
           />
