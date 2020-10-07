@@ -52,7 +52,8 @@ export default function Home({ data }) {
   }
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
 
-  if (process.env.MAINTENANCE_MODE === 'true') {
+  console.log(process.env.MAINTENANCE_MODE);
+  if (process.env.MAINTENANCE_MODE === 'enabled') {
     return (
       <MainPoster />
     );
