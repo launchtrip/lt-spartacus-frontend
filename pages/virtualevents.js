@@ -5,10 +5,11 @@ import { BaseContainer, DynamicSearchBar, EventCarousel, Error, HeadMeta } from 
 import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes/Events';
 
 export default function VirtualEvents({ data }) {
-  const [virtualPageData, setVirtualPageData] = useState(data);
+  const [virtualPageData, setVirtualPageData] = useState(data.filter(d => d.events.length >= 3));
   const [searchError, setSearchError] = useState(undefined);
   const spotlight = data.find((sub) => sub.subindustry === 'Spotlight');
   const router = useRouter();
+  console.log(virtualPageData);
 
   const errorMessage = {
     type: 503,
@@ -71,7 +72,7 @@ export default function VirtualEvents({ data }) {
             if (sub.subindustry === 'Spotlight') {
               return;
             }
-            if (i + 1 === data.length - 1) {
+            if (i + 2 === virtualPageData.length) {
               return <EventCarousel title={sub.subindustry} key={sub.subindustry} eventPage data={sub.events} isLast />;
             }
             return <EventCarousel title={sub.subindustry} key={sub.subindustry} eventPage data={sub.events} />;
