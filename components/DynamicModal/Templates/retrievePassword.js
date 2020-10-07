@@ -8,6 +8,7 @@ import Error from './error';
 
 export default function RetrievePassword({ setState, setNote, original, updateModal }) {
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const layout = {
     labelCol: {
       span: 8,
@@ -23,6 +24,7 @@ export default function RetrievePassword({ setState, setNote, original, updateMo
         setState(original);
       }, 3000);
     } catch (err) {
+      setErrorMessage('unable to send password retrieval email at this time!');
       setError(true);
       setTimeout(() => { setError(undefined); }, 5000);
     }
@@ -40,7 +42,6 @@ export default function RetrievePassword({ setState, setNote, original, updateMo
         >
           Enter your email and we will send you instructions to reset your password
         </span>
-        {error && <Error message="unable to retrieve password right now!" />}
         <Form
           {...layout}
           name="basic"
@@ -71,6 +72,8 @@ export default function RetrievePassword({ setState, setNote, original, updateMo
             </button>
           </Form.Item>
         </Form>
+        {error && <Error message={errorMessage} />}
+
       </div>
     </div>
   );

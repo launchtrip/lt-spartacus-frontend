@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import firebaseClient from '../services/firebaseClient';
@@ -13,9 +14,13 @@ export const Provider = ({ children }) => {
     Router.push('/');
   };
 
-  const updatePassword = (newPW) => {
+  const updatePassword = async (newPW) => {
     const { currentUser } = firebaseClient.auth();
-    currentUser.updatePassword(newPW);
+    try {
+      await currentUser.updatePassword(newPW);
+    } catch (error) {
+      throw (error);
+    }
   };
   useEffect(() => {
     firebaseClient.auth().onAuthStateChanged(async usr => {

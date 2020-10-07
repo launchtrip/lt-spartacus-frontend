@@ -24,7 +24,7 @@ export default function RequestTickets({ setState, setNote, original, updateModa
         setState(original);
       }, 3000);
     } catch (err) {
-      setError('Error');
+      setError('unable to submit your request at this time!');
       setTimeout(() => {
         setError('');
       }, 5000);
@@ -38,7 +38,6 @@ export default function RequestTickets({ setState, setNote, original, updateModa
     <div className={ComponentStyles.modal_base_container}>
       <div className={ComponentStyles.modal_container}>
         <span className="typography_spartacus_sixteen">Request Discount Tickets</span>
-        {error && <Error message={error} />}
         <Form
           {...layout}
           name="basic"
@@ -90,6 +89,8 @@ export default function RequestTickets({ setState, setNote, original, updateModa
             </button>
           </Form.Item>
         </Form>
+        {error && <Error message={error} />}
+
       </div>
     </div>
   );

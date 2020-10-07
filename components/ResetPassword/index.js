@@ -10,6 +10,8 @@ import { ResetPassword as ResetPasswordCall } from '../../pages/api/Routes/User'
 export default function ResetPassword({ token }) {
   const [submit, updateSubmit] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   const Router = useRouter();
   const layout = {
     labelCol: {
@@ -25,6 +27,8 @@ export default function ResetPassword({ token }) {
         Router.push('/');
       }, 5000);
     } catch (err) {
+      const properErrorMessage = err.response && err.response.data && err.response.data.message;
+      setErrorMessage(properErrorMessage ? err.response.data.message : 'unable to reset password right now!');
       setError(true);
       setTimeout(() => {
         setError(false);
@@ -40,7 +44,6 @@ export default function ResetPassword({ token }) {
       {!submit ?
         <div className={ComponentStyles.reset_containe_inner}>
           <span className="typography_spartacus_sixteen">Reset Password</span>
-          {error && <Alert showIcon type="error" message="unable to reset password right now! " />}
           <Form
             {...layout}
             name="basic"
@@ -99,6 +102,8 @@ export default function ResetPassword({ token }) {
               </button>
             </Form.Item>
           </Form>
+          {error && <Alert showIcon type="error" message={errorMessage} />}
+
         </div>
         :
         <div
