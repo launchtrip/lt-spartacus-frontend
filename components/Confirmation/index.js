@@ -8,7 +8,7 @@ export default function Confirmation() {
         <span className="typography_spartacus_sixteen">
           Hi There!
           <br />
-          Welcom to Unify.
+          Welcome to Unify.
         </span>
 
         <br />

@@ -7,11 +7,16 @@ import { countdownInDays, renderIcon } from '../helperFunctions';
 export default function EventCard({ data }) {
   const pathname = `/event/${data.name.split(' ').join('-')}-id-${data.id}`;
   const oldEvent = new Date() > new Date(data.dateEnd);
+  console.log(data);
   const renderCorrectCoundown = () => {
     const countdown = countdownInDays(data.dateStart, true);
     if (oldEvent) {
       return 'Completed';
     }
+    if (new Date(data.dateStart) < new Date()) {
+      return 'Today';
+    }
+
     if (countdown === 1) {
       return '1 Day';
     }
