@@ -2,13 +2,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
 import React, { useState, useContext } from 'react';
-import { Form } from 'antd';
+import { Form, Alert } from 'antd';
 import { useRouter } from 'next/router';
 import ComponentStyles from './style/styles.module.css';
 import Context from '../../providers/userContext';
 
 export default function ChangePassword() {
   const [submit, updateSubmit] = useState(false);
+  const [error, setError] = useState('');
   const { updatePassword } = useContext(Context);
   const Router = useRouter();
 
@@ -17,12 +18,21 @@ export default function ChangePassword() {
       span: 8,
     }
   };
-  const onFinish = values => {
-    updatePassword(values.password);
-    updateSubmit(true);
-    setTimeout(() => {
-      Router.push('/');
-    }, 5000);
+  const onFinish = async values => {
+    try {
+      await updatePassword(values.password);
+      console.log('>>>>>');
+
+      updateSubmit(true);
+      setTimeout(() => {
+        Router.push('/');
+      }, 5000);
+    } catch (err) {
+      setError(err.message);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -91,6 +101,8 @@ export default function ChangePassword() {
               </button>
             </Form.Item>
           </Form>
+          {error && <Alert message={error} type="error" showIcon />}
+
         </div>
         :
         <div

@@ -23,7 +23,7 @@ export default function SignIn({ setState, updateModal }) {
         }
       });
     } catch (err) {
-      setError(err.message);
+      setError(err.message ? err.message : 'unable to sign you in at this time');
       setTimeout(() => {
         setError('');
       }, 5000);

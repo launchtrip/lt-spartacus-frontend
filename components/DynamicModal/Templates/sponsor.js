@@ -24,7 +24,7 @@ export default function Sponsor({ setState, setNote, original, updateModal, even
         setState(original);
       }, 3000);
     } catch (err) {
-      setError('Error');
+      setError('unable to submit your request at this time!');
       setTimeout(() => {
         setError('');
       }, 5000);
@@ -38,7 +38,6 @@ export default function Sponsor({ setState, setNote, original, updateModal, even
     <div className={ComponentStyles.modal_base_container}>
       <div className={ComponentStyles.modal_container}>
         <span className="typography_spartacus_sixteen">Become a Sponser/Speaker</span>
-        {error && <Error message={error} />}
         <Form
           {...layout}
           name="basic"
@@ -88,6 +87,8 @@ export default function Sponsor({ setState, setNote, original, updateModal, even
             </button>
           </Form.Item>
         </Form>
+        {error && <Error message={error} />}
+
       </div>
     </div>
   );
