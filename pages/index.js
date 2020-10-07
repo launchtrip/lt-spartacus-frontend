@@ -52,8 +52,11 @@ export default function Home({ data }) {
   }
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
 
-  console.log(process.env.NEXT_PUBLIC_MAINTENANCE_MODE);
-  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE !== 'disabled') {
+  console.log(process.env.MAINTENANCE_MODE);
+
+  return <MainPoster />;
+
+  if (process.env.MAINTENANCE_MODE !== 'false') {
     return (
       <MainPoster />
     );
