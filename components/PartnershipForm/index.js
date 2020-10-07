@@ -26,8 +26,8 @@ export default function PartnershipForm() {
     } catch (err) {
       setLoading(false);
       setLoading(false);
-
-      setError('error trying to submit your parntership claim');
+      const properErrorMessage = err.response && err.response.data && err.response.data.message;
+      setError(properErrorMessage ? err.response.data.message : 'error trying to submit your parntership form');
       setTimeout(() => {
         setError('');
       }, 5000);

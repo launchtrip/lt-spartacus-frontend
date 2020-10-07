@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
-import { Form, Select, Checkbox, Alert } from 'antd';
+import { Form, Checkbox, Alert } from 'antd';
 import ComponentStyles from './style/styles.module.css';
 import { SignUp as SignUpUser } from '../../pages/api/Routes/User';
 
@@ -11,7 +11,6 @@ export default function SignUp() {
   const [submit, updateSubmit] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { Option } = Select;
 
   const layout = {
     labelCol: {
@@ -34,7 +33,8 @@ export default function SignUp() {
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      setError('error trying to sign you up');
+      const properErrorMessage = err.response && err.response.data && err.response.data.message;
+      setError(properErrorMessage ? err.response.data.message : 'error trying to sign you up');
       setTimeout(() => {
         setError('');
       }, 5000);
