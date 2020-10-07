@@ -53,7 +53,7 @@ export default function Home({ data }) {
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
 
   console.log(process.env.NEXT_PUBLIC_MAINTENANCE_MODE);
-  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true') {
+  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE !== 'disabled') {
     return (
       <MainPoster />
     );
