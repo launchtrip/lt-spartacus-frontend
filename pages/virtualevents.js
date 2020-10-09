@@ -9,7 +9,6 @@ export default function VirtualEvents({ data }) {
   const [searchError, setSearchError] = useState(undefined);
   const spotlight = data.find((sub) => sub.subindustry === 'Spotlight');
   const router = useRouter();
-  console.log(virtualPageData);
 
   const errorMessage = {
     type: 503,

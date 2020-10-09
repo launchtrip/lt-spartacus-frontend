@@ -6,25 +6,27 @@ export default function Confirmation() {
     <div className={ComponentStyles.confirmation_container}>
       <div>
         <span className="typography_spartacus_sixteen">
-          Hi There!
-          <br />
-          Welcome to Unify.
+          Welcome to Unify!
         </span>
 
         <br />
         <br />
 
         <span className="typography_spartacus_eighteen_bold">
-          Member perks
+          Log in using your new
           <br />
-          coming Soon!
+          account information and
+          <br />
+          we will update you on
+          <br />
+          member perks coming soon.
         </span>
         <br />
         <br />
         <ul className={`typography_spartacus_one_bold ${ComponentStyles.list}`}>
           <li>Discount Tickets</li>
-          <li>Sales Events</li>
-          <li>Import Notifications and More!</li>
+          <li>Access to Industry-leading Events and Updates </li>
+          <li>Exclusive Access and More</li>
         </ul>
       </div>
     </div>
