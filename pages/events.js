@@ -9,7 +9,7 @@ export default function Events({ data }) {
   const [eventPageData, setEventPageData] = useState(data);
   const [searchError, setSearchError] = useState(undefined);
   const [state, setState] = useState({
-    dateStart: moment().format('YYYY-MM-DD'),
+    dateStart: '',
     dateEnd: '',
   });
   const [type, setType] = useState(undefined);
@@ -97,7 +97,7 @@ export default function Events({ data }) {
 export const getServerSideProps = async () => {
   try {
     const data = {
-      dateStart: moment().format('YYYY-MM-DD'),
+      dateStart: '',
       dateEnd: ''
     };
     const events = await FetchAllEvents(data);
