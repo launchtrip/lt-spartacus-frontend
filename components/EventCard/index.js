@@ -4,8 +4,7 @@ import ComponentStyles from './style/styles.module.css';
 import { renderIcon, renderDates } from '../helperFunctions';
 
 export default function EventCard({ showLine, event, showDate }) {
-  const pathname = `/event/${event.name.split(' ').join('-')}-id-${event.id}`;
-
+  const pathname = `/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
   const renderSubs = () => {
     const selectSubs = event.subindustries ? event.subindustries : event.subindustry;
     const { length } = event.subindustries ? event.subindustries : event.subindustry;

@@ -12,7 +12,7 @@ export default function MobilePremier({
   renderViewingOptions,
   updateSpeakerModal,
 }) {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
 
   return (
     <section className={ComponentStyles.event_page_small_screen_ghost}>

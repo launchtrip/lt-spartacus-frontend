@@ -24,7 +24,7 @@ import {
 export default function EventPage({ premier, event }) {
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
-  const url = `${process.env.BASE_URL}/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+  const url = `${process.env.BASE_URL}/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
   const renderViewingOptions = () => (
     event.type.toLowerCase() === 'hybrid' ?
       <>

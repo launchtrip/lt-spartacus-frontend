@@ -4,7 +4,7 @@ import ComponentStyles from './style/styles.module.css';
 import { countdownInDays } from '../helperFunctions';
 
 export default function NewsCard({ alternate, line, withImage, article, external }) {
-  const pathname = external ? article.link : `/article/${article.title.split(' ').join('-')}-id-${article.id}`;
+  const pathname = external ? article.link : `/article/${article.title.replace('/', '-').split(' ').join('-')}-id-${article.id}`;
   const mainContainer = withImage ? ComponentStyles.news_container_with_image : ComponentStyles.news_container;
   const titleClass = withImage ? `typography_spartacus_nineteen ${ComponentStyles.news_title}` : 'typography_spartacus_one_demi_bold';
   const renderSubs = () => {

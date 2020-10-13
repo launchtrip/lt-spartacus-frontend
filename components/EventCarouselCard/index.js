@@ -5,7 +5,7 @@ import ComponentStyles from './style/styles.module.css';
 import { countdownInDays, renderIcon } from '../helperFunctions';
 
 export default function EventCard({ data }) {
-  const pathname = `/event/${data.name.split(' ').join('-')}-id-${data.id}`;
+  const pathname = `/event/${data.name.replace('/', '-').split(' ').join('-')}-id-${data.id}`;
   const oldEvent = new Date() > new Date(data.dateEnd);
   const renderCorrectCoundown = () => {
     const countdown = countdownInDays(data.dateStart, true);

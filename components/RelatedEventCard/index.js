@@ -6,7 +6,7 @@ import { renderIcon } from '../helperFunctions';
 
 export default function RelatedEventCard({ event }) {
   const allMonths = moment.months();
-  const pathname = `/event/${event.name.split(' ').join('-')}-id-${event.id}`;
+  const pathname = `/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
 
   return (
     <Link href={pathname}>

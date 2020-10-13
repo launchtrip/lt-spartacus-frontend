@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
 
 export default function SpeakerCard({ hideEventTitle, data }) {
-  const pathname = hideEventTitle ? null : `/event/${data.event.name.split(' ').join('-')}-id-${data.event.id}`;
+  const pathname = hideEventTitle ? null : `/event/${data.event.name.replace('/', '-').split(' ').join('-')}-id-${data.event.id}`;
 
   return (
     <div className={ComponentStyles.container}>
