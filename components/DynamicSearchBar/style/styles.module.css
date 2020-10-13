@@ -40,9 +40,9 @@
 
 .search_container_input {
     width: 350px;
-    line-height: 45px;
     border-radius: 0px 10px 10px 0px !important;
 }
+
 
 .search_container_copy {
     align-self: center;
@@ -73,7 +73,7 @@
 }
 .search_container_input 
 .search_bar{
-    line-height: 450px !important;
+    margin: 450px !important;
 }
 
 @media screen and (max-width: 820px) {
