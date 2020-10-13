@@ -212,6 +212,17 @@ html {
     }
 }
 
+@media screen and (max-width: 600px) {
+   .ant-picker-panel-container .ant-picker-panels{
+       flex-direction: column !important;
+   }
+   .ant-picker-panel-container{
+    margin-left: 16px !important;
+    width: 90% !important;
+    text-align: center !important;
+   }
+}
+
 @media screen and (max-width: 520px) {
     .ant-select-selector ::placeholder {
         color: #8B8B8B !important;
