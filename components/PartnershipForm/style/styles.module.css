@@ -99,6 +99,8 @@
     .list {
         list-style-type: none;
         padding-left: 0;
+        width: 380px;
+
     }
 
     .button {
@@ -110,6 +112,13 @@
     }
 }
 
+@media screen and (max-width: 550px) {
+    .list {
+       font-size:12px;
+       width: 320px;
+
+    }
+}
 @media screen and (max-width: 450px) {
     .partnership_form_item {
         width: 350px !important;

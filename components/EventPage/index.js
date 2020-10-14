@@ -83,7 +83,7 @@ export default function EventPage({ premier, event }) {
       <section className={ComponentStyles.event_page_section_one}>
         <section className={ComponentStyles.event_page_section_one_container}>
           <img src={event.logo.url} alt="" className={ComponentStyles.event_page_image} />
-          <span className="typography_spartacus_twenty_demi_bold">
+          <span className={`${ComponentStyles.event_page_title} typography_spartacus_twenty_demi_bold`}>
             {event.name}
             <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
           </span>

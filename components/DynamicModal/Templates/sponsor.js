@@ -17,7 +17,7 @@ export default function Sponsor({ setState, setNote, original, updateModal, even
     try {
       const data = { ...values, event };
       await BecomeASponsor(data);
-      setNote('Thank you for contacting us. We will get in touch with you shortly');
+      setNote('Thank you for contacting us. We will get in touch with you shortly if applicable.');
       setState('note');
       setTimeout(() => {
         updateModal(false);
@@ -75,7 +75,7 @@ export default function Sponsor({ setState, setNote, original, updateModal, even
           <Form.Item
             name="message"
           >
-            <input
+            <textarea
               placeholder="Comments or Questions"
               className={ComponentStyles.form_item_text}
             />

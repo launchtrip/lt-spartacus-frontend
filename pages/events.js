@@ -32,9 +32,7 @@ export default function Events({ data }) {
       const { length } = newEventPageData;
       if (!length) {
         const errorMessage = {
-          type: 403,
-          title: 'Page Not Found',
-          reason: 'This industry does not have any events',
+          reason: 'This industry currently has no events. Try again soon.',
         };
         setSearchError(errorMessage);
         return;

@@ -69,6 +69,7 @@ export function renderDates(dateStart, dateEnd) {
       </>
     );
   }
+
   return (
     <>
       {allMonths[new Date(dateStart).getMonth()]} {startDay} - {sameMonth ? endDay : `${endMonth} ${endDay}` }, {startYear}

@@ -11,7 +11,14 @@
     flex-wrap: wrap;
 
 }
-
+.event_search_multi_date_container{
+    display: flex;
+    justify-content: space-around; 
+}
+.event_search_multi_date_container_inner{
+    display: flex;
+    flex-direction: column;
+}
 .search_container_input {
     width: 320px;
     height: 45px;

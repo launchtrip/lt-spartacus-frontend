@@ -22,3 +22,14 @@
 .slick-next:before {
     display: none;
 }
+.smaller_carousel
+.slick-track{
+    display: contents;
+}
+
+@media screen and (max-width: 1200px) {
+    .smaller_carousel
+    .slick-track{
+        display: inherit !important;
+    }
+}

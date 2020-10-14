@@ -196,20 +196,25 @@ export default function EventSearchPage({ data, methods }) {
     const endMonth = allMonths[new Date(dateEnd).getMonth()];
     if(month !== endMonth){
       return(
-        <>
-          <span className="typography_spartacus_one_bold">
-            {moment(dateStart).date()}
-          </span>
-          <span className="typography_spartacus_one">
-            {month}
-          </span>
-          <span className="typography_spartacus_one_bold">
-            {moment(dateEnd).date()}
-          </span>
-          <span className="typography_spartacus_one">
-            {endMonth}
-          </span>
-      </>
+        <div className={ComponentStyles.event_search_multi_date_container}>
+          <div className={ComponentStyles.event_search_multi_date_container_inner}>
+            <span className="typography_spartacus_one_bold">
+              {moment(dateStart).date()} 
+            </span>
+            <span className="typography_spartacus_one">
+            {moment(dateStart, 'YYY-MM-DD').format('MMM')} 
+            </span>
+          </div>
+          <span className="typography_spartacus_one_bold">-</span>
+          <div className={ComponentStyles.event_search_multi_date_container_inner}>
+            <span className="typography_spartacus_one_bold">
+             {moment(dateEnd).date()}
+            </span>
+            <span className="typography_spartacus_one">
+            {moment(dateEnd, 'YYY-MM-DD').format('MMM')}
+            </span>
+          </div>
+      </div>
       )
     }
     return ( 

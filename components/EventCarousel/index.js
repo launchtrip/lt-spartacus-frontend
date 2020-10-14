@@ -88,7 +88,7 @@ export default function EventCarousel({ title, eventPage, data, isLast }) {
       {!eventPage && <hr className={ComponentStyles.event_carousel_breakline_top} />}
       <span className={titleClass}>{title}</span>
       <div className={ComponentStyles.carousel_container}>
-        <Slider {...settings}>
+        <Slider {...settings} className={data.length < 4 && 'smaller_carousel'}>
           {eventCards()}
         </Slider>
       </div>

@@ -17,7 +17,7 @@ export default function RequestTickets({ setState, setNote, original, updateModa
     try {
       const data = { ...values, event };
       await RequestDiscountTickets(data);
-      setNote('Thank you for contacting us. We will get in touch with you shortly');
+      setNote('Thank you for contacting us. We will get in touch with you shortly if applicable.');
       setState('note');
       setTimeout(() => {
         updateModal(false);

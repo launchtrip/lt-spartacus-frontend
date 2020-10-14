@@ -28,8 +28,8 @@
 }
 
 .event_page_image {
-    width: 75px;
-    height: 75px;
+    width: 150px;
+    height: 150px;
     border-radius: 50px;
     object-fit: contain;
 }
@@ -403,6 +403,10 @@
         border-style: solid;
         border-width: 1px 0 0 0;
     }
+    .event_page_title{
+        font-size: 28px;
+        line-height: 40px;
+    }
 
 }
 
@@ -428,6 +432,12 @@
 
     .event_page_section_two_button {
         margin-right: 0;
+    }
+    .event_page_image {
+        width: 50%;
+        height: auto;
+        border-radius: 50px;
+        object-fit: contain;
     }
 
 

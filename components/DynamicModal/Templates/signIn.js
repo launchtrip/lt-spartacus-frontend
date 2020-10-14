@@ -42,7 +42,10 @@ export default function SignIn({ setState, updateModal }) {
           className={`typography_spartacus_seven ${ComponentStyles.sign_up_container}`}
         >
           <Link href="/sign-up">
-            <span className={ComponentStyles.sign_up_prompt}>
+            <span
+              className={ComponentStyles.sign_up_prompt}
+              onClick={() => window.location.href.split('/sign-up').length === 2 && updateModal(false)}
+            >
               Sign Up Here
             </span>
           </Link> for free if you dont have an account!
