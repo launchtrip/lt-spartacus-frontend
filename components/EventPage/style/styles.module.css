@@ -30,7 +30,7 @@
 .event_page_image {
     width: 150px;
     height: 150px;
-    border-radius: 50px;
+    border-radius: 50%;
     object-fit: contain;
 }
 
