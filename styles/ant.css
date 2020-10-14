@@ -203,6 +203,7 @@ html {
 }
 .ant-input-group .ant-input{
     line-height: 300px !important;
+    color: #3E3E3E !important
 }
 
 @media screen and (max-width: 1100px) {
