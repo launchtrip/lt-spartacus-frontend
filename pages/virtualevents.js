@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { BaseContainer, DynamicSearchBar, EventCarousel, Error, HeadMeta } from '../components';
+import { BaseContainer, DynamicSearchBar, EventCarousel, Error, HeadMeta, Title } from '../components';
 import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes/Events';
 
 export default function VirtualEvents({ data }) {
@@ -52,7 +52,6 @@ export default function VirtualEvents({ data }) {
       </BaseContainer>
     );
   }
-
   return (
     <BaseContainer page="Virtual Events">
       <HeadMeta />
@@ -62,12 +61,14 @@ export default function VirtualEvents({ data }) {
         setSearchError={setSearchError}
         type="virtualEvents"
       />
+      <Title name="Virtual Events" />
       {searchError ?
         <Error error={searchError} />
         :
         <>
           {spotlight && <EventCarousel title="Spotlight" eventPage data={spotlight.events} />}
           {virtualPageData && virtualPageData.map((sub, i) => {
+            console.log(sub);
             if (sub.subindustry === 'Spotlight') {
               return;
             }

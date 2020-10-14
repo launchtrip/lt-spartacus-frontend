@@ -201,9 +201,9 @@ export default function SignUp() {
           <section className={ComponentStyles.section_two}>
             <span className="typography_spartacus_eighteen_bold">Member Perks Coming Soon</span>
             <ul className={`typography_spartacus_one_bold ${ComponentStyles.list}`}>
-              <li>Discount Tickets</li>
-              <li>Sales Events</li>
-              <li>Import Notifications and More!</li>
+              <li>Discounted Tickets</li>
+              <li>Access to Industry-leading Events and Updates</li>
+              <li>Exclusive Access and More</li>
             </ul>
             {error && <Alert message={error} type="error" showIcon />}
           </section>

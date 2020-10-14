@@ -19,6 +19,7 @@ import TermsAndConditions from './TermsAndConditions';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactForm from './ContactUs.js';
 import MainPoster from './MainPoster';
+import Title from './Title';
 
 export {
   AboutPage,
@@ -41,5 +42,6 @@ export {
   PrivacyPolicy,
   ResetPassword,
   SignUp,
-  TermsAndConditions
+  TermsAndConditions,
+  Title
 };

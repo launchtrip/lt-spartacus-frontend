@@ -10,6 +10,7 @@ import ComponentStyles from './style/styles.module.css';
 import EventIcon from '../EventIcon';
 import { FetchSearchRequest } from '../../pages/api/Routes/Events';
 import Error from '../Error';
+import Title from '../Title';
 
 const searchStyle = `typography_spartacus_four_italic ${ComponentStyles.search_result_title}`;
 // const createUrl = (description) => `/event/${description.split(' ').join('-')}`;
@@ -271,6 +272,8 @@ export default function EventSearchPage({ data, methods }) {
 
           :
           <>
+             <Title name="All Events"/>
+
             {data && data.map((item) => (
               <section className={ComponentStyles.event_search_monthly_result}>
                 <span className={`typography_spartacus_three ${ComponentStyles.event_search_month}`}>{item.month} {item.year}</span>
