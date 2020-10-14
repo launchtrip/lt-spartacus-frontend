@@ -69,7 +69,7 @@ export default function Events({ data }) {
 
   if (!eventPageData) {
     const errorMessage = {
-      type: 503,
+      type: 4,
       title: 'Something Went Wrong',
       reason: 'Service is temporarily unavailable. Please try again.',
       actionDisplay: 'Refresh Page',

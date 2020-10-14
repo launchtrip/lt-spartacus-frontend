@@ -291,7 +291,6 @@ export default function EventSearchPage({ data, methods }) {
 
               </section>
             ))}
-
             <a className={ComponentStyles.event_search_back_to_top} href="#">
               <EventIcon image="/assets/topArrow.png" width="30px" height="30px" marginRight="5px" />
               Back to top

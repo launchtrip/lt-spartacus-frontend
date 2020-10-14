@@ -22,6 +22,7 @@ import {
 } from './components';
 
 export default function EventPage({ premier, event }) {
+  console.log(event);
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
   const url = `${process.env.BASE_URL}/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
@@ -85,8 +86,9 @@ export default function EventPage({ premier, event }) {
           <img src={event.logo.url} alt="" className={ComponentStyles.event_page_image} />
           <span className={`${ComponentStyles.event_page_title} typography_spartacus_twenty_demi_bold`}>
             {event.name}
-            <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
           </span>
+          <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
+
           <span className="typography_spartacus_seventeen_bold">
             {renderDates(event.dateStart, event.dateEnd)} | {renderLocation()}
           </span>
@@ -165,7 +167,7 @@ export default function EventPage({ premier, event }) {
         {premier &&
           <a
             target="_blank"
-            href={event.ticketsUrl || 'www.google.ca'}
+            href={event.ticketUrl || 'www.google.ca'}
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
           >
             Get Tickets

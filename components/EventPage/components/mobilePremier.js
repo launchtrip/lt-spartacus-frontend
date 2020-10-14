@@ -38,7 +38,7 @@ export default function MobilePremier({
           </div>
           <a
             target="_blank"
-            href={event.ticketsUrl || 'www.google.ca'}
+            href={event.ticketUrl || 'www.google.ca'}
             className={`button_lg_styled_filled ${ComponentStyles.event_page_section_two_button}`}
           >
             Get Tickets
