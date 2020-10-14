@@ -88,7 +88,6 @@ export default function EventPage({ premier, event }) {
             {event.name}
           </span>
           <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
-
           <span className="typography_spartacus_seventeen_bold">
             {renderDates(event.dateStart, event.dateEnd)} | {renderLocation()}
           </span>

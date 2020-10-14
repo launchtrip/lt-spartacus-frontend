@@ -348,7 +348,7 @@
     .event_page_glance_details_container {
         margin: 20px 0;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         width: 100%
     }
 
