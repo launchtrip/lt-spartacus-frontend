@@ -50,6 +50,12 @@ export default function RequestTickets({ setState, setNote, original, updateModa
         >
           <Form.Item
             name="name"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your name',
+              }
+            ]}
           >
             <input
               className={ComponentStyles.form_item}
@@ -58,6 +64,12 @@ export default function RequestTickets({ setState, setNote, original, updateModa
           </Form.Item>
           <Form.Item
             name="company"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your company name',
+              }
+            ]}
           >
             <input
               className={ComponentStyles.form_item}
@@ -66,6 +78,16 @@ export default function RequestTickets({ setState, setNote, original, updateModa
           </Form.Item>
           <Form.Item
             name="email"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your email',
+              },
+              {
+                type: 'email',
+                message: 'Please input a valid email',
+              }
+            ]}
           >
             <input
               className={ComponentStyles.form_item}
@@ -74,12 +96,19 @@ export default function RequestTickets({ setState, setNote, original, updateModa
           </Form.Item>
           <Form.Item
             name="quantity"
+            rules={[
+              {
+                required: true,
+                message: 'Please input the number of tickets you would like',
+              }
+            ]}
           >
 
             <input
               placeholder="Number of Tickets"
               className={ComponentStyles.form_item}
               type="number"
+
             />
           </Form.Item>
 

@@ -112,7 +112,6 @@
 }
 
 .event_search_back_to_top {
-
     font-family: AvenirNext;
     color: #363636 !important;
     position: sticky;
@@ -123,6 +122,9 @@
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 6px;
     margin: 15px;
+    width: 135px;
+    display: flex;
+    align-items: center;
 }
 
 .search_result_title {

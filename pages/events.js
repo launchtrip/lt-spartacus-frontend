@@ -41,7 +41,6 @@ export default function Events({ data }) {
       const results = organizeEventsByMonth(newEventPageData);
       setEventPageData(results);
     } catch (error) {
-      console.log(error.response);
       setEventPageData(undefined);
       // need to updatr this to set error if error exists or happens
     }

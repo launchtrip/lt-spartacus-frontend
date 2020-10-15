@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import { DatePicker, Menu, Dropdown, Input, AutoComplete } from 'antd';
+import { DatePicker, Menu, Dropdown, Input, AutoComplete, BackTop } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import FeatureEventAdd from '../FeatureEventAdd';
@@ -19,7 +19,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
   const industry = query.find((q) => q.type === 'Industry');
   const event = query.find((q) => q.type === 'Event');
   if (!company.total && !industry.total && !event.total) {
-    return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
+    return [{ value: <p>We did not find any search results <br />based off of your input!</p> }];
   }
   return [{
     value: (
@@ -46,7 +46,7 @@ const searchResult = (query, SetCompanyIndustryOrEvent, updateSearch, updateSele
 
                   onClick={() => {
                     SetCompanyIndustryOrEvent({ id: c.id, type: 'company' });
-                    updateSelectedSearch({ type: 'comapny', name: c.description });
+                    updateSelectedSearch({ type: 'company', name: c.description });
                     updateSearch(c.description);
                   }}
                 >{c.description}
@@ -291,10 +291,10 @@ export default function EventSearchPage({ data, methods }) {
 
               </section>
             ))}
-            <a className={ComponentStyles.event_search_back_to_top} href="#">
-              <EventIcon image="/assets/topArrow.png" width="30px" height="30px" marginRight="5px" />
-              Back to top
-            </a>
+              <BackTop className={ComponentStyles.event_search_back_to_top} > 
+                <EventIcon image="/assets/topArrow.png" width="30px" height="30px" marginRight="5px" />
+                Back to top
+              </BackTop>
           </>}
       </div>
       <div className={ComponentStyles.event_search_page_sec_two}>

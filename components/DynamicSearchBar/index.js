@@ -13,7 +13,7 @@ const searchResult = (query, updateSearchFunction, updateSearch, updateSelectedS
   const event = query.find((q) => q.type === 'Event');
   const itemClassName = `${ComponentStyles.search_result_item} typography_spartacus_one`;
   if (industry.total === 0 && event.total === 0) {
-    return [{ value: <p>we did not find any search results <br />based off of your input!</p> }];
+    return [{ value: <p>We did not find any search results <br />based off of your input!</p> }];
   }
   return [{
     value: (

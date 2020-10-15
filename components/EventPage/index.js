@@ -22,7 +22,6 @@ import {
 } from './components';
 
 export default function EventPage({ premier, event }) {
-  console.log(event);
   const [ticketsModal, updateTicketsModal] = useState(false);
   const [speakerModal, updateSpeakerModal] = useState(false);
   const url = `${process.env.BASE_URL}/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
