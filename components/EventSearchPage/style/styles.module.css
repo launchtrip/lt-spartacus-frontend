@@ -23,7 +23,7 @@
     width: 320px;
     height: 45px;
     margin-right: 10px;
-    margin-top: -10px;
+    margin-top: -3px;
 }
 .selected_search_display{
     width: 100%;
@@ -229,7 +229,7 @@
 
     .search_container_input {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         width: 90%;
     }
 
