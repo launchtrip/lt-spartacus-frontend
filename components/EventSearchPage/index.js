@@ -119,6 +119,14 @@ export default function EventSearchPage({ data, methods }) {
   } = methods;
 
   const handleSearch = async value => {
+   
+    if(!value){
+      refreshWithOriginalData();
+      updateSearch('')
+      updateSelectedSearch('')
+      return;
+   }
+
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
@@ -242,6 +250,7 @@ export default function EventSearchPage({ data, methods }) {
             onSearch={handleSearch}
             value={search}
             className={`${ComponentStyles.search_container_input} searchPage`}
+            allowClear
           >
             <Input.Search size="large" placeholder="Enter Company, Industry or Event" enterButton />
           </AutoComplete>

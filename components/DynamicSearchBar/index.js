@@ -78,6 +78,12 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
   const [selectedSearch, updateSelectedSearch] = useState('');
 
   const handleSearch = async value => {
+    if (!value) {
+      refreshWithOriginalData();
+      updateSearch('');
+      updateSelectedSearch('');
+      return;
+    }
     try {
       updateSearch(value);
       const res = await FetchSearchRequest(value);
@@ -133,6 +139,7 @@ export default function DynamicSearchBar({ updateSearchFunction, refreshWithOrig
         onSearch={handleSearch}
         value={search}
         className={ComponentStyles.search_container_input}
+        allowClear
       >
         <Input.Search size="large" placeholder="Enter Event or Industry" enterButton className="searchBar" />
       </AutoComplete>

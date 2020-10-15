@@ -210,6 +210,10 @@ html {
     height: 45px !important
 
 }
+.ant-input-group .ant-input::selection {
+    background: rgb(161, 179, 216) !important;
+  
+  }
 @media screen and (max-width: 1100px) {
     .ant-tabs-nav {
         width: auto;
