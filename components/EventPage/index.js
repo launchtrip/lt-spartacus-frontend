@@ -57,7 +57,7 @@ export default function EventPage({ premier, event }) {
     if (event.city && event.city.countryAbbr) {
       return (
         <>
-          {event.city.name}, {event.city.countryAbbr}
+          | {event.city.name}, {event.city.countryAbbr}
         </>
       );
     }
@@ -88,7 +88,7 @@ export default function EventPage({ premier, event }) {
           </span>
           <span className={`typography_spartacus_one ${ComponentStyles.event_page_host}`}> by {event.company.name}</span>
           <span className="typography_spartacus_seventeen_bold">
-            {renderDates(event.dateStart, event.dateEnd)} | {renderLocation()}
+            {renderDates(event.dateStart, event.dateEnd)} {renderLocation()}
           </span>
           <span className={`${ComponentStyles.event_page_draw_line} typography_spartacus_four`}>
             {event.slogan}
