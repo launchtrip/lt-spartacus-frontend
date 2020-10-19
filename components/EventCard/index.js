@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Link from 'next/link';
 import ComponentStyles from './style/styles.module.css';
@@ -17,7 +18,7 @@ export default function EventCard({ showLine, event, showDate }) {
     return subs;
   };
   const image = event.logo && <img alt={event.name} src={event.logo.url ? event.logo.url : event.logo} className={ComponentStyles.event_card_img} />;
-
+  console.log(event);
   return (
     <>
       <Link href={pathname}>
@@ -32,7 +33,7 @@ export default function EventCard({ showLine, event, showDate }) {
               >
                 {renderDates(event.dateStart, event.dateEnd)}
               </span>}
-            <span id={ComponentStyles.event_item} className="typography_spartacus_six">{renderSubs()}</span>
+            <span id={ComponentStyles.event_item} className="typography_spartacus_six">{event.industry && event.industry.description ? `${event.industry.description}, ` : null} {renderSubs()}</span>
             <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
               {event.description}
             </p>
