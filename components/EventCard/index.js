@@ -6,9 +6,9 @@ import { renderIcon, renderDates } from '../helperFunctions';
 
 export default function EventCard({ showLine, event, showDate }) {
   const pathname = `/event/${event.name.replace('/', '-').split(' ').join('-')}-id-${event.id}`;
+  const selectSubs = event.subindustries ? event.subindustries : event.subindustry;
+  const { length } = event.subindustries ? event.subindustries : event.subindustry;
   const renderSubs = () => {
-    const selectSubs = event.subindustries ? event.subindustries : event.subindustry;
-    const { length } = event.subindustries ? event.subindustries : event.subindustry;
     const subs = selectSubs && selectSubs.map((sub, i) => {
       if (i + 1 === length) {
         return <span key={sub.id}>{sub.description}</span>;
@@ -33,7 +33,11 @@ export default function EventCard({ showLine, event, showDate }) {
               >
                 {renderDates(event.dateStart, event.dateEnd)}
               </span>}
-            <span id={ComponentStyles.event_item} className="typography_spartacus_six">{event.industry && event.industry.description ? `${event.industry.description}, ` : null} {renderSubs()}</span>
+            <span id={ComponentStyles.event_item} className="typography_spartacus_six">
+              {event.industry && event.industry.description && length > 0 && `${event.industry.description}, ` }
+              {event.industry && event.industry.description && !length && `${event.industry.description}` }
+              {renderSubs()}
+            </span>
             <p id={ComponentStyles.event_item} className={`typography_spartacus_seven ${ComponentStyles.event_copy}`}>
               {event.description}
             </p>
