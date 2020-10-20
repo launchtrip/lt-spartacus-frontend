@@ -5,6 +5,7 @@ import ComponentStyles from './style/styles.module.css';
 import { countdownInDays, renderIcon } from '../helperFunctions';
 
 export default function EventCard({ data }) {
+  console.log(data);
   const pathname = `/event/${data.name.replace('/', '-').split(' ').join('-')}-id-${data.id}`;
   const oldEvent = new Date() > new Date(data.dateEnd);
   const renderCorrectCoundown = () => {
@@ -54,6 +55,8 @@ export default function EventCard({ data }) {
           </span>
           <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_five_demi_bold">{data.name}</span>
           <span id={ComponentStyles.section_two_event_item} className="typography_spartacus_six">
+            {data.industry && data.industry.description && data.subindustry.length > 0 && `${data.industry.description}, ` }
+            {data.industry && data.industry.description && !data.subindustry.length && `${data.industry.description}` }
             {data.subindustry && data.subindustry.map((sub, i) => {
               const { length } = data.subindustry;
               if (i + 1 === length) {
