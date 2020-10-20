@@ -289,6 +289,9 @@
     flex-direction: column;
     margin-top: 35px;
 }
+.glace_sub{
+    max-width: 70%;
+}
 
 @media screen and (max-width: 1260px) {
     .event_page_description_read_more {

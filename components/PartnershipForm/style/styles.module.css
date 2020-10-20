@@ -97,9 +97,9 @@
     }
 
     .list {
-        list-style-type: none;
         padding-left: 0;
         width: 380px;
+        list-style-position: inside;
 
     }
 

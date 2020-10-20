@@ -108,6 +108,7 @@ export default function RequestTickets({ setState, setNote, original, updateModa
               placeholder="Number of Tickets"
               className={ComponentStyles.form_item}
               type="number"
+              min="1"
 
             />
           </Form.Item>

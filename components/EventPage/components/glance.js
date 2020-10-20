@@ -19,7 +19,21 @@ export default function Glance({ event }) {
           <span
             className={`${ComponentStyles.event_page_glance_detail_result} typography_spartacus_thirteen_demi_bold`}
           >
-            {event.industry.description}, {event.subindustries && event.subindustries.map((sub) => <span key={sub.id}>{sub.description}</span>)}
+            {event.industry.description}, {event.subindustries && event.subindustries.map((sub, i) => {
+              if (i + 1 === event.subindustries.length) {
+                return (
+                  <span key={sub.id} className={ComponentStyles.glace_sub}>
+                    {sub.description}
+                  </span>
+                );
+              }
+              return (
+                <span key={sub.id} className={ComponentStyles.glace_sub}>
+                  {`${sub.description}, `}
+                </span>
+              );
+            }
+            )}
           </span>
         </span>
         <span
