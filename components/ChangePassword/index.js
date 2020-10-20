@@ -21,8 +21,6 @@ export default function ChangePassword() {
   const onFinish = async values => {
     try {
       await updatePassword(values.password);
-      console.log('>>>>>');
-
       updateSubmit(true);
       setTimeout(() => {
         Router.push('/');

@@ -68,7 +68,6 @@ export default function VirtualEvents({ data }) {
         <>
           {spotlight && <EventCarousel title="Spotlight" eventPage data={spotlight.events} />}
           {virtualPageData && virtualPageData.map((sub, i) => {
-            console.log(sub);
             if (sub.subindustry === 'Spotlight') {
               return;
             }
