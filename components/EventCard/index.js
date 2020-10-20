@@ -18,7 +18,6 @@ export default function EventCard({ showLine, event, showDate }) {
     return subs;
   };
   const image = event.logo && <img alt={event.name} src={event.logo.url ? event.logo.url : event.logo} className={ComponentStyles.event_card_img} />;
-  console.log(event);
   return (
     <>
       <Link href={pathname}>
