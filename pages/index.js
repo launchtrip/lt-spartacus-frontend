@@ -9,7 +9,7 @@ import {
   MobileCopy,
   Error,
   HeadMeta,
-  MainPoster
+  // MainPoster
 } from '../components';
 
 import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
@@ -52,11 +52,11 @@ export default function Home({ data }) {
   }
   const { articles, events, speakers, spotlight, virtualEvents } = homePageData;
 
-  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE !== 'false') {
-    return (
-      <MainPoster />
-    );
-  }
+  // if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE !== 'false') {
+  //   return (
+  //     <MainPoster />
+  //   );
+  // }
 
   return (
     <BaseContainer page="Home">
