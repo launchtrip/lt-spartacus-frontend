@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { BaseContainer, DynamicSearchBar, EventCarousel, Error, HeadMeta, Title } from '../components';
 import { FetchVirtualEventPageData, FetchVirtualPageDataById } from './api/Routes/Events';
+import syncDMP from '../utils/knight';
 
 export default function VirtualEvents({ data }) {
   const [virtualPageData, setVirtualPageData] = useState(data.filter(d => d.events.length >= 3));
@@ -82,8 +83,9 @@ export default function VirtualEvents({ data }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req }) => {
   try {
+    syncDMP(req, false);
     const res = await FetchVirtualEventPageData();
     return {
       props: {

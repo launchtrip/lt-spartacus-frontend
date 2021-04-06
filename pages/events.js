@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { BaseContainer, EventSearchPage, Error, HeadMeta } from '../components';
 import { FetchAllEvents } from './api/Routes/Events';
 import { organizeEventsByMonth } from '../components/helperFunctions';
+import syncDMP from '../utils/knight';
 
 export default function Events({ data }) {
   const [eventPageData, setEventPageData] = useState(data);
@@ -90,8 +91,9 @@ export default function Events({ data }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req }) => {
   try {
+    syncDMP(req, false);
     const data = {
       dateStart: '',
       dateEnd: ''
