@@ -30,6 +30,7 @@ export default function Events({ data }) {
 
 export const getServerSideProps = async (props) => {
   syncDMP(props, true);
+
   const id = props.req.url.replace('?', 'Q').split('-id-')[1];
   if (!id) {
     return { props: { data: null } };
