@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { BaseContainer, EventPage, Error } from '../../components';
 import { FetchIndividualEvent } from '../api/Routes/Events';
+import syncDMP from '../../utils/knight';
 
 export default function Events({ data }) {
   const router = useRouter();
