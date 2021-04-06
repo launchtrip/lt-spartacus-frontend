@@ -13,6 +13,7 @@ import {
 } from '../components';
 
 import { FetchHomePageData, FetchHomePageDataById } from './api/Routes/Events';
+import syncDMP from '../utils/knight';
 
 export default function Home({ data }) {
   const [homePageData, setHomePageData] = useState(data);
@@ -84,6 +85,7 @@ export default function Home({ data }) {
 }
 export const getServerSideProps = async () => {
   try {
+    syncDMP(req, false);
     const res = await FetchHomePageData();
     return {
       props: {
