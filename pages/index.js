@@ -83,7 +83,7 @@ export default function Home({ data }) {
     </BaseContainer>
   );
 }
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req }) => {
   try {
     syncDMP(req, false);
     const res = await FetchHomePageData();
